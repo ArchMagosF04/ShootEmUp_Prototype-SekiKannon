@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour, IPoolsBullets
+public class PlayerController : MonoBehaviour
 {
     [Header ("Player Stats")]
 
@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour, IPoolsBullets
         player_Shield = GetComponentInChildren<Player_Shield>();
         stateMachine = new Player_StateMachine(this, player_Shield);
         bulletPool = GetComponent<BulletPool>();
+        bulletPool.SetBulletPrefab(bulletPrefab);
     }
 
     private void Start()
@@ -71,10 +72,5 @@ public class PlayerController : MonoBehaviour, IPoolsBullets
     public void ChangeColor(Color color)
     {
         spriteRenderer.color = color;
-    }
-
-    public Bullet_Controller GetBulletPrefab()
-    {
-        return bulletPrefab;
     }
 }

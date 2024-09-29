@@ -7,17 +7,13 @@ public class BulletPool : MonoBehaviour
 {
     public ObjectPool<Bullet_Controller> pool;
 
-    private IPoolsBullets creator;
+    private Bullet_Controller bulletPrefab;
 
     private Transform spawnPoint;
+    private Vector3 bulletDirection;
 
     [SerializeField] private int defaultCapacity = 30;
     [SerializeField] private int maxSize = 40;
-
-    private void Awake()
-    {
-        creator = GetComponent<IPoolsBullets>();
-    }
 
     private void Start()
     {
@@ -44,7 +40,7 @@ public class BulletPool : MonoBehaviour
 
     private Bullet_Controller CreatePooledItem()
     {
-        Bullet_Controller creation = Instantiate(creator.GetBulletPrefab(), spawnPoint.position, spawnPoint.rotation, spawnPoint);
+        Bullet_Controller creation = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation, spawnPoint);
 
         creation.SetPool(pool);
 
@@ -54,5 +50,10 @@ public class BulletPool : MonoBehaviour
     public void ChangeSpawnpoint(Transform transform)
     {
         spawnPoint = transform;
+    }
+
+    public void SetBulletPrefab(Bullet_Controller bullet)
+    {
+        bulletPrefab = bullet;
     }
 }

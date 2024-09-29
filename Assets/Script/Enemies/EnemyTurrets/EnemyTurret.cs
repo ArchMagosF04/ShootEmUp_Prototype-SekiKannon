@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTurret : MonoBehaviour, IPoolsBullets
+public class EnemyTurret : MonoBehaviour
 {
     [SerializeField] private Bullet_Controller bulletPrefab;
     [SerializeField] private Transform cannon;
@@ -16,13 +16,13 @@ public class EnemyTurret : MonoBehaviour, IPoolsBullets
     {
         bulletPool = GetComponent<BulletPool>();
         bulletPool.ChangeSpawnpoint(cannon.transform);
+        bulletPool.SetBulletPrefab(bulletPrefab);
     }
 
     private void Update()
     {
         if(shootCooldown <= 0f)
         {
-            //Bullet_Controller bullet = Instantiate(bulletPrefab, cannon.position, cannon.rotation, cannon);
             bulletPool.pool.Get();
             shootCooldown = shootingInterval;
         }
@@ -30,17 +30,5 @@ public class EnemyTurret : MonoBehaviour, IPoolsBullets
         {
             shootCooldown -= Time.deltaTime;
         }
-    }
-
-    private Vector2 GetShootDirection()
-    {
-        Transform playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-
-        return (playerTransform.position - transform.position).normalized;
-    }
-
-    public Bullet_Controller GetBulletPrefab()
-    {
-        return bulletPrefab;
     }
 }
