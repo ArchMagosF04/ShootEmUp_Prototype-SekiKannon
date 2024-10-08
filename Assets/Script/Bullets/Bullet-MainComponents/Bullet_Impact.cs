@@ -6,8 +6,8 @@ public class Bullet_Impact : MonoBehaviour
 {
     private Bullet_Controller controller;
 
-    [SerializeField] private float damage = 2f;
-    public float Damage => damage;
+    [SerializeField] private int damage = 2;
+    public int Damage => damage;
 
     [SerializeField] private LayerMask whatDestroysBullet;
 
@@ -44,7 +44,7 @@ public class Bullet_Impact : MonoBehaviour
         }
     }
 
-    public void ModifyDamageAmount(float amount)
+    public void ModifyDamageAmount(int amount)
     {
         damage = amount;
     }

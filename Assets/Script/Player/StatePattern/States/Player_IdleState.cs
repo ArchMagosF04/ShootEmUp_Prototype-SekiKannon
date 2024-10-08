@@ -8,23 +8,21 @@ public class Player_IdleState : IState
 
     public Player_IdleState(PlayerController player)
     {
-        playerController = player;
+        playerController = player; //Get the reference to the player controller who holds the state machine.
     }
 
     public void OnEnter()
     {
-        playerController.ChangeColor(Color.white);
-
-        playerController.currentMoveSpeed = playerController.NormalMoveSpeed;
+        playerController.currentMoveSpeed = playerController.NormalMoveSpeed; //Set the movement speed to its normal value.
     }
 
     public void StateUpdate()
     {
-        if (playerController.PlayerInput.IsShooting)
+        if (playerController.PlayerInput.IsShooting) //if the player presses the shot button, then they will transition to the attack state.
         {
             playerController.StateMachine.ChangeState(playerController.StateMachine.attackState);
         }
-        if (playerController.PlayerInput.IsShieldActive)
+        if (playerController.PlayerInput.IsShieldActive) //if the player presses the shield button, then they will transition to the parry state.
         {
             playerController.StateMachine.ChangeState(playerController.StateMachine.parryState);
         }
@@ -32,6 +30,6 @@ public class Player_IdleState : IState
 
     public void OnExit()
     {
-        // Debug.Log("Salio Idle");
+
     }
 }

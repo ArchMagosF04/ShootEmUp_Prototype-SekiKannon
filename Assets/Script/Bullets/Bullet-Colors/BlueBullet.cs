@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BlueBullet : MonoBehaviour, IParryEffect
 {
-    [SerializeField] private float damageToShields = 1f;
+    [SerializeField] private int damageToShields = 1;
 
     private Bullet_Controller controller;
 

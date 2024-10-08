@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour, IDamageable
         rb.velocity = Vector2.right * speed;
     }
 
-    public void TakeDamage(float damageReceived)
+    public void TakeDamage(int damageReceived)
     {
         currentHealth -= damageReceived;
         if (currentHealth <= 0)

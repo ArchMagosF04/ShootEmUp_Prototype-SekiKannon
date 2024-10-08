@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
     public PlayerInput PlayerInput => playerInput;
 
     private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
 
     [Header("State Machine")]
 
@@ -35,16 +34,12 @@ public class PlayerController : MonoBehaviour
 
     [Header ("Shield Components")]
 
-    [SerializeField] private Collider2D shieldComponent;
-    public Collider2D ShieldComponent => shieldComponent;
-
     private Player_Shield player_Shield;
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         player_Shield = GetComponentInChildren<Player_Shield>();
         stateMachine = new Player_StateMachine(this, player_Shield);
         bulletPool = GetComponent<BulletPool>();
@@ -53,7 +48,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        shieldComponent.enabled = false;
         currentMoveSpeed = normalMoveSpeed;
         stateMachine.Initialize(stateMachine.idleState);
     }
@@ -67,10 +61,5 @@ public class PlayerController : MonoBehaviour
     private void Movement()
     {
         rb.velocity = new Vector2 (playerInput.InputVector.x * currentMoveSpeed, playerInput.InputVector.y * currentMoveSpeed);
-    }
-
-    public void ChangeColor(Color color)
-    {
-        spriteRenderer.color = color;
     }
 }

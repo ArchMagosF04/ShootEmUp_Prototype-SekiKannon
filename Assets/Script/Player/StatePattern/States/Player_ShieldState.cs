@@ -7,35 +7,33 @@ public class Player_ShieldState : IState
     private PlayerController playerController;
     private Player_Shield player_Shield;
 
-    private float speedMultiplier = 0.75f;
+    private float speedMultiplier = 0.75f; //The speed is reduce to this % where 1.0f == 100%.
 
     public Player_ShieldState(PlayerController playerController, Player_Shield player_Shield)
-    {
-        this.playerController = playerController;
-        this.player_Shield = player_Shield;
+    { 
+        this.playerController = playerController; //Get the reference to the player controller who holds the state machine.
+        this.player_Shield = player_Shield; //Get the reference to the player shield.
     }
 
     public void OnEnter()
     {
-        playerController.ChangeColor(Color.blue);
-
-        playerController.currentMoveSpeed = playerController.NormalMoveSpeed * speedMultiplier;
+        playerController.currentMoveSpeed = playerController.NormalMoveSpeed * speedMultiplier; //Reduce the player's speed.
     }
 
     public void StateUpdate()
     {
-        if (!playerController.PlayerInput.IsShieldActive)
+        if (!playerController.PlayerInput.IsShieldActive) //If the player releases the shield button they will return to the idle state.
         {
             playerController.StateMachine.ChangeState(playerController.StateMachine.idleState);
         }
-        if(player_Shield.shieldBroken)
+        if(player_Shield.shieldBroken) //If the shield runs out of durability it will break and send the player to the stunned state.
         {
             playerController.StateMachine.ChangeState(playerController.StateMachine.stunedState);
         }
     }
 
-    public void OnExit()
+    public void OnExit() //Deactivate the shield.
     {
-        playerController.ShieldComponent.enabled = false;
+        player_Shield.ToggleShield(false);
     }
 }

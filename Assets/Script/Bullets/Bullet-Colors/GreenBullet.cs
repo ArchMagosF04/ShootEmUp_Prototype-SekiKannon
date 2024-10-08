@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GreenBullet : MonoBehaviour, IParryEffect
 {
-    [SerializeField] private float damageToShields = 1f;
+    [SerializeField] private int damageToShields = 1;
 
-    [SerializeField] private float blockHealAmount = 1f;
-    [SerializeField] private float parryHealAmount = 2f;
+    [SerializeField] private int blockHealAmount = 1;
+    [SerializeField] private int parryHealAmount = 2;
 
     private Bullet_Controller controller;
 
@@ -16,7 +16,7 @@ public class GreenBullet : MonoBehaviour, IParryEffect
         controller = GetComponent<Bullet_Controller>();
     }
 
-    private void HealPlayer(float healing)
+    private void HealPlayer(int healing)
     {
         Player_Health player_Health = GameObject.FindGameObjectWithTag("Player").GetComponentInParent<Player_Health>();
 

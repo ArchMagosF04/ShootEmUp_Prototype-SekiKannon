@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class RedBullet : MonoBehaviour, IParryEffect
 {
-    [SerializeField] private float damageToShields = 1f;
+    [SerializeField] private int damageToShields = 1;
 
-    private float initialDamage;
+    private int initialDamage;
 
     private Bullet_Controller controller;
     private Bullet_Impact bullet_Impact;
@@ -32,6 +32,6 @@ public class RedBullet : MonoBehaviour, IParryEffect
     public void OnParryEffect(Player_Shield player_Shield)
     {
         player_Shield.TakeDamage(damageToShields);
-        bullet_Impact.ModifyDamageAmount(bullet_Impact.Damage*0.5f);
+        bullet_Impact.ModifyDamageAmount(Mathf.FloorToInt(bullet_Impact.Damage*0.5f));
     }
 }

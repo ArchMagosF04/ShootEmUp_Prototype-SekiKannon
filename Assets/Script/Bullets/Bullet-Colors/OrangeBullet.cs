@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class OrangeBullet : MonoBehaviour, IParryEffect
 {
-    [SerializeField] private float damageToShields = 1f;
+    [SerializeField] private int damageToShields = 1;
 
     [SerializeField] private float speedOnDeflect = 50f;
-    [SerializeField] private float damageOnDeflect = 4f;
+    [SerializeField] private int damageOnDeflect = 4;
 
     private float initialSpeed;
-    private float initialDamage;
+    private int initialDamage;
 
     [SerializeField] private LayerMask whatDestroysBulletWhenDeflected;
 
