@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     [Header("Key Inputs")]
-    [SerializeField] private KeyCode shoot = KeyCode.X;
-    [SerializeField] private KeyCode shield = KeyCode.Z;
+    [SerializeField] private KeyCode shoot = KeyCode.X;  //Input use to shoot projectiles.
+    [SerializeField] private KeyCode shield = KeyCode.Z; //Input use to activate the shield.
 
     private Vector2 inputVector;
     public Vector2 InputVector => inputVector;
@@ -22,7 +22,7 @@ public class PlayerInput : MonoBehaviour
         ReceiveInputs();
     }
 
-    private void ReceiveInputs()
+    private void ReceiveInputs() //Detects the inputs.
     {
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");

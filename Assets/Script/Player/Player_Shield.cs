@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -20,10 +21,10 @@ public class Player_Shield : MonoBehaviour
     private bool hasBeenResentlyDamaged = false;
     public bool shieldBroken = false;
 
-    [SerializeField] private HealthBar shieldBar;
-
     private Collider2D circleCollider;
     private SpriteRenderer sprite;
+
+    public static event Action<float, float> OnDamageReceived;
 
     private void Awake()
     {
@@ -36,7 +37,6 @@ public class Player_Shield : MonoBehaviour
         currentOverloadLevel = 0;
         currentRechargeRate = rechargeRate;
         regenDelay = startRegenDelay;
-        shieldBar.SetMaxHealth(maxOverloadLevel, currentOverloadLevel);
 
         ToggleShield(false); //The shield begins off.
     }
@@ -74,7 +74,8 @@ public class Player_Shield : MonoBehaviour
             {
                 currentOverloadLevel = 0;
             }
-            shieldBar.SetHealth(currentOverloadLevel);
+            OnDamageReceived?.Invoke(maxOverloadLevel, currentOverloadLevel);
+
             currentRechargeRate = rechargeRate;
         }
         else
@@ -89,7 +90,7 @@ public class Player_Shield : MonoBehaviour
         hasBeenResentlyDamaged = true;
         regenDelay = startRegenDelay;
 
-        shieldBar.SetHealth(currentOverloadLevel);
+        OnDamageReceived?.Invoke(maxOverloadLevel, currentOverloadLevel);
 
         if (currentOverloadLevel >= maxOverloadLevel) //If the bar fully fills the shield is broken.
         {
@@ -113,7 +114,7 @@ public class Player_Shield : MonoBehaviour
             currentOverloadLevel = Mathf.FloorToInt(maxOverloadLevel * 0.95f);
         }
 
-        shieldBar.SetHealth(currentOverloadLevel);
+        OnDamageReceived?.Invoke(maxOverloadLevel, currentOverloadLevel);
     }
 
     public void ToggleParry() //Toggles parry mode on & off.
@@ -128,7 +129,7 @@ public class Player_Shield : MonoBehaviour
 
         int temp = Mathf.FloorToInt(maxOverloadLevel / 2);
         currentOverloadLevel -= temp;
-        shieldBar.SetHealth(currentOverloadLevel);
+        OnDamageReceived?.Invoke(maxOverloadLevel, currentOverloadLevel);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

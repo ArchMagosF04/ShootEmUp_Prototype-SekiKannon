@@ -8,7 +8,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float normalMoveSpeed;
     public float NormalMoveSpeed => normalMoveSpeed;
-    public float currentMoveSpeed;
+    [System.NonSerialized] public float currentMoveSpeed;
+
+
 
     [Header ("Components")]
 
@@ -17,20 +19,29 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
 
+
+
     [Header("State Machine")]
 
     private Player_StateMachine stateMachine;
     public Player_StateMachine StateMachine => stateMachine;
 
+
+
     [Header("Attack State")]
 
     [SerializeField] private Bullet_Controller bulletPrefab;
+
+    [SerializeField] private Animator weaponAnimator;
+    public Animator WeaponAnimator => weaponAnimator;
 
     [SerializeField] private Transform[] cannons;
     public Transform[] Cannons => cannons;
 
     private BulletPool bulletPool;
     public BulletPool BulletPool => bulletPool;
+
+   
 
     [Header ("Shield Components")]
 
@@ -54,11 +65,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        stateMachine.Update();
+        stateMachine.Update(); //Updates the current state in the state machine.
         Movement();
     }
 
-    private void Movement()
+    private void Movement() //Handles the movement of the player.
     {
         rb.velocity = new Vector2 (playerInput.InputVector.x * currentMoveSpeed, playerInput.InputVector.y * currentMoveSpeed);
     }

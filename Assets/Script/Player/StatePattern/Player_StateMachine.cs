@@ -16,6 +16,7 @@ public class Player_StateMachine
     public Player_ShieldState shieldState;
     public Player_StunedState stunedState;
     //---
+
     public Player_StateMachine(PlayerController playerController, Player_Shield player_Shield)
     {
         idleState = new Player_IdleState(playerController);
@@ -31,7 +32,7 @@ public class Player_StateMachine
         currentState.OnEnter();
     }
 
-    public void ChangeState(IState nextState)
+    public void ChangeState(IState nextState) //Gets called to switch between states.
     {
         currentState.OnExit();
         currentState = nextState;

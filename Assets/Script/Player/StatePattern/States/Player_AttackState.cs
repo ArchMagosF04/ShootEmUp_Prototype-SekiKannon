@@ -17,6 +17,7 @@ public class Player_AttackState : IState
 
     public void OnEnter()
     {
+        playerController.WeaponAnimator.SetBool("IsAttacking", true);
         shootCooldown = 0f;
         playerController.currentMoveSpeed = playerController.NormalMoveSpeed * speedMultiplier; //Reduce the player's speed.%
     }
@@ -37,7 +38,7 @@ public class Player_AttackState : IState
 
     public void OnExit()
     {
-
+        playerController.WeaponAnimator.SetBool("IsAttacking", false);
     }
 
     private void ShootBullet()
