@@ -5,13 +5,15 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Bullet_Movement : MonoBehaviour
 {
-    [SerializeField] private float speed = 10f;
-    public float Speed => speed;
+    [SerializeField] private float normalSpeed = 10f;
+    public float NormalSpeed => normalSpeed;
+    private float speed;
 
     private Rigidbody2D rb; 
 
     private void Awake()
     {
+        speed = normalSpeed;
         rb = GetComponent<Rigidbody2D>();
     }
 

@@ -12,6 +12,8 @@ public class OrangeBullet : MonoBehaviour, IParryEffect
     private float initialSpeed;
     private int initialDamage;
 
+    private Transform creator;
+
     [SerializeField] private LayerMask whatDestroysBulletWhenDeflected;
 
     private Bullet_Controller controller;
@@ -25,7 +27,7 @@ public class OrangeBullet : MonoBehaviour, IParryEffect
         bullet_Impact = GetComponent<Bullet_Impact>();
 
         initialDamage = bullet_Impact.Damage;
-        initialSpeed = bullet_Movement.Speed;
+        initialSpeed = bullet_Movement.NormalSpeed;
     }
 
     private void OnEnable()
@@ -53,11 +55,11 @@ public class OrangeBullet : MonoBehaviour, IParryEffect
     private void ChangeTarget()
     {
         bullet_Impact.SwapCollisionLayer(whatDestroysBulletWhenDeflected);
-        transform.up = (transform.parent.transform.position - transform.position).normalized;
+        transform.up = (creator.position - transform.position).normalized;
 
         if (TryGetComponent<HomingBullet>(out HomingBullet homingBullet))
         {
-            homingBullet.ChangeTarget(transform.parent.transform);
+            homingBullet.ChangeTarget(creator);
         } 
         else
         {
@@ -65,6 +67,11 @@ public class OrangeBullet : MonoBehaviour, IParryEffect
         }
 
         controller.ResetLifeTime();
+    }
+
+    public void SetCreator(Transform transform)
+    {
+        creator = transform;
     }
 
     private void DeflectStats()

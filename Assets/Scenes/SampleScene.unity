@@ -245,9 +245,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barrels: []
-  bulletPrefab: {fileID: 2322307349871382984, guid: 6168394b65d9afa46bd0d10724b8aec9, type: 3}
   shootInterval: 0.4
-  numberOfShoots: 3
+  numberOfShoots: 1
+  ammoName: BasicBullet
 --- !u!1 &42501891
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,6 +1354,7 @@ GameObject:
   - component: {fileID: 734859306}
   - component: {fileID: 734859305}
   - component: {fileID: 734859307}
+  - component: {fileID: 734859308}
   m_Layer: 6
   m_Name: RedFleet - Battlecruiser
   m_TagString: Untagged
@@ -1410,7 +1411,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.72}
+  m_Offset: {x: 0.0040308833, y: 0.348078}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1421,7 +1422,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 0.7}
+  m_Size: {x: 0.996585, y: 3.8084407}
   m_EdgeRadius: 0
 --- !u!50 &734859306
 Rigidbody2D:
@@ -1463,6 +1464,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!114 &734859308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734859303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bcc84caa41700d429adb5c5741ebae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullets:
+  - {fileID: 2322307349871382984, guid: 6168394b65d9afa46bd0d10724b8aec9, type: 3}
+  - {fileID: 6433247654097565199, guid: 74f9087ab7e9f024a9459c3e491ec822, type: 3}
+  - {fileID: 9019020074503206068, guid: f07d01ad6e997fc4ca62ac0d75fd725b, type: 3}
+  - {fileID: 7669523471663484865, guid: 6b489f35625635a49b871f8707ba57e0, type: 3}
 --- !u!1 &802025421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2660,6 +2678,10 @@ PrefabInstance:
     - target: {fileID: 2126186786629089651, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
       propertyPath: shieldGradient.m_NumColorKeys
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900887071763738174, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
+      propertyPath: defaultCapacity
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5013982150040561181, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
       propertyPath: m_SortingLayer

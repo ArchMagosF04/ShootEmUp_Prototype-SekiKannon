@@ -7,11 +7,8 @@ using UnityEngine.Pool;
 [RequireComponent(typeof(Bullet_Impact), typeof(Bullet_Movement))]
 public class Bullet_Controller : MonoBehaviour
 {
-    [SerializeField] private string id;
-    public string Id => id;
-
-    [SerializeField] private float lifeTime = 3f;
-    private float initialLifeTime;
+    [SerializeField] private float initialLifeTime = 3f;
+    private float lifeTime;
 
     private ObjectPool<Bullet_Controller> pool;
 
@@ -20,7 +17,7 @@ public class Bullet_Controller : MonoBehaviour
 
     private void Awake()
     {
-        initialLifeTime = lifeTime;
+        lifeTime = initialLifeTime;
         bullet_Movement = GetComponent<Bullet_Movement>();
     }
 

@@ -10,15 +10,22 @@ public class BulletPool : MonoBehaviour
     private Bullet_Controller bulletPrefab;
 
     private Transform spawnPoint;
-    private Vector3 bulletDirection;
 
-    [SerializeField] private int defaultCapacity = 30;
-    [SerializeField] private int maxSize = 40;
+    [SerializeField] private int defaultCapacity = 20;
+    [SerializeField] private int maxSize = 100;
 
-    private void Start()
+    private void Awake()
     {
         pool = new ObjectPool<Bullet_Controller>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, false, defaultCapacity, maxSize);
     }
+
+    //private void Start()
+    //{
+    //    for (int i = 0; i < defaultCapacity; i++)
+    //    {
+    //        CreatePooledItem();
+    //    }
+    //}
 
 
     private void OnDestroyPoolObject(Bullet_Controller bullet)
@@ -51,6 +58,8 @@ public class BulletPool : MonoBehaviour
         creation.Bullet_Movement.Movement(spawnPoint.up);
 
         creation.SetPool(pool);
+
+        //creation.gameObject.SetActive(false);
 
         return creation;
     }
