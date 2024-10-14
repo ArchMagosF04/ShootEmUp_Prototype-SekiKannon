@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RadialTurret : MonoBehaviour, IPoolsBullets
+[RequireComponent(typeof(BulletPool))]
+public class RadialTurret : MonoBehaviour
 {
     [SerializeField] private int numberOfBullets;
     [SerializeField] private Bullet_Controller bulletPrefab;

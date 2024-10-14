@@ -24,6 +24,9 @@ public class Player_Shield : MonoBehaviour
     private Collider2D circleCollider;
     private SpriteRenderer sprite;
 
+    [SerializeField] private Gradient shieldGradient;
+    private float target = 0f;
+
     public static event Action<float, float> OnDamageReceived;
 
     private void Awake()
@@ -37,6 +40,8 @@ public class Player_Shield : MonoBehaviour
         currentOverloadLevel = 0;
         currentRechargeRate = rechargeRate;
         regenDelay = startRegenDelay;
+
+        sprite.color = shieldGradient.Evaluate(target);
 
         ToggleShield(false); //The shield begins off.
     }
@@ -70,6 +75,7 @@ public class Player_Shield : MonoBehaviour
         if (currentRechargeRate <= 0)
         {
             currentOverloadLevel--;
+            StartCoroutine(GradualChange());
             if (currentOverloadLevel < 0)
             {
                 currentOverloadLevel = 0;
@@ -87,6 +93,7 @@ public class Player_Shield : MonoBehaviour
     public void TakeDamage(int damageReceived) //Receives the damage value to be dealt to the shield.
     {
         currentOverloadLevel += damageReceived;
+        StartCoroutine(GradualChange());
         hasBeenResentlyDamaged = true;
         regenDelay = startRegenDelay;
 
@@ -102,6 +109,7 @@ public class Player_Shield : MonoBehaviour
     public void TakeSafeDamage(int damageReceived) //Receives the damage value to be dealt to the shield, but prevents the bar to fully reach its limit.
     {
         float temp = currentOverloadLevel;
+        
         hasBeenResentlyDamaged = true;
         regenDelay = startRegenDelay;
 
@@ -113,6 +121,7 @@ public class Player_Shield : MonoBehaviour
         {
             currentOverloadLevel = Mathf.FloorToInt(maxOverloadLevel * 0.95f);
         }
+        StartCoroutine(GradualChange());
 
         OnDamageReceived?.Invoke(maxOverloadLevel, currentOverloadLevel);
     }
@@ -129,6 +138,7 @@ public class Player_Shield : MonoBehaviour
 
         int temp = Mathf.FloorToInt(maxOverloadLevel / 2);
         currentOverloadLevel -= temp;
+        StartCoroutine(GradualChange());
         OnDamageReceived?.Invoke(maxOverloadLevel, currentOverloadLevel);
     }
 
@@ -152,5 +162,28 @@ public class Player_Shield : MonoBehaviour
     {
         circleCollider.enabled = shouldActivate;
         sprite.enabled = shouldActivate;
+    }
+
+    private IEnumerator GradualChange() //Makes the change smooth and creates the effect to fill from the center by using two mirrored bars. Also changes the color the more its filled.
+    {
+        float tempCurrent = (float)currentOverloadLevel;
+        float tempMax = (float)maxOverloadLevel;
+
+        target = tempCurrent / tempMax;
+
+        Color currentColor = sprite.color;
+        Color newColor = shieldGradient.Evaluate(target);
+
+        float elapsedTime = 0f;
+        float timeToChange = 1f;
+
+        while (elapsedTime < timeToChange)
+        {
+            elapsedTime += Time.deltaTime;
+
+            sprite.color = Color.Lerp(currentColor, newColor, (elapsedTime / timeToChange));
+
+            yield return null;
+        }
     }
 }

@@ -26,15 +26,13 @@ public class ShieldBar : MonoBehaviour
         rightBar.color = barGradiant.Evaluate(target);
     }
 
-    private void OnEnable()
+    private void OnEnable() //Subscribes to the event to listen to when the value of the shield changes.
     {
         Player_Shield.OnDamageReceived += UpdateBarValue;
     }
 
     public void UpdateBarValue(float maxValue, float currentValue)
     {
-        Debug.Log("Bar");
-
         target = currentValue/maxValue;
 
         lerpBar = StartCoroutine(GradualChange());
@@ -42,7 +40,7 @@ public class ShieldBar : MonoBehaviour
         CheckBarGradiantAmount();
     }
 
-    private IEnumerator GradualChange()
+    private IEnumerator GradualChange() //Makes the change smooth and creates the effect to fill from the center by using two mirrored bars. Also changes the color the more its filled.
     {
         float leftFillAmount = leftBar.fillAmount;
         float rightFillAmount = rightBar.fillAmount;
@@ -71,7 +69,7 @@ public class ShieldBar : MonoBehaviour
         newBarColor = barGradiant.Evaluate(target);
     }
 
-    private void OnDisable()
+    private void OnDisable() //Unsubscribes from event.
     {
         Player_Shield.OnDamageReceived -= UpdateBarValue;
     }

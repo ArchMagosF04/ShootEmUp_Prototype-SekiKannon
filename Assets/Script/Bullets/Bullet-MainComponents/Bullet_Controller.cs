@@ -7,14 +7,21 @@ using UnityEngine.Pool;
 [RequireComponent(typeof(Bullet_Impact), typeof(Bullet_Movement))]
 public class Bullet_Controller : MonoBehaviour
 {
+    [SerializeField] private string id;
+    public string Id => id;
+
     [SerializeField] private float lifeTime = 3f;
     private float initialLifeTime;
 
     private ObjectPool<Bullet_Controller> pool;
 
+    private Bullet_Movement bullet_Movement;
+    public Bullet_Movement Bullet_Movement => bullet_Movement;
+
     private void Awake()
     {
         initialLifeTime = lifeTime;
+        bullet_Movement = GetComponent<Bullet_Movement>();
     }
 
     private void OnEnable()
@@ -44,9 +51,14 @@ public class Bullet_Controller : MonoBehaviour
 
     public void DestroySelf()
     {
-        //Destroy(this.gameObject);
-
-        pool.Release(this);
+        if (pool != null)
+        {
+            pool.Release(this);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void ResetLifeTime()

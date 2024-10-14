@@ -19,7 +19,7 @@ public class HPBar : MonoBehaviour
 
     private void OnEnable()
     {
-        Player_Health.OnDamageReceived += UpdateBarValue;
+        Player_Health.OnDamageReceived += UpdateBarValue;  //Subscribes to listen to when the player's hp changes.
     }
 
     public void UpdateBarValue(float maxValue, float currentValue)
@@ -28,7 +28,7 @@ public class HPBar : MonoBehaviour
 
         target = currentValue / maxValue;
 
-        if (beforeChange > target)
+        if (beforeChange > target) //Checks if it should increse or decrese the bar.
         {
             StartCoroutine(GradualDamage());
         }else
@@ -37,7 +37,7 @@ public class HPBar : MonoBehaviour
         }
     }
 
-    private IEnumerator GradualDamage()
+    private IEnumerator GradualDamage() //The main bar instantly goes to its new value, and the bar on the back lingers for a bit to show the amount of damage done.
     {
         backBar.color = Color.white;
         float backFill = backBar.fillAmount;
@@ -56,7 +56,7 @@ public class HPBar : MonoBehaviour
         }
     }
 
-    private IEnumerator GradualHeal()
+    private IEnumerator GradualHeal() //The bar on the back turns green and instantly goes to its new value, the main bar lingers for a bit to show the amount heal.
     {
         backBar.color = Color.green;
         float frontFill = frontBar.fillAmount;
@@ -75,7 +75,7 @@ public class HPBar : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    private void OnDisable() //Unsubscribes from the event.
     {
         Player_Health.OnDamageReceived -= UpdateBarValue;
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IPoolsBullets
+public interface ITurret
 {
-    public Bullet_Controller GetBulletPrefab();
+    public void Shoot();
 }

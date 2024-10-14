@@ -10,14 +10,14 @@ public class Bullet_Movement : MonoBehaviour
 
     private Rigidbody2D rb; 
 
-    protected virtual void Awake()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnEnable()
     {
-        Movement(transform.up);
+        //Movement(transform.up);
     }
 
     private void FixedUpdate()
