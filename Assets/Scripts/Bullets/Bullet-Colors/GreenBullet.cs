@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class GreenBullet : MonoBehaviour, IParryEffect
 {
-    [SerializeField] private int damageToShields = 1;
-
-    [SerializeField] private int blockHealAmount = 1;
-    [SerializeField] private int parryHealAmount = 2;
+    [SerializeField] private GreenBulletSO bulletData;
 
     private Bullet_Controller controller;
 
@@ -28,15 +25,15 @@ public class GreenBullet : MonoBehaviour, IParryEffect
 
     public void OnBlockEffect(Player_Shield player_Shield)
     {
-        player_Shield.TakeDamage(damageToShields);
-        HealPlayer(blockHealAmount);
+        player_Shield.TakeDamage(bulletData.ShieldDamage);
+        HealPlayer(bulletData.BlockHeal);
         controller.DestroySelf();
     }
 
     public void OnParryEffect(Player_Shield player_Shield)
     {
-        player_Shield.TakeSafeDamage(damageToShields);
-        HealPlayer(parryHealAmount);
+        player_Shield.TakeSafeDamage(bulletData.ShieldDamage);
+        HealPlayer(bulletData.ParryHeal);
         controller.DestroySelf();
     }
 }

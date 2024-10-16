@@ -24,7 +24,7 @@ public class Player_ParryState : IState
         timer = initialTimer;
         playerController.currentMoveSpeed = playerController.NormalMoveSpeed * speedMultiplier; //Reduce the player's speed.
         player_Shield.ToggleShield(true); //Activate the shield.
-        player_Shield.isParryActive = true; //Sets the shield in it's parry mode.
+        player_Shield.ToggleParry(true); //Sets the shield in it's parry mode.
     }
 
     public void StateUpdate()
@@ -44,6 +44,6 @@ public class Player_ParryState : IState
 
     public void OnExit() //When exiting, it tells the shield that it is no longer in parry mode.
     {
-        player_Shield.isParryActive = false;
+        player_Shield.ToggleParry(false);
     }
 }

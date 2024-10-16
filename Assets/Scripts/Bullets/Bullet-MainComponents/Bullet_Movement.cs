@@ -5,35 +5,29 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Bullet_Movement : MonoBehaviour
 {
-    [SerializeField] private float normalSpeed = 10f;
-    public float NormalSpeed => normalSpeed;
-    private float speed;
+    private float speedMultiplier = 1f;
 
-    private Rigidbody2D rb; 
+    private Rigidbody2D rb;
+    private Bullet_Controller controller;
 
     private void Awake()
     {
-        speed = normalSpeed;
         rb = GetComponent<Rigidbody2D>();
+        controller = GetComponent<Bullet_Controller>();
     }
 
     private void OnEnable()
     {
-        //Movement(transform.up);
+        speedMultiplier = 1f;
     }
 
-    private void FixedUpdate()
+    public void MultiplySpeed(float modifier)
     {
-        //rb.velocity = transform.up * speed;
-    }
-
-    public void ModifySpeed(float speed)
-    {
-        this.speed = speed;
+        speedMultiplier = modifier;
     }
 
     public void Movement(Vector2 direction)
     {
-        rb.velocity = direction * speed;
+        rb.velocity = direction * controller.BulletData.Speed * speedMultiplier;
     }
 }

@@ -19,22 +19,26 @@ public class HPBar : MonoBehaviour
 
     private void OnEnable()
     {
-        Player_Health.OnDamageReceived += UpdateBarValue;  //Subscribes to listen to when the player's hp changes.
+        Player_Health.OnDamageReceived += DecreaseBar;
+        Player_Health.OnHealthHealed += IncreaseBar;
     }
 
-    public void UpdateBarValue(float maxValue, float currentValue)
+    public void DecreaseBar(float maxValue, float currentValue)
     {
         float beforeChange = target;
 
         target = currentValue / maxValue;
 
-        if (beforeChange > target) //Checks if it should increse or decrese the bar.
-        {
-            StartCoroutine(GradualDamage());
-        }else
-        {
-            StartCoroutine(GradualHeal());
-        }
+        StartCoroutine(GradualDamage());
+    }
+
+    private void IncreaseBar(float maxValue, float currentValue)
+    {
+        float beforeChange = target;
+
+        target = currentValue / maxValue;
+
+        StartCoroutine(GradualHeal());
     }
 
     private IEnumerator GradualDamage() //The main bar instantly goes to its new value, and the bar on the back lingers for a bit to show the amount of damage done.
@@ -77,6 +81,7 @@ public class HPBar : MonoBehaviour
 
     private void OnDisable() //Unsubscribes from the event.
     {
-        Player_Health.OnDamageReceived -= UpdateBarValue;
+        Player_Health.OnDamageReceived -= DecreaseBar;
+        Player_Health.OnHealthHealed -= IncreaseBar;
     }
 }

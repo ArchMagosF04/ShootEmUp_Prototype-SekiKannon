@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class StraightShotTurret : MonoBehaviour, ITurret
 {
@@ -15,6 +16,7 @@ public class StraightShotTurret : MonoBehaviour, ITurret
     [SerializeField] private string ammoName;
 
     [SerializeField] private bool aimsAtPlayer = false;
+    private Transform target;
 
     private void Awake()
     {
@@ -26,6 +28,11 @@ public class StraightShotTurret : MonoBehaviour, ITurret
         }
 
         factory = GetComponentInParent<BulletFactory>();
+    }
+
+    private void Start()
+    {
+        target = GameManager.Instance.PlayerCharacter.transform;
     }
 
     public void Update()
@@ -54,7 +61,12 @@ public class StraightShotTurret : MonoBehaviour, ITurret
 
                 if (aimsAtPlayer)
                 {
-                    creation.gameObject.AddComponent<SmartBullet>();
+                    if (target != null)
+                    {
+                        Vector2 direction = (target.position - transform.position).normalized;
+                        creation.transform.up = direction;
+                        creation.Bullet_Movement.Movement(direction);
+                    }
                 }
             }
             yield return new WaitForSeconds(shootInterval);

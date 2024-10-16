@@ -8,7 +8,8 @@ public class Player_Health : MonoBehaviour, IDamageable
     [SerializeField] private int maxHealth = 20; //Sets the maximum value of health points.
     private int currentHealth;
 
-    public static event Action<float, float> OnDamageReceived; //Event that will be called every time the health value is updated.
+    public static event Action<float, float> OnDamageReceived; //Event that will be called every time the player takes damage.
+    public static event Action<float, float> OnHealthHealed; //Event that will be called every time the player heals.
 
     private void Start()
     {
@@ -39,7 +40,7 @@ public class Player_Health : MonoBehaviour, IDamageable
             currentHealth = maxHealth;
         }
 
-        OnDamageReceived?.Invoke(maxHealth, currentHealth);
+        OnHealthHealed?.Invoke(maxHealth, currentHealth);
     }
 
     public void PlayerDeath() 

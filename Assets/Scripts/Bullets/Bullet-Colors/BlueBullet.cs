@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BlueBullet : MonoBehaviour, IParryEffect
 {
-    [SerializeField] private int damageToShields = 1;
+    [SerializeField] private DefaultColorBulletSO bulletData;
 
     private Bullet_Controller controller;
 
@@ -13,16 +13,16 @@ public class BlueBullet : MonoBehaviour, IParryEffect
         controller = GetComponent<Bullet_Controller>();
     }
 
-    public void OnBlockEffect(Player_Shield player_Shield)
+    public void OnBlockEffect(Player_Shield player_Shield) //When blocked, the bullet is destroyed and damages the shield.
     {
-        player_Shield.TakeDamage(damageToShields);
+        player_Shield.TakeDamage(bulletData.ShieldDamage);
         controller.DestroySelf();
         Debug.Log("Block");
     }
 
-    public void OnParryEffect(Player_Shield player_Shield)
+    public void OnParryEffect(Player_Shield player_Shield) //When parried, the bullet is destroyed and damages the shield, but won't fill the bar to the max.
     {
-        player_Shield.TakeSafeDamage(damageToShields);
+        player_Shield.TakeSafeDamage(bulletData.ShieldDamage);
         controller.DestroySelf();
         Debug.Log("Parry");
     }

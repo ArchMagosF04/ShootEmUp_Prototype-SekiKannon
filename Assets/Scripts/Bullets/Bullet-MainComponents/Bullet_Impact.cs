@@ -6,14 +6,19 @@ public class Bullet_Impact : MonoBehaviour
 {
     private Bullet_Controller controller;
 
-    [SerializeField] private int damage = 2;
-    public int Damage => damage;
+    private float damageMultiplier = 1f;
 
     [SerializeField] private LayerMask whatDestroysBullet;
 
     private void Awake()
     {
         controller = GetComponent<Bullet_Controller>();
+    }
+
+    private void OnEnable()
+    {
+        whatDestroysBullet = controller.BulletData.WhatDestroysBullet;
+        damageMultiplier = 1f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -40,13 +45,13 @@ public class Bullet_Impact : MonoBehaviour
         IDamageable iDamageable = target.gameObject.GetComponent<IDamageable>();
         if (iDamageable != null)
         {
-            iDamageable.TakeDamage(damage);
+            iDamageable.TakeDamage(Mathf.RoundToInt(controller.BulletData.Damage*damageMultiplier));
         }
     }
 
-    public void ModifyDamageAmount(int amount)
+    public void ModifyDamageMultiplier(float amount)
     {
-        damage = amount;
+        damageMultiplier = amount;
     }
 
     public void SwapCollisionLayer(LayerMask mask)

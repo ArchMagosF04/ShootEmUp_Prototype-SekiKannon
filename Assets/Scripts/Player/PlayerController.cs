@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        GameManager.Instance.SetPlayerReference(this.gameObject);
         playerInput = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody2D>();
         player_Shield = GetComponentInChildren<Player_Shield>();

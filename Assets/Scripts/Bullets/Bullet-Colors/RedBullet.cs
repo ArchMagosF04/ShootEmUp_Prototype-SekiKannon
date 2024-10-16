@@ -4,24 +4,15 @@ using UnityEngine;
 
 public class RedBullet : MonoBehaviour, IParryEffect
 {
-    [SerializeField] private int damageToShields = 1;
+    [SerializeField] private DefaultColorBulletSO bulletData;
 
-    private int initialDamage;
+    private float damageOnDeflect = 0.5f;
 
-    private Bullet_Controller controller;
     private Bullet_Impact bullet_Impact;
 
     private void Awake()
     {
-        controller = GetComponent<Bullet_Controller>();
         bullet_Impact = GetComponent<Bullet_Impact>();
-
-        initialDamage = bullet_Impact.Damage;
-    }
-
-    private void OnEnable()
-    {
-        bullet_Impact.ModifyDamageAmount(initialDamage);
     }
 
     public void OnBlockEffect(Player_Shield player_Shield)
@@ -31,7 +22,7 @@ public class RedBullet : MonoBehaviour, IParryEffect
 
     public void OnParryEffect(Player_Shield player_Shield)
     {
-        player_Shield.TakeDamage(damageToShields);
-        bullet_Impact.ModifyDamageAmount(Mathf.FloorToInt(bullet_Impact.Damage*0.5f));
+        player_Shield.TakeDamage(bulletData.ShieldDamage);
+        bullet_Impact.ModifyDamageMultiplier(damageOnDeflect);
     }
 }

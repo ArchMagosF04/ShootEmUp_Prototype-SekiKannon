@@ -29,6 +29,9 @@ public class Player_Shield : MonoBehaviour
 
     public static event Action<float, float> OnDamageReceived;
 
+    private Color parryColor;
+    private Color blockColor;
+
     private void Awake()
     {
         circleCollider = GetComponent<Collider2D>();
@@ -41,7 +44,8 @@ public class Player_Shield : MonoBehaviour
         currentRechargeRate = rechargeRate;
         regenDelay = startRegenDelay;
 
-        sprite.color = shieldGradient.Evaluate(target);
+        parryColor = Color.cyan;
+        blockColor = shieldGradient.Evaluate(target);
 
         ToggleShield(false); //The shield begins off.
     }
@@ -126,9 +130,20 @@ public class Player_Shield : MonoBehaviour
         OnDamageReceived?.Invoke(maxOverloadLevel, currentOverloadLevel);
     }
 
-    public void ToggleParry() //Toggles parry mode on & off.
+    public void ToggleParry(bool isActive) //Toggles parry mode on & off.
     {
-        isParryActive = !isParryActive;
+        isParryActive = isActive;
+
+        if (isParryActive)
+        {
+            parryColor.a = 0.4f;
+            sprite.color = parryColor;
+        }
+        else
+        {
+            blockColor.a = 0.4f;
+            sprite.color = blockColor; 
+        }
     }
 
     public void RestoreShield() //Instantly heals the shield by half of its maximum value.
@@ -171,7 +186,7 @@ public class Player_Shield : MonoBehaviour
 
         target = tempCurrent / tempMax;
 
-        Color currentColor = sprite.color;
+        Color currentColor = blockColor;
         Color newColor = shieldGradient.Evaluate(target);
 
         float elapsedTime = 0f;
@@ -181,7 +196,12 @@ public class Player_Shield : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
 
-            sprite.color = Color.Lerp(currentColor, newColor, (elapsedTime / timeToChange));
+            blockColor = Color.Lerp(currentColor, newColor, (elapsedTime / timeToChange));
+
+            if (!isParryActive) 
+            {
+                sprite.color = blockColor;
+            }
 
             yield return null;
         }
