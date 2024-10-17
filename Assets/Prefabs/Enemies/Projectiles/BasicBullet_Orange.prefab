@@ -209,7 +209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f772b90203501f0499afed3470741dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
   whatDestroysBullet:
     serializedVersion: 2
     m_Bits: 136
@@ -225,7 +224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72fd297b4fa2e04882ad96c0a84773e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
 --- !u!114 &9019020074503206068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,8 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381c7bacc05de4441bc5ef1969f92486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
-  lifeTime: 3
+  bulletData: {fileID: 11400000, guid: a0eeef75c4168d04482ee7b460dbdc5a, type: 2}
 --- !u!114 &3397961233433288096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,9 +249,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 124d02039607791448665d870d85426a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToShields: 1
-  speedOnDeflect: 50
-  damageOnDeflect: 4
-  whatDestroysBulletWhenDeflected:
-    serializedVersion: 2
-    m_Bits: 72
+  bulletData: {fileID: 11400000, guid: b758a241650f8644babdce6ffbe4b815, type: 2}

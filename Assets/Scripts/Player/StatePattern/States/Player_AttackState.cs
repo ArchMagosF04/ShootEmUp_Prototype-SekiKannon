@@ -6,7 +6,7 @@ public class Player_AttackState : IState
 {
     private PlayerController playerController; 
 
-    [SerializeField] private float shootingInterval = 0.1f; //Time in seconds between each shot.
+    [SerializeField] private float shootingInterval = 0.07f; //Time in seconds between each shot.
     private float shootCooldown;
     private float speedMultiplier = 0.9f; //The speed is reduce to this % where 1.0f == 100%.
 

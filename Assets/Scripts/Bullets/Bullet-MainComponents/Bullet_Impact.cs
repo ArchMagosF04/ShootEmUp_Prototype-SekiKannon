@@ -8,7 +8,7 @@ public class Bullet_Impact : MonoBehaviour
 
     private float damageMultiplier = 1f;
 
-    [SerializeField] private LayerMask whatDestroysBullet;
+    private LayerMask whatDestroysBullet;
 
     private void Awake()
     {

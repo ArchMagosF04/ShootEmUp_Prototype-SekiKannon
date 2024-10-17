@@ -125,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f772b90203501f0499afed3470741dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
   whatDestroysBullet:
     serializedVersion: 2
     m_Bits: 136
@@ -141,7 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72fd297b4fa2e04882ad96c0a84773e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalSpeed: 5
 --- !u!114 &6433247654097565199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381c7bacc05de4441bc5ef1969f92486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialLifeTime: 10
+  bulletData: {fileID: 11400000, guid: a0eeef75c4168d04482ee7b460dbdc5a, type: 2}
 --- !u!114 &1345912439801061916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,9 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5538627b3022060459a5f517d06a5190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToShields: 1
-  blockHealAmount: 1
-  parryHealAmount: 2
+  bulletData: {fileID: 11400000, guid: a2c1ec1b239e4c940831b0ac4f43c776, type: 2}
 --- !u!1 &1048790715292250382
 GameObject:
   m_ObjectHideFlags: 0

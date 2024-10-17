@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewBlueBulletData", menuName = "Scriptable Objects/Bullets/OrangeBulletData", order = 3)]
+[CreateAssetMenu(fileName = "NewOrangeBulletData", menuName = "Scriptable Objects/Bullets/OrangeBulletData", order = 3)]
 public class OrangeBulletSO : ScriptableObject
 {
     [field: SerializeField] public int ShieldDamage { get; private set; }

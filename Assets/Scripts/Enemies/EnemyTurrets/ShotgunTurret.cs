@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ShotgunTurret : MonoBehaviour
 {
-    [SerializeField] private int numberOfBulletsInCone;
-    [SerializeField] private float coneAngle = 45f;
+    [SerializeField] private int numberOfBulletsInArc;
+    [SerializeField] private float arcAngle = 45f;
 
     private Rigidbody2D rb;
 
@@ -47,7 +47,7 @@ public class ShotgunTurret : MonoBehaviour
 
     private IEnumerator AttackSequence(string bulletName)
     {
-        float angleStep = (coneAngle*2) / numberOfBulletsInCone;
+        float angleStep = (arcAngle * 2) / numberOfBulletsInArc;
 
         Quaternion initialRotation = transform.rotation;
 
@@ -55,9 +55,11 @@ public class ShotgunTurret : MonoBehaviour
         {
             transform.rotation = initialRotation;
 
+            transform.Rotate(0, 0, -arcAngle/2);
+
             foreach (Transform t in barrels)
             {
-                for (int j = 0; j < numberOfBulletsInCone; j++)
+                for (int j = 0; j < numberOfBulletsInArc; j++)
                 {
                     Bullet_Controller creation = factory.CreateBullet(bulletName, t);
 

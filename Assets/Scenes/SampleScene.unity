@@ -247,7 +247,7 @@ MonoBehaviour:
   barrels: []
   shootInterval: 0.2
   numberOfShoots: 3
-  ammoName: BasicBullet_Green
+  ammoName: BasicBullet
   aimsAtPlayer: 1
 --- !u!1 &42501891
 GameObject:
@@ -320,9 +320,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -27568821
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9163be69159ee9a42a850ff43c3c2d1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -584,7 +584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 403693411}
   - component: {fileID: 403693413}
-  - component: {fileID: 403693412}
+  - component: {fileID: 403693414}
   m_Layer: 0
   m_Name: RadialTurret
   m_TagString: Untagged
@@ -608,23 +608,6 @@ Transform:
   - {fileID: 954495658}
   m_Father: {fileID: 1682451032}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &403693412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 403693410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eddfdc83aaca74744875d84fb11fee6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfBulletsInRadius: 8
-  barrels: []
-  shootInterval: 0.3
-  numberOfShoots: 1
-  ammoName: BasicBullet
 --- !u!50 &403693413
 Rigidbody2D:
   serializedVersion: 4
@@ -652,6 +635,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &403693414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403693410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ffa23755916bd646b2438bde564f77f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfBulletsInArc: 3
+  arcAngle: 90
+  barrels: []
+  shootInterval: 0.4
+  numberOfShoots: 3
+  ammoName: BasicBullet
 --- !u!1 &468532302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1605,8 +1606,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -27568821
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 133769418, guid: 85529522fe923ff44adc21105325be34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2055,7 +2056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1682451030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2444,6 +2445,14 @@ PrefabInstance:
     - target: {fileID: 1927722114771813260, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
       propertyPath: m_SortingLayerID
       value: 1156702103
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126186786629089651, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
+      propertyPath: rechargeRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126186786629089651, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
+      propertyPath: maxOverloadLevel
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2126186786629089651, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
       propertyPath: shieldGradient.ctime1
