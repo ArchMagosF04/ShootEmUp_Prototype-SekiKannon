@@ -20,7 +20,7 @@ public class HomingBullet : MonoBehaviour
 
     private void OnEnable()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameManager.Instance.PlayerCharacter.transform;
     }
 
     private void FixedUpdate()

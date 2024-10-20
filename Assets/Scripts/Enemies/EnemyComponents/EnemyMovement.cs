@@ -28,6 +28,14 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (waypoints.Count > 1)
+        {
+            Movement();
+        }
+    }
+
+    private void Movement()
+    {
         if (hasReachedTarget)
         {
             currentTarget = waypoints[listPointer];
@@ -41,7 +49,6 @@ public class EnemyMovement : MonoBehaviour
         }
 
         float distanceToTarget = (transform.position - currentTarget.position).magnitude;
-        Vector3 direction = (transform.position - currentTarget.position).normalized;
 
         transform.position = Vector3.MoveTowards(transform.position, currentTarget.position, currentSpeed * Time.fixedDeltaTime);
 

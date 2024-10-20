@@ -7,8 +7,6 @@ public class ShotgunTurret : MonoBehaviour
     [SerializeField] private int numberOfBulletsInArc;
     [SerializeField] private float arcAngle = 45f;
 
-    private Rigidbody2D rb;
-
     [SerializeField] private List<Transform> barrels = new List<Transform>();
 
     private BulletFactory factory;
@@ -18,10 +16,10 @@ public class ShotgunTurret : MonoBehaviour
 
     [SerializeField] private string ammoName;
 
+    private bool isAttacking = false;
+
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-
         barrels.AddRange(GetComponentsInChildren<Transform>());
 
         if (barrels.Contains(transform))
@@ -42,12 +40,17 @@ public class ShotgunTurret : MonoBehaviour
 
     public void Shoot()
     {
-        StartCoroutine(AttackSequence(ammoName));
+        if (!isAttacking)
+        {
+            isAttacking = true;
+            StartCoroutine(AttackSequence(ammoName));
+        }
     }
 
     private IEnumerator AttackSequence(string bulletName)
     {
-        float angleStep = (arcAngle * 2) / numberOfBulletsInArc;
+        float angleStep = (arcAngle * 2f) / (numberOfBulletsInArc-1);
+        Debug.Log(angleStep);
 
         Quaternion initialRotation = transform.rotation;
 
@@ -55,7 +58,7 @@ public class ShotgunTurret : MonoBehaviour
         {
             transform.rotation = initialRotation;
 
-            transform.Rotate(0, 0, -arcAngle/2);
+            transform.Rotate(0, 0, -arcAngle);
 
             foreach (Transform t in barrels)
             {
@@ -66,9 +69,7 @@ public class ShotgunTurret : MonoBehaviour
                     creation.transform.position = t.position;
                     creation.transform.localRotation = t.rotation;
 
-                    //creation.Bullet_Movement.Movement(t.up);
-
-                    transform.Rotate(0, 0, angleStep);
+                    transform.Rotate(0,0, angleStep);
                 }
 
             }
@@ -76,5 +77,7 @@ public class ShotgunTurret : MonoBehaviour
         }
 
         transform.rotation = initialRotation;
+
+        isAttacking = false;
     }
 }

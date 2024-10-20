@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LightOrange
   m_EditorClassIdentifier: 
   <ShieldDamage>k__BackingField: 5
-  <SpeedOnDeflect>k__BackingField: 2
+  <SpeedOnDeflect>k__BackingField: 5
   <DamageOnDeflect>k__BackingField: 0
   <whatDestroysBulletWhenDeflected>k__BackingField:
     serializedVersion: 2

@@ -14,6 +14,8 @@ public class BulletPool : MonoBehaviour
     [SerializeField] private int defaultCapacity = 20;
     [SerializeField] private int maxSize = 100;
 
+    [SerializeField] private bool chainBulletsToCreator = false;
+
     private void Awake()
     {
         pool = new ObjectPool<Bullet_Controller>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, false, defaultCapacity, maxSize);
@@ -45,6 +47,11 @@ public class BulletPool : MonoBehaviour
 
         creation.transform.position = spawnPoint.position;
         creation.transform.localRotation = spawnPoint.rotation;
+
+        if (chainBulletsToCreator)
+        {
+            creation.transform.SetParent(spawnPoint);
+        }
 
         creation.SetPool(pool);
 

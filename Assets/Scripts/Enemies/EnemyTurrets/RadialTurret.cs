@@ -6,8 +6,6 @@ public class RadialTurret : MonoBehaviour, ITurret
 {
     [SerializeField] private int numberOfBulletsInRadius;
 
-    private Rigidbody2D rb;
-
     [SerializeField] private List<Transform> barrels = new List<Transform>();
 
     private BulletFactory factory;
@@ -19,17 +17,17 @@ public class RadialTurret : MonoBehaviour, ITurret
 
     private float radius = 5f;
 
+    private bool isAttacking = false;
+
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-
         barrels.AddRange(GetComponentsInChildren<Transform>());
 
         if (barrels.Contains(transform))
         {
             barrels.Remove(transform);
         }
-        Quaternion f = Quaternion.identity;
+
         factory = GetComponentInParent<BulletFactory>();
     }
 
@@ -43,7 +41,12 @@ public class RadialTurret : MonoBehaviour, ITurret
 
     public void Shoot()
     {
-        StartCoroutine(AttackSequence(ammoName));
+        if (!isAttacking)
+        {
+            isAttacking = true;
+            StartCoroutine(AttackSequence(ammoName));
+        }
+        
     }
 
     private IEnumerator AttackSequence(string bulletName)
@@ -63,8 +66,6 @@ public class RadialTurret : MonoBehaviour, ITurret
                     creation.transform.position = t.position;
                     creation.transform.localRotation = t.rotation;
 
-                    //creation.Bullet_Movement.Movement(t.up);
-
                     transform.Rotate(0, 0, angleStep);
                 }
                 
@@ -73,14 +74,14 @@ public class RadialTurret : MonoBehaviour, ITurret
         }
 
         transform.rotation = initialRotation;
+
+        isAttacking = false;
     }
 
     private IEnumerator AttackSequence2(string bulletName)
     {
         float angleStep = 360 / numberOfBulletsInRadius;
         float angle = 0;
-
-        Quaternion initialRotation = transform.rotation;
 
         for (int i = 0; i < numberOfShoots; i++)
         {
@@ -99,7 +100,9 @@ public class RadialTurret : MonoBehaviour, ITurret
                     creation.transform.position = t.position;
                     creation.transform.localRotation = t.rotation;
 
-                    creation.Bullet_Movement.Movement(projectileMoveDirection);
+                    creation.transform.up = projectileMoveDirection;
+
+                    creation.Bullet_Movement.Movement(creation.transform.up);
 
                     angle += angleStep;
                 }
@@ -107,7 +110,6 @@ public class RadialTurret : MonoBehaviour, ITurret
             }
             yield return new WaitForSeconds(shootInterval);
         }
-
-        transform.rotation = initialRotation;
+        isAttacking = false;
     }
 }
