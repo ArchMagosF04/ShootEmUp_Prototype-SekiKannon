@@ -25,15 +25,25 @@ public class RadialShotWeapon : MonoBehaviour
         Vector2 aimDirection = transform.up;
         Vector2 center = transform.position;
 
-        while(lap < pattern.Repetitions)
+        yield return new WaitForSeconds(pattern.StartWait);
+
+        while (lap < pattern.Repetitions)
         {
-            for (int i = 0; i < pattern.Repetitions; i++)
+            if (lap > 0 && pattern.AngleOffsetBetweenReps != 0) 
             {
-                //Where we left off
+                aimDirection = aimDirection.Rotate(pattern.AngleOffsetBetweenReps);
+            }
+
+            for (int i = 0; i < pattern.PatternSettings.Length; i++)
+            {
+                ShotAttack.RadialShot(center, aimDirection, pattern.PatternSettings[i]);
+                yield return new WaitForSeconds(pattern.PatternSettings[i].CooldownAfterShot);
             }
 
             lap++;
         }
+
+        yield return new WaitForSeconds(pattern.EndWait);
 
         onShotPattern = false;
     }
