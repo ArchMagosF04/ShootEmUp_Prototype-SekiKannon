@@ -4,35 +4,16 @@ using System.Linq;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class StraightShotTurret : MonoBehaviour, ITurret
+public class StraightShotTurret : BaseTurret
 {
-    [SerializeField] private List<Transform> barrels = new List<Transform>();
-
-    private BulletFactory factory;
-
-    [SerializeField] private float shootInterval = 0.4f;
-    [SerializeField] private int numberOfShoots = 3;
-
-    [SerializeField] private string ammoName;
-
-    [SerializeField] private bool aimsAtPlayer = false;
-    private Transform target;
-
-    private void Awake()
+    protected override void Awake()
     {
-        barrels.AddRange(GetComponentsInChildren<Transform>());
-
-        if (barrels.Contains(transform))
-        {
-            barrels.Remove(transform);
-        }
-
-        factory = GetComponentInParent<BulletFactory>();
+        base.Awake();
     }
 
-    private void Start()
+    protected override void Start()
     {
-        target = GameManager.Instance.PlayerCharacter.transform;
+        base.Start();
     }
 
     public void Update()
@@ -43,31 +24,20 @@ public class StraightShotTurret : MonoBehaviour, ITurret
         }
     }
 
-    public void Shoot()
+    protected override void Shoot()
     {
-        StartCoroutine(AttackSequence(ammoName));
+        StartCoroutine(AttackSequence());
     }
 
-    private IEnumerator AttackSequence(string bulletName)
+    protected override IEnumerator AttackSequence()
     {
         for (int i = 0; i < numberOfShoots; i++)
         {
             foreach (Transform t in barrels)
             {
-                Bullet_Controller creation = factory.CreateBullet(bulletName, t);
+                Bullet_Controller creation = CreateBullet(ammoName, t);
 
-                creation.transform.position = t.position;
-                creation.transform.localRotation = t.rotation;
-
-                if (aimsAtPlayer)
-                {
-                    if (target != null)
-                    {
-                        Vector2 direction = (target.position - transform.position).normalized;
-                        creation.transform.up = direction;
-                        creation.Bullet_Movement.Movement(direction);
-                    }
-                }
+                AimAtPlayer(creation);
             }
             yield return new WaitForSeconds(shootInterval);
         }

@@ -52,7 +52,7 @@ public class ShotgunTurret : MonoBehaviour
         float angleStep = (arcAngle * 2f) / (numberOfBulletsInArc-1);
         Debug.Log(angleStep);
 
-        Quaternion initialRotation = transform.rotation;
+        Quaternion initialRotation = transform.localRotation;
 
         for (int i = 0; i < numberOfShoots; i++)
         {

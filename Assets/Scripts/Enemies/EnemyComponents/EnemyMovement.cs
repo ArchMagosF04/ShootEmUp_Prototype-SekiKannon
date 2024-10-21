@@ -21,7 +21,6 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         GameObject waypointHolder = GameObject.FindGameObjectWithTag("BossWaypoint");
         waypoints.AddRange(waypointHolder.GetComponentsInChildren<Transform>());
-        waypoints.RemoveAt(0);
 
         currentSpeed = speed;
     }
