@@ -22,7 +22,7 @@ public class BulletFactory : MonoBehaviour
         }
     }
 
-    public Bullet_Controller CreateBullet(string id, Transform origin)
+    public Bullet_Controller CreateBullet(string id/*, Transform origin*/)
     {
         if (bulletDictionary.ContainsKey(id))
         {
@@ -35,14 +35,14 @@ public class BulletFactory : MonoBehaviour
                 poolDictionary.Add(id, newBulletPool);
             }
 
-            poolDictionary[id].ChangeSpawnpoint(origin);
+            //poolDictionary[id].ChangeSpawnpoint(origin);
 
             Bullet_Controller newBullet = poolDictionary[id].pool.Get();
 
-            if (newBullet.gameObject.TryGetComponent<OrangeBullet>(out OrangeBullet orange))
-            {
-                orange.SetCreator(transform);
-            }
+            //if (newBullet.gameObject.TryGetComponent<OrangeBullet>(out OrangeBullet orange))
+            //{
+            //    orange.SetCreator(transform);
+            //}
 
             return newBullet;
         }

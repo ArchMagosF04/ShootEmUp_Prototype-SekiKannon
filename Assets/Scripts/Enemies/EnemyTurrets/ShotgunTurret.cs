@@ -18,6 +18,9 @@ public class ShotgunTurret : MonoBehaviour
 
     private bool isAttacking = false;
 
+    [SerializeField] private float shootCooldown = 5f;
+    private float timer = 0f;
+
     private void Awake()
     {
         barrels.AddRange(GetComponentsInChildren<Transform>());
@@ -32,6 +35,14 @@ public class ShotgunTurret : MonoBehaviour
 
     public void Update()
     {
+        if (timer <= 0f)
+        {
+            Shoot();
+            timer = shootCooldown;
+        }
+
+        timer -= Time.deltaTime;
+
         if (Input.GetMouseButtonDown(1))
         {
             Shoot();
@@ -50,9 +61,8 @@ public class ShotgunTurret : MonoBehaviour
     private IEnumerator AttackSequence(string bulletName)
     {
         float angleStep = (arcAngle * 2f) / (numberOfBulletsInArc-1);
-        Debug.Log(angleStep);
 
-        Quaternion initialRotation = transform.localRotation;
+        Quaternion initialRotation = transform.rotation;
 
         for (int i = 0; i < numberOfShoots; i++)
         {
@@ -64,7 +74,7 @@ public class ShotgunTurret : MonoBehaviour
             {
                 for (int j = 0; j < numberOfBulletsInArc; j++)
                 {
-                    Bullet_Controller creation = factory.CreateBullet(bulletName, t);
+                    Bullet_Controller creation = factory.CreateBullet(bulletName); //CHECKTHIS
 
                     creation.transform.position = t.position;
                     creation.transform.localRotation = t.rotation;

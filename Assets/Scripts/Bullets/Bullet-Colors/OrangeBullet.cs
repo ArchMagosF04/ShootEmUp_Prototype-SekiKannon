@@ -17,6 +17,8 @@ public class OrangeBullet : MonoBehaviour, IParryEffect
         controller = GetComponent<Bullet_Controller>();
         bullet_Movement = GetComponent<Bullet_Movement>();
         bullet_Impact = GetComponent<Bullet_Impact>();
+
+        creator = GameManager.Instance.BossCharacter.transform;
     }
 
     public void OnBlockEffect(Player_Shield player_Shield)
@@ -43,7 +45,8 @@ public class OrangeBullet : MonoBehaviour, IParryEffect
         } 
         else
         {
-            bullet_Movement.Movement(transform.up);
+            HomingBullet bullet = gameObject.AddComponent<HomingBullet>();
+            bullet.ChangeTarget(creator);
         }
 
         controller.ResetLifeTime();

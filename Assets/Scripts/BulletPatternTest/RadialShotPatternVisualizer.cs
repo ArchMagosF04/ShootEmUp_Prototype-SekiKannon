@@ -8,7 +8,7 @@ public class RadialShotPatternVisualizer : MonoBehaviour
     [SerializeField] private RadialShotPattern pattern;
     [SerializeField] private float radius;
     [SerializeField] private Color iconColor = Color.red;
-    [SerializeField, Range(0f, 5f)] private float testTime;
+    [SerializeField, Range(0f, 10f)] private float testTime;
 
     private void OnDrawGizmos()
     {
@@ -67,7 +67,6 @@ public class RadialShotPatternVisualizer : MonoBehaviour
             Vector2 bulletDirection = aimDirection.Rotate(bulletDirectionAngle);
             Vector2 bulletPosition = (Vector2)transform.position + (bulletDirection * settings.BulletSpeed * lifeTime);
             Gizmos.DrawSphere(bulletPosition, radius);
-            Gizmos.DrawWireSphere(bulletPosition, radius);
         }
     }
 }

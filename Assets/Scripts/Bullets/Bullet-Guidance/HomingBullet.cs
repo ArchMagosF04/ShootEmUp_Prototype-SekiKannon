@@ -10,7 +10,7 @@ public class HomingBullet : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    [SerializeField] private float rotationSpeed = 500f;
+    [SerializeField] private float rotationSpeed = 1000f;
 
     private void Awake()
     {

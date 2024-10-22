@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     private GameObject playerCharacter;
     public GameObject PlayerCharacter => playerCharacter;
 
+    private GameObject bossCharacter;
+    public GameObject BossCharacter => bossCharacter;
+
     private void Awake()
     {
         if (Instance == null)
@@ -25,5 +28,10 @@ public class GameManager : MonoBehaviour
     public void SetPlayerReference(GameObject player)
     {
         playerCharacter = player;
+    }
+
+    public void SetBossReference(GameObject boss)
+    {
+        bossCharacter = boss;
     }
 }

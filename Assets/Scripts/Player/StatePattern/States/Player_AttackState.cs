@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class Player_AttackState : IState
 {
@@ -45,10 +46,18 @@ public class Player_AttackState : IState
     {
         if (shootCooldown <= 0) //When the cooldown is done, the player will spawn a pair of bullets.
         {
-            playerController.BulletPool.ChangeSpawnpoint(playerController.Cannons[0]);
-            playerController.BulletPool.pool.Get();
-            playerController.BulletPool.ChangeSpawnpoint(playerController.Cannons[1]);
-            playerController.BulletPool.pool.Get();
+            foreach (Transform barrel in playerController.Cannons)
+            {
+                playerController.BulletPool.ChangeSpawnpoint(barrel);
+                Bullet_Controller bullet = playerController.BulletPool.pool.Get();
+                bullet.transform.position = barrel.position;
+                bullet.transform.localRotation = barrel.rotation;
+                bullet.Bullet_Movement.Movement(barrel.up);
+            }
+            //playerController.BulletPool.ChangeSpawnpoint(playerController.Cannons[0]);
+            //Bullet_Controller bullet1 = playerController.BulletPool.pool.Get();
+            //playerController.BulletPool.ChangeSpawnpoint(playerController.Cannons[1]);
+            //Bullet_Controller bullet2 = playerController.BulletPool.pool.Get();
 
             shootCooldown = shootingInterval; //Activate the cooldown.
         }

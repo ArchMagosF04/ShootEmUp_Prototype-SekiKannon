@@ -17,7 +17,7 @@ public class RedBullet : MonoBehaviour, IParryEffect
 
     public void OnBlockEffect(Player_Shield player_Shield)
     {
-        player_Shield.shieldBroken = true;
+        player_Shield.BreakShield(true);
     }
 
     public void OnParryEffect(Player_Shield player_Shield)

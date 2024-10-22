@@ -6,6 +6,9 @@ using static UnityEngine.GraphicsBuffer;
 
 public class StraightShotTurret : BaseTurret
 {
+    [SerializeField] private float shootCooldown = 2f;
+    private float timer = 0f;
+
     protected override void Awake()
     {
         base.Awake();
@@ -18,6 +21,14 @@ public class StraightShotTurret : BaseTurret
 
     public void Update()
     {
+        if (timer <= 0f)
+        {
+            Shoot();
+            timer = shootCooldown;
+        }
+
+        timer -= Time.deltaTime;
+
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();

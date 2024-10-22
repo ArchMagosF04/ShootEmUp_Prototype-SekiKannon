@@ -5,6 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class RadialShotSettings
 {
+    [Header("Bullet Type")]
+    public string BulletName = "BasicBullet";
+
     [Header("Base Settings")]
     public int NumberOfBullets = 5;
     public float BulletSpeed = 10f;

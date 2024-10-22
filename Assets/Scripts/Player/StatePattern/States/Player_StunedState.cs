@@ -35,7 +35,7 @@ public class Player_StunedState : IState
 
     public void OnExit() //When exiting the players shield is restored so it can be used again.
     {
-        player_Shield.shieldBroken = false;
+        player_Shield.BreakShield(false);
         player_Shield.RestoreShield();
     }
 }

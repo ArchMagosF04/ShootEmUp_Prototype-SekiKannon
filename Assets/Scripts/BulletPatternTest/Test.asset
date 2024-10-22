@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5549382144da040a73da61888fa253, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  Repetitions: 50
-  AngleOffsetBetweenReps: 5
+  Repetitions: 10
+  AngleOffsetBetweenReps: 0
   StartWait: 0
   EndWait: 1
   PatternSettings:
-  - NumberOfBullets: 8
-    BulletSpeed: 10
+  - BulletName: BasicBullet
+    NumberOfBullets: 10
+    BulletSpeed: 8
     CooldownAfterShot: 0.1
     PhaseOffset: 0
     AngleOffset: 0

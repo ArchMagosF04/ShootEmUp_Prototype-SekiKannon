@@ -7,7 +7,7 @@ public class BulletPool : MonoBehaviour
 {
     public ObjectPool<Bullet_Controller> pool;
 
-    private Bullet_Controller bulletPrefab;
+    [SerializeField] private Bullet_Controller bulletPrefab;
 
     private Transform spawnPoint;
 
@@ -33,29 +33,29 @@ public class BulletPool : MonoBehaviour
 
     private void OnTakeFromPool(Bullet_Controller bullet)
     {
-        bullet.transform.position = spawnPoint.position;
-        bullet.transform.localRotation = spawnPoint.rotation;
+        //bullet.transform.position = spawnPoint.position;
+        //bullet.transform.localRotation = spawnPoint.rotation;
 
         bullet.gameObject.SetActive(true);
 
-        bullet.Bullet_Movement.Movement(spawnPoint.up);
+        //bullet.Bullet_Movement.Movement(spawnPoint.up);
     }
 
     private Bullet_Controller CreatePooledItem()
     {
         Bullet_Controller creation = Instantiate(bulletPrefab);
 
-        creation.transform.position = spawnPoint.position;
-        creation.transform.localRotation = spawnPoint.rotation;
+        //creation.transform.position = spawnPoint.position;
+        //creation.transform.localRotation = spawnPoint.rotation;
 
         if (chainBulletsToCreator)
         {
-            creation.transform.SetParent(spawnPoint);
+            creation.transform.SetParent(transform);
         }
 
         creation.SetPool(pool);
 
-        creation.Bullet_Movement.Movement(spawnPoint.up);
+        //creation.Bullet_Movement.Movement(spawnPoint.up);
 
         return creation;
     }

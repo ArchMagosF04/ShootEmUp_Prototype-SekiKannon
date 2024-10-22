@@ -30,4 +30,9 @@ public class Bullet_Movement : MonoBehaviour
     {
         rb.velocity = direction * controller.BulletData.Speed * speedMultiplier;
     }
+
+    public void AssignMovement(Vector2 velocity)
+    {
+        rb.velocity = (Vector3)velocity;
+    }
 }

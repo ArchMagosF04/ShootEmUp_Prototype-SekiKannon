@@ -44,7 +44,7 @@ public abstract class BaseTurret : MonoBehaviour
 
     protected virtual Bullet_Controller CreateBullet(string bulletName, Transform t)
     {
-        Bullet_Controller creation = factory.CreateBullet(bulletName, t);
+        Bullet_Controller creation = factory.CreateBullet(bulletName); //CHECKTHIS
 
         creation.transform.position = t.position;
         creation.transform.localRotation = t.rotation;

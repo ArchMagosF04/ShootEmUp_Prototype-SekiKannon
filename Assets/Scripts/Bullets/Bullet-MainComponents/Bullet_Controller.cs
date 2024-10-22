@@ -10,23 +10,23 @@ public class Bullet_Controller : MonoBehaviour
     [SerializeField] private BulletSO bulletData;
     public BulletSO BulletData => bulletData;
 
-
-    private float lifeTime;
+    private float lifeTime = 0f;
 
     private ObjectPool<Bullet_Controller> pool;
 
     private Bullet_Movement bullet_Movement;
     public Bullet_Movement Bullet_Movement => bullet_Movement;
 
+    [SerializeField] private GameObject impactEffect;
+
     private void Awake()
     {
-        lifeTime = bulletData.InitialLifeTime;
         bullet_Movement = GetComponent<Bullet_Movement>();
     }
 
     private void OnEnable()
     {
-        lifeTime = bulletData.InitialLifeTime;
+        lifeTime = 0f;
     }
 
     private void Update()
@@ -36,12 +36,12 @@ public class Bullet_Controller : MonoBehaviour
 
     private void BulletLifeTime()
     {
-        if (lifeTime <= 0)
+        if (lifeTime > bulletData.InitialLifeTime)
         {
             DestroySelf();
         }
 
-        lifeTime -= Time.deltaTime;
+        lifeTime += Time.deltaTime;
     }
 
     public void SetPool(ObjectPool<Bullet_Controller> objectPool)
@@ -51,18 +51,28 @@ public class Bullet_Controller : MonoBehaviour
 
     public void DestroySelf()
     {
+        if(impactEffect != null)
+        {
+            GameObject effect = Instantiate(impactEffect);
+            effect.transform.position = transform.position;
+            effect.transform.rotation = transform.rotation;
+        }
+
+        pool = null;
+
         if (pool != null)
         {
             pool.Release(this);
         }
         else
         {
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
+            //Destroy(this.gameObject);
         }
     }
 
     public void ResetLifeTime()
     {
-        lifeTime = bulletData.InitialLifeTime;
+        lifeTime = 0f;
     }
 }

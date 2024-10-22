@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ShieldDamage>k__BackingField: 5
   <SpeedOnDeflect>k__BackingField: 5
-  <DamageOnDeflect>k__BackingField: 0
+  <DamageOnDeflect>k__BackingField: 3
   <whatDestroysBulletWhenDeflected>k__BackingField:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 64

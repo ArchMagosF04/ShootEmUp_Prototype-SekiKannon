@@ -19,10 +19,12 @@ public class Player_Shield : MonoBehaviour
 
     public bool isParryActive = false; 
     private bool hasBeenResentlyDamaged = false;
-    public bool shieldBroken = false;
+    private bool shieldBroken = false;
+    public bool ShieldBroken => shieldBroken;
 
     private Collider2D circleCollider;
-    private SpriteRenderer sprite;
+    private SpriteRenderer shieldSprite;
+    [SerializeField] private SpriteRenderer staticSprite;
 
     [SerializeField] private Gradient shieldGradient;
     private float target = 0f;
@@ -35,7 +37,8 @@ public class Player_Shield : MonoBehaviour
     private void Awake()
     {
         circleCollider = GetComponent<Collider2D>();
-        sprite = GetComponent<SpriteRenderer>();
+        shieldSprite = GetComponent<SpriteRenderer>();
+        //staticSprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Start()
@@ -48,6 +51,7 @@ public class Player_Shield : MonoBehaviour
         blockColor = shieldGradient.Evaluate(target);
 
         ToggleShield(false); //The shield begins off.
+        BreakShield(false);
     }
 
     private void Update()
@@ -106,7 +110,7 @@ public class Player_Shield : MonoBehaviour
         if (currentOverloadLevel >= maxOverloadLevel) //If the bar fully fills the shield is broken.
         {
             currentOverloadLevel = maxOverloadLevel;
-            shieldBroken = true;
+            BreakShield(true);
         }
     }
 
@@ -137,12 +141,12 @@ public class Player_Shield : MonoBehaviour
         if (isParryActive)
         {
             parryColor.a = 0.4f;
-            sprite.color = parryColor;
+            shieldSprite.color = parryColor;
         }
         else
         {
             blockColor.a = 0.4f;
-            sprite.color = blockColor; 
+            shieldSprite.color = blockColor; 
         }
     }
 
@@ -176,7 +180,13 @@ public class Player_Shield : MonoBehaviour
     public void ToggleShield(bool shouldActivate) //Turns the shield on & off.
     {
         circleCollider.enabled = shouldActivate;
-        sprite.enabled = shouldActivate;
+        shieldSprite.enabled = shouldActivate;
+    }
+
+    public void BreakShield(bool shouldActivate)
+    {
+        shieldBroken = shouldActivate;
+        staticSprite.enabled = shouldActivate;
     }
 
     private IEnumerator GradualChange() //Makes the change smooth and creates the effect to fill from the center by using two mirrored bars. Also changes the color the more its filled.
@@ -200,7 +210,7 @@ public class Player_Shield : MonoBehaviour
 
             if (!isParryActive) 
             {
-                sprite.color = blockColor;
+                shieldSprite.color = blockColor;
             }
 
             yield return null;

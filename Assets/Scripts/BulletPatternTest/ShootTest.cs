@@ -15,8 +15,8 @@ public class ShootTest : MonoBehaviour
 
         if (shootCooldownTimer <= 0f)
         {
-            ShotAttack.RadialShot(transform.position, transform.up, shotSettings);
-            shootCooldownTimer += shootCooldown;
+            //ShotAttack.RadialShot(transform.position, transform.up, shotSettings);
+            //shootCooldownTimer += shootCooldown;
         }
     }
 }

@@ -23,6 +23,8 @@ public class EnemyMovement : MonoBehaviour
         waypoints.AddRange(waypointHolder.GetComponentsInChildren<Transform>());
 
         currentSpeed = speed;
+
+        GameManager.Instance.SetBossReference(gameObject);
     }
 
     private void FixedUpdate()

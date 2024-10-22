@@ -3,18 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RadialShotWeapon : MonoBehaviour
+public class RadialShotWeapon : MonoBehaviour, ITurret
 {
     [SerializeField] private RadialShotPattern shotPattern;
 
     private bool onShotPattern = false;
 
-    private void Update()
-    {
-        if (onShotPattern)
-            return;
+    private BulletFactory factory;
 
-        StartCoroutine(ExecuteRadialShotPattern(shotPattern));
+    private void Awake()
+    {
+        factory = GetComponent<BulletFactory>();
+    }
+
+    //private void Update()
+    //{
+    //    if (!onShotPattern)
+    //    {
+    //        StartCoroutine(ExecuteRadialShotPattern(shotPattern));
+    //    }
+    //}
+
+    public void Shoot()
+    {
+        if (!onShotPattern)
+        {
+            StartCoroutine(ExecuteRadialShotPattern(shotPattern));
+        }
     }
 
     private IEnumerator ExecuteRadialShotPattern(RadialShotPattern pattern)
@@ -36,7 +51,7 @@ public class RadialShotWeapon : MonoBehaviour
 
             for (int i = 0; i < pattern.PatternSettings.Length; i++)
             {
-                ShotAttack.RadialShot(center, aimDirection, pattern.PatternSettings[i]);
+                RadialShot(center, aimDirection, pattern.PatternSettings[i]);
                 yield return new WaitForSeconds(pattern.PatternSettings[i].CooldownAfterShot);
             }
 
@@ -46,5 +61,35 @@ public class RadialShotWeapon : MonoBehaviour
         yield return new WaitForSeconds(pattern.EndWait);
 
         onShotPattern = false;
+    }
+
+    public void SimpleShot(string name, Vector2 origin, Vector2 velocity)
+    {
+        Bullet_Controller bullet = factory.CreateBullet(name);
+        bullet.transform.position = origin;
+        bullet.Bullet_Movement.AssignMovement(velocity);
+    }
+
+    public void RadialShot(Vector2 origin, Vector2 aimDirection, RadialShotSettings settings)
+    {
+        float angleBetweenBullets = 360 / settings.NumberOfBullets;
+
+        if (settings.AngleOffset != 0f || settings.PhaseOffset != 0f)
+        {
+            aimDirection = aimDirection.Rotate(settings.AngleOffset + (settings.PhaseOffset * angleBetweenBullets));
+        }
+
+        for (int i = 0; i < settings.NumberOfBullets; i++)
+        {
+            float bulletDirectionAngle = angleBetweenBullets * i;
+
+            if (settings.RadialMask && bulletDirectionAngle > settings.MaskAngle)
+            {
+                break;
+            }
+
+            Vector2 bulletDirection = aimDirection.Rotate(bulletDirectionAngle);
+            SimpleShot(settings.BulletName, origin, bulletDirection * settings.BulletSpeed);
+        }
     }
 }

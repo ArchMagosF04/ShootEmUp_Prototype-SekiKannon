@@ -26,7 +26,7 @@ public class Player_ShieldState : IState
         {
             playerController.StateMachine.ChangeState(playerController.StateMachine.idleState);
         }
-        if(player_Shield.shieldBroken) //If the shield runs out of durability it will break and send the player to the stunned state.
+        if(player_Shield.ShieldBroken) //If the shield runs out of durability it will break and send the player to the stunned state.
         {
             playerController.StateMachine.ChangeState(playerController.StateMachine.stunedState);
         }

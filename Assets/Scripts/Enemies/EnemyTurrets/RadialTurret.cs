@@ -61,7 +61,7 @@ public class RadialTurret : MonoBehaviour, ITurret
             {
                 for (int j = 0; j < numberOfBulletsInRadius; j++)
                 {
-                    Bullet_Controller creation = factory.CreateBullet(bulletName, t);
+                    Bullet_Controller creation = factory.CreateBullet(bulletName); //CHECKTHIS
 
                     creation.transform.position = t.position;
                     creation.transform.localRotation = t.rotation;
@@ -95,7 +95,7 @@ public class RadialTurret : MonoBehaviour, ITurret
                     Vector2 projectileVector = new Vector2(projectileDirXposition, projectileDirYposition);
                     Vector2 projectileMoveDirection = (projectileVector - new Vector2(transform.position.x, transform.position.y)).normalized;
 
-                    Bullet_Controller creation = factory.CreateBullet(bulletName, t);
+                    Bullet_Controller creation = factory.CreateBullet(bulletName); //CHECKTHIS
 
                     creation.transform.position = t.position;
                     creation.transform.localRotation = t.rotation;
