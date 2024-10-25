@@ -79,6 +79,8 @@ public class ShotgunTurret : MonoBehaviour
                     creation.transform.position = t.position;
                     creation.transform.localRotation = t.rotation;
 
+                    creation.Bullet_Movement.Movement(transform.up);
+
                     transform.Rotate(0,0, angleStep);
                 }
 
