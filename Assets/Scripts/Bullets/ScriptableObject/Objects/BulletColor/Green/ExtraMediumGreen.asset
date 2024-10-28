@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ExtraMediumGreen
   m_EditorClassIdentifier: 
   <ShieldDamage>k__BackingField: 10
-  <BlockHeal>k__BackingField: 0
-  <ParryHeal>k__BackingField: 2
+  <BlockHeal>k__BackingField: 1
+  <ParryHeal>k__BackingField: 3

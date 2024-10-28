@@ -80,7 +80,6 @@ public class BossBar : MonoBehaviour
 
     private void OnDisable() //Unsubscribes from the event.
     {
-        Player_Health.OnDamageReceived -= DecreaseBar;
-        Player_Health.OnHealthHealed -= IncreaseBar;
+        EnemyHealth.OnDamageReceived -= DecreaseBar;
     }
 }

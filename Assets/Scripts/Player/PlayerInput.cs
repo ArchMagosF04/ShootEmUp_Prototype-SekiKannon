@@ -24,12 +24,28 @@ public class PlayerInput : MonoBehaviour
 
     private void ReceiveInputs() //Detects the inputs.
     {
-        float inputX = Input.GetAxisRaw("Horizontal");
-        float inputY = Input.GetAxisRaw("Vertical");
+        if (Input.GetKeyDown(KeyCode.Escape) && !HUDManager.Instance.IsGameOver)
+        {
+            if (HUDManager.Instance.IsPaused)
+            {
+                HUDManager.Instance.ResumeGame();
+            }
+            else
+            {
+                HUDManager.Instance.PauseGame();
+            }
+            
+        }
 
-        inputVector = new Vector2(inputX, inputY).normalized;
+        if (!HUDManager.Instance.IsPaused)
+        {
+            float inputX = Input.GetAxisRaw("Horizontal");
+            float inputY = Input.GetAxisRaw("Vertical");
 
-        isShotting = Input.GetKey(shoot);
-        isShieldActive = Input.GetKey(shield);
+            inputVector = new Vector2(inputX, inputY).normalized;
+
+            isShotting = Input.GetKey(shoot);
+            isShieldActive = Input.GetKey(shield);
+        } 
     }
 }

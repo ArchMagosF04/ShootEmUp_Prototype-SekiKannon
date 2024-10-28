@@ -15,7 +15,10 @@ public class BossDeath_State : IState
 
     public void OnEnter()
     {
-
+        controller.Movement.SetSpeedMultiplier(0);
+        controller.EngineSprite.SetActive(false);
+        controller.ShipAnimator.SetBool("IsDead", true);
+        controller.DestroyTurrets();
     }
 
     public void StateUpdate()
