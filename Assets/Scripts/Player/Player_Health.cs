@@ -10,6 +10,7 @@ public class Player_Health : MonoBehaviour, IDamageable
 
     public static event Action<float, float> OnDamageReceived; //Event that will be called every time the player takes damage.
     public static event Action<float, float> OnHealthHealed; //Event that will be called every time the player heals.
+    public static event Action OnPlayerDeath;
 
     private void Start()
     {
@@ -45,6 +46,7 @@ public class Player_Health : MonoBehaviour, IDamageable
 
     public void PlayerDeath() 
     {
+        OnPlayerDeath?.Invoke();
         Destroy(this.gameObject);
     }
 }

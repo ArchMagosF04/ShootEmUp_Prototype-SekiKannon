@@ -17,13 +17,11 @@ public class BlueBullet : MonoBehaviour, IParryEffect
     {
         player_Shield.TakeDamage(bulletData.ShieldDamage);
         controller.DestroySelf();
-        Debug.Log("Block");
     }
 
     public void OnParryEffect(Player_Shield player_Shield) //When parried, the bullet is destroyed and damages the shield, but won't fill the bar to the max.
     {
         player_Shield.TakeSafeDamage(bulletData.ShieldDamage);
         controller.DestroySelf();
-        Debug.Log("Parry");
     }
 }

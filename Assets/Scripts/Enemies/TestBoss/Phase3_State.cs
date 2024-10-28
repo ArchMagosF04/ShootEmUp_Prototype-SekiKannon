@@ -21,10 +21,10 @@ public class Phase3_State : IState
 
     public void OnEnter()
     {
+        controller.WeaponsQueue.Clear();
         EnemyHealth.OnEnemyDeath += SwitchToNextPhase;
         controller.ShuffleList(controller.Phase3Weapons);
         SwitchCurrentWeapon();
-        Debug.Log("Entering Phase 3");
     }
 
     public void StateUpdate()
@@ -55,10 +55,9 @@ public class Phase3_State : IState
 
     private void SwitchCurrentWeapon()
     {
-        if (controller.Phase1Queue.Count > 0)
+        if (controller.WeaponsQueue.Count > 0)
         {
-            currentTurret = controller.Phase1Queue.Dequeue();
-            Debug.Log("SwitchWeapon");
+            currentTurret = controller.WeaponsQueue.Dequeue();
             wasFired = false;
         }
         else
@@ -71,7 +70,6 @@ public class Phase3_State : IState
     private void SwitchToNextPhase()
     {
         stateMachine.ChangeState(controller.BossDeathState);
-        Debug.Log("Next Phase");
         EnemyHealth.OnEnemyDeath -= SwitchToNextPhase;
     }
 

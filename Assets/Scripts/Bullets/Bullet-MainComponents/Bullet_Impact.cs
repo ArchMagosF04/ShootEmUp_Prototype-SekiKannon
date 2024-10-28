@@ -45,7 +45,6 @@ public class Bullet_Impact : MonoBehaviour
         IDamageable iDamageable = target.gameObject.GetComponent<IDamageable>();
         if (iDamageable != null)
         {
-            Debug.Log(target.gameObject.name);
             iDamageable.TakeDamage(Mathf.RoundToInt(controller.BulletData.Damage*damageMultiplier));
         }
     }

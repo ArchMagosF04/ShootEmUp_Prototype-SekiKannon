@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FastBullet
   m_EditorClassIdentifier: 
   <InitialLifeTime>k__BackingField: 5
-  <Speed>k__BackingField: 7
+  <Speed>k__BackingField: 23
   <Damage>k__BackingField: 3
   <WhatDestroysBullet>k__BackingField:
     serializedVersion: 2
