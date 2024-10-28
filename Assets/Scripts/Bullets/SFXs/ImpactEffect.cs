@@ -6,6 +6,6 @@ public class ImpactEffect : MonoBehaviour
 {
     public void DestroyEffect()
     {
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 }

@@ -16,7 +16,6 @@ public class ParallaxScript : MonoBehaviour
     {
         startPosition = transform.position.x;
         singleTextureWidth = GetComponent<SpriteRenderer>().bounds.size.x;
-        SetupTexture();
         if (scrollLeft)
         {
             moveSpeed = - moveSpeed;
@@ -27,12 +26,6 @@ public class ParallaxScript : MonoBehaviour
     {
         Scroll();
         CheckReset();
-    }
-
-    private void SetupTexture()
-    {
-        //Sprite sprite = GetComponent<SpriteRenderer>().sprite;
-        //singleTextureWidth = sprite.texture.width / sprite.pixelsPerUnit;
     }
 
     private void Scroll()
@@ -52,14 +45,5 @@ public class ParallaxScript : MonoBehaviour
         {
             transform.position = Vector3.zero;
         }
-
-        //if (transform.position.x > startPosition + singleTextureWidth)
-        //{
-        //    transform.position = new Vector3 (startPosition, transform.position.y, transform.position.z);
-        //}
-        //else if (transform.position.x < startPosition - singleTextureWidth)
-        //{
-        //    transform.position = new Vector3(startPosition, transform.position.y, transform.position.z);
-        //}
     }
 }

@@ -21,6 +21,7 @@ public class Phase2_State : IState
 
     public void OnEnter()
     {
+        timer = 1.5f;
         controller.WeaponsQueue.Clear();
         EnemyHealth.OnDamageReceived += SwitchToNextPhase;
         controller.ShuffleList(controller.Phase2Weapons);

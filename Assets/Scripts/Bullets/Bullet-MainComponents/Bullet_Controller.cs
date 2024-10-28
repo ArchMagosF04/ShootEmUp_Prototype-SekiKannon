@@ -58,8 +58,6 @@ public class Bullet_Controller : MonoBehaviour
             effect.transform.rotation = transform.rotation;
         }
 
-        pool = null;
-
         if (pool != null)
         {
             pool.Release(this);

@@ -30,7 +30,6 @@ public class Bullet_Impact : MonoBehaviour
     {
         if ((whatDestroysBullet.value & (1 << collision.gameObject.layer)) > 0)
         {
-            //Special Effects
 
             //Damage the target
             DealDamage(collision);

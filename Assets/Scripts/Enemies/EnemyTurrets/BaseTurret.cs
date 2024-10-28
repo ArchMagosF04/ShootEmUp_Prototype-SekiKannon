@@ -34,7 +34,7 @@ public abstract class BaseTurret : AbstractTurret
 
     protected virtual Bullet_Controller CreateBullet(string bulletName, Transform t)
     {
-        Bullet_Controller creation = factory.CreateBullet(bulletName); //CHECKTHIS
+        Bullet_Controller creation = factory.CreateBullet(bulletName);
 
         creation.transform.position = t.position;
         creation.transform.localRotation = t.rotation;

@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretLinker : BaseTurret
+public class TurretLinker : AbstractTurret
 {
     [SerializeField] public List<AbstractTurret> turrets = new List<AbstractTurret>();
 
     private bool isShoting = false;
     public override bool IsShoting { get => isShoting; set => isShoting = value; }
 
-    protected override void Awake()
+    private void Awake()
     {
         turrets.AddRange(GetComponentsInChildren<AbstractTurret>());
         if (turrets.Contains(this))
@@ -18,11 +18,23 @@ public class TurretLinker : BaseTurret
         }
     }
 
+    public void Update()
+    {
+        if (isShoting)
+        {
+
+        }
+    }
+
     public override void Shoot()
     {
+        isShoting = true;
+
         foreach (var t in turrets)
         {
             t.Shoot();
         }
+
+        isShoting = false;
     }
 }

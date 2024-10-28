@@ -56,10 +56,6 @@ public class Player_AttackState : IState
                 bullet.transform.localRotation = barrel.rotation;
                 bullet.Bullet_Movement.Movement(barrel.up);
             }
-            //playerController.BulletPool.ChangeSpawnpoint(playerController.Cannons[0]);
-            //Bullet_Controller bullet1 = playerController.BulletPool.pool.Get();
-            //playerController.BulletPool.ChangeSpawnpoint(playerController.Cannons[1]);
-            //Bullet_Controller bullet2 = playerController.BulletPool.pool.Get();
 
             shootCooldown = shootingInterval; //Activate the cooldown.
         }

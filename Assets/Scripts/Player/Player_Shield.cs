@@ -38,7 +38,6 @@ public class Player_Shield : MonoBehaviour
     {
         circleCollider = GetComponent<Collider2D>();
         shieldSprite = GetComponent<SpriteRenderer>();
-        //staticSprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Start()
