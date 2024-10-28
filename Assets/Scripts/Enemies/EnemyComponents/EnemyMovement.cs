@@ -15,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] private float speed = 3f;
     private float currentSpeed;
+    private float speedMultiplier = 1f;
 
     private void Awake()
     {
@@ -23,8 +24,6 @@ public class EnemyMovement : MonoBehaviour
         waypoints.AddRange(waypointHolder.GetComponentsInChildren<Transform>());
 
         currentSpeed = speed;
-
-        GameManager.Instance.SetBossReference(gameObject);
     }
 
     private void FixedUpdate()
@@ -51,11 +50,16 @@ public class EnemyMovement : MonoBehaviour
 
         float distanceToTarget = (transform.position - currentTarget.position).magnitude;
 
-        transform.position = Vector3.MoveTowards(transform.position, currentTarget.position, currentSpeed * Time.fixedDeltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, currentTarget.position, currentSpeed * speedMultiplier * Time.fixedDeltaTime);
 
         if (distanceToTarget <= 0.1f)
         {
             hasReachedTarget = true;
         }
+    }
+
+    public void SetSpeedMultiplier(float number)
+    {
+        speedMultiplier = number;
     }
 }

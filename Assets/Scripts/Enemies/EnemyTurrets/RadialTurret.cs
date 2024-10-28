@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RadialTurret : MonoBehaviour, ITurret
+public class RadialTurret : MonoBehaviour
 {
     [SerializeField] private int numberOfBulletsInRadius;
 

@@ -21,10 +21,14 @@ public class PlayerController : MonoBehaviour
 
 
 
-    [Header("State Machine")]
+    //State Machine Components
 
-    private Player_StateMachine stateMachine;
-    public Player_StateMachine StateMachine => stateMachine;
+    public StateMachine PlayerStateMachine { get; private set; }
+    public Player_IdleState IdleState { get; private set; }
+    public Player_AttackState AttackState { get; private set; }
+    public Player_ParryState ParryState { get; private set; }
+    public Player_ShieldState ShieldState { get; private set; }
+    public Player_StunedState StunedState { get; private set; }
 
 
 
@@ -53,20 +57,27 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody2D>();
         player_Shield = GetComponentInChildren<Player_Shield>();
-        stateMachine = new Player_StateMachine(this, player_Shield);
+
         bulletPool = GetComponent<BulletPool>();
         bulletPool.SetBulletPrefab(bulletPrefab);
+
+        PlayerStateMachine = new StateMachine();
+        IdleState = new Player_IdleState(PlayerStateMachine, this);
+        AttackState = new Player_AttackState(PlayerStateMachine, this);
+        ParryState = new Player_ParryState(PlayerStateMachine, this, player_Shield);
+        ShieldState = new Player_ShieldState(PlayerStateMachine, this, player_Shield);
+        StunedState = new Player_StunedState(PlayerStateMachine, this, player_Shield);
     }
 
     private void Start()
     {
         currentMoveSpeed = normalMoveSpeed;
-        stateMachine.Initialize(stateMachine.idleState);
+        PlayerStateMachine.Initialize(IdleState);
     }
 
     private void Update()
     {
-        stateMachine.Update(); //Updates the current state in the state machine.
+        PlayerStateMachine.Update(); //Updates the current state in the state machine.
         Movement();
     }
 

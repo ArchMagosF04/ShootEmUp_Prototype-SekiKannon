@@ -45,8 +45,7 @@ public class OrangeBullet : MonoBehaviour, IParryEffect
         } 
         else
         {
-            HomingBullet bullet = gameObject.AddComponent<HomingBullet>();
-            bullet.ChangeTarget(creator);
+            bullet_Movement.Movement(transform.up);
         }
 
         controller.ResetLifeTime();

@@ -4,5 +4,7 @@ using UnityEngine;
 
 public interface ITurret
 {
+    public bool IsShoting { get; set; }
+
     public void Shoot();
 }

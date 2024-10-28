@@ -6,8 +6,11 @@ using static UnityEngine.GraphicsBuffer;
 
 public class StraightShotTurret : BaseTurret
 {
-    [SerializeField] private float shootCooldown = 2f;
-    private float timer = 0f;
+    //[SerializeField] private float shootCooldown = 2f;
+    //private float timer = 0f;
+
+    private bool isShoting = false;
+    public override bool IsShoting { get => isShoting; set => isShoting = value; }
 
     protected override void Awake()
     {
@@ -19,28 +22,27 @@ public class StraightShotTurret : BaseTurret
         base.Start();
     }
 
-    public void Update()
+    //public void Update()
+    //{
+    //    if (timer <= 0f)
+    //    {
+    //        Shoot();
+    //        timer = shootCooldown;
+    //    }
+
+    //    timer -= Time.deltaTime;
+    //}
+
+    public override void Shoot()
     {
-        if (timer <= 0f)
+        if (!isShoting)
         {
-            Shoot();
-            timer = shootCooldown;
-        }
-
-        timer -= Time.deltaTime;
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Shoot();
+            isShoting = true;
+            StartCoroutine(AttackSequence());
         }
     }
 
-    protected override void Shoot()
-    {
-        StartCoroutine(AttackSequence());
-    }
-
-    protected override IEnumerator AttackSequence()
+    private IEnumerator AttackSequence()
     {
         for (int i = 0; i < numberOfShoots; i++)
         {
@@ -48,9 +50,11 @@ public class StraightShotTurret : BaseTurret
             {
                 Bullet_Controller creation = CreateBullet(ammoName, t);
 
-                AimAtPlayer(creation);
+                Aim(creation);
             }
             yield return new WaitForSeconds(shootInterval);
         }
+
+        isShoting = false;
     }
 }

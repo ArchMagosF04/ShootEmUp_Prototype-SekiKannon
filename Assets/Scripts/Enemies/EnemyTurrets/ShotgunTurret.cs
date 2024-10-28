@@ -2,63 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotgunTurret : MonoBehaviour
+public class ShotgunTurret : BaseTurret
 {
     [SerializeField] private int numberOfBulletsInArc;
     [SerializeField] private float arcAngle = 45f;
 
-    [SerializeField] private List<Transform> barrels = new List<Transform>();
+    //[SerializeField] private float shootCooldown = 2f;
+    //private float timer = 0f;
 
-    private BulletFactory factory;
+    private bool isShoting = false;
+    public override bool IsShoting { get => isShoting; set => isShoting = value; }
 
-    [SerializeField] private float shootInterval = 0.4f;
-    [SerializeField] private int numberOfShoots = 3;
-
-    [SerializeField] private string ammoName;
-
-    private bool isAttacking = false;
-
-    [SerializeField] private float shootCooldown = 5f;
-    private float timer = 0f;
-
-    private void Awake()
+    protected override void Awake()
     {
-        barrels.AddRange(GetComponentsInChildren<Transform>());
-
-        if (barrels.Contains(transform))
-        {
-            barrels.Remove(transform);
-        }
-
-        factory = GetComponentInParent<BulletFactory>();
+        base.Awake();
     }
 
-    public void Update()
+    protected override void Start()
     {
-        if (timer <= 0f)
-        {
-            Shoot();
-            timer = shootCooldown;
-        }
+        base.Start();
+    }
 
-        timer -= Time.deltaTime;
+    //public void Update()
+    //{
+    //    if (timer <= 0f)
+    //    {
+    //        Shoot();
+    //        timer = shootCooldown;
+    //    }
 
-        if (Input.GetMouseButtonDown(1))
+    //    timer -= Time.deltaTime;
+    //}
+
+    public override void Shoot()
+    {
+        if (!isShoting)
         {
-            Shoot();
+            isShoting = true;
+            StartCoroutine(AttackSequence());
         }
     }
 
-    public void Shoot()
-    {
-        if (!isAttacking)
-        {
-            isAttacking = true;
-            StartCoroutine(AttackSequence(ammoName));
-        }
-    }
-
-    private IEnumerator AttackSequence(string bulletName)
+    private IEnumerator AttackSequence()
     {
         float angleStep = (arcAngle * 2f) / (numberOfBulletsInArc-1);
 
@@ -74,12 +59,9 @@ public class ShotgunTurret : MonoBehaviour
             {
                 for (int j = 0; j < numberOfBulletsInArc; j++)
                 {
-                    Bullet_Controller creation = factory.CreateBullet(bulletName); //CHECKTHIS
+                    Bullet_Controller creation = CreateBullet(ammoName, t);
 
-                    creation.transform.position = t.position;
-                    creation.transform.localRotation = t.rotation;
-
-                    creation.Bullet_Movement.Movement(transform.up);
+                    Aim(creation);
 
                     transform.Rotate(0,0, angleStep);
                 }
@@ -90,6 +72,6 @@ public class ShotgunTurret : MonoBehaviour
 
         transform.rotation = initialRotation;
 
-        isAttacking = false;
+        isShoting = false;
     }
 }

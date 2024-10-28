@@ -6,26 +6,27 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
     [SerializeField] private int maxHealth = 500; //Sets the maximum value of health points.
-    private int currentHealth;
+    public int CurrentHealth {  get; private set; }
 
     public static event Action<float, float> OnDamageReceived;
+    public static event Action OnEnemyDeath;
 
     private void Start()
     {
-        currentHealth = maxHealth; //Fills all health points.
-        OnDamageReceived?.Invoke(maxHealth, currentHealth);
+        CurrentHealth = maxHealth; //Fills all health points.
+        OnDamageReceived?.Invoke(maxHealth, CurrentHealth);
     }
 
     public void TakeDamage(int damageReceived)
     {
-        currentHealth -= damageReceived;
-        OnDamageReceived?.Invoke(maxHealth, currentHealth);
+        CurrentHealth -= damageReceived;
+        OnDamageReceived?.Invoke(maxHealth, CurrentHealth);
 
-        if (currentHealth <= 0) //If the healthbar reaches 0 then die.
+        if (CurrentHealth <= 0) //If the healthbar reaches 0 then die.
         {
-            currentHealth = 0; //Avoids health from going into negative values.
+            CurrentHealth = 0; //Avoids health from going into negative values.
 
-            Destroy(gameObject);
+            OnEnemyDeath?.Invoke();
         }
     }
 }
