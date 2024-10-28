@@ -17,7 +17,7 @@ MonoBehaviour:
   StartWait: 0
   EndWait: 1
   PatternSettings:
-  - BulletName: 
+  - BulletName: RoundGreen
     NumberOfBullets: 6
     BulletSpeed: 10
     CooldownAfterShot: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
     AngleOffset: 0
     RadialMask: 0
     MaskAngle: 0
-  - BulletName: RoundBlue
+  - BulletName: RoundGreen
     NumberOfBullets: 6
     BulletSpeed: 7.5
     CooldownAfterShot: 0.15

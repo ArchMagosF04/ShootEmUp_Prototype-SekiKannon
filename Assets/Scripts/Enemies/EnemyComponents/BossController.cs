@@ -37,7 +37,7 @@ public class BossController : MonoBehaviour
 
     private void Start()
     {
-        BossStateMachine.Initialize(Phase1State);
+        BossStateMachine.Initialize(Phase3State);
     }
 
     private void Update()

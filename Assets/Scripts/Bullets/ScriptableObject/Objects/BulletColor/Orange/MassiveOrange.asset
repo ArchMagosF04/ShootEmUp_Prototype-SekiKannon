@@ -17,4 +17,4 @@ MonoBehaviour:
   <DamageOnDeflect>k__BackingField: 0
   <whatDestroysBulletWhenDeflected>k__BackingField:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64

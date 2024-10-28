@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MassiveGreen
   m_EditorClassIdentifier: 
   <ShieldDamage>k__BackingField: 20
-  <BlockHeal>k__BackingField: 1
+  <BlockHeal>k__BackingField: 0
   <ParryHeal>k__BackingField: 2

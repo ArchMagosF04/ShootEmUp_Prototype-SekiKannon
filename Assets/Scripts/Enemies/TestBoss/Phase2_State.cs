@@ -22,7 +22,7 @@ public class Phase2_State : IState
     public void OnEnter()
     {
         EnemyHealth.OnDamageReceived += SwitchToNextPhase;
-        controller.ShuffleList(controller.Phase1Weapons);
+        controller.ShuffleList(controller.Phase2Weapons);
         SwitchCurrentWeapon();
         Debug.Log("Entering Phase 2");
     }

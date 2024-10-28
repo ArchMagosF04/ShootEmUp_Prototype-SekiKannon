@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbcebd4b9e7baa14b8f07e8dbef13cd8, type: 3}
   m_Name: HeavyOrange
   m_EditorClassIdentifier: 
-  <ShieldDamage>k__BackingField: 0
-  <SpeedOnDeflect>k__BackingField: 0
+  <ShieldDamage>k__BackingField: 10
+  <SpeedOnDeflect>k__BackingField: 2
   <DamageOnDeflect>k__BackingField: 0
   <whatDestroysBulletWhenDeflected>k__BackingField:
     serializedVersion: 2

@@ -66,8 +66,7 @@ public class Bullet_Controller : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
-            //Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 

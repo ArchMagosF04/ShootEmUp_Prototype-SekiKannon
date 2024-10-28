@@ -9,6 +9,5 @@ public class BulletSO : ScriptableObject
     [field: SerializeField] public float Speed { get; private set; }
     [field: SerializeField] public int Damage { get; private set; }
     [field: SerializeField] public LayerMask WhatDestroysBullet { get; private set; }
-    [field: SerializeField] public bool IsHoming { get; private set; } = false;
 
 }
