@@ -63,11 +63,12 @@ public class RadialShotWeapon : AbstractTurret
         isShoting = false;
     }
 
-    public void SimpleShot(string name, Vector2 origin, Vector2 velocity)
+    public void SimpleShot(string name, Vector2 origin, Vector2 direction, float velocity)
     {
         Bullet_Controller bullet = factory.CreateBullet(name);
         bullet.transform.position = origin;
-        bullet.Bullet_Movement.AssignMovement(velocity);
+        bullet.transform.up = direction;
+        bullet.Bullet_Movement.AssignMovement(direction * velocity);
     }
 
     public void RadialShot(Vector2 origin, Vector2 aimDirection, RadialShotSettings settings)
@@ -89,7 +90,7 @@ public class RadialShotWeapon : AbstractTurret
             }
 
             Vector2 bulletDirection = aimDirection.Rotate(bulletDirectionAngle);
-            SimpleShot(settings.BulletName, origin, bulletDirection * settings.BulletSpeed);
+            SimpleShot(settings.BulletName, origin, bulletDirection, settings.BulletSpeed);
         }
     }
 }

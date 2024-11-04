@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: ShotgunTest
   m_EditorClassIdentifier: 
   Repetitions: 4
-  AngleOffsetBetweenReps: 11
+  AngleOffsetBetweenReps: 0
   StartWait: 0
   EndWait: 2
   PatternSettings:
-  - BulletName: RoundBlue
+  - BulletName: BasicBullet
     ConeArcAngle: 90
     NumberOfBullets: 10
     BulletSpeed: 10
     CooldownAfterShot: 0.1
     PhaseOffset: 0
     AngleOffset: 0
-  - BulletName: RoundBlue
+  - BulletName: BasicBullet
     ConeArcAngle: 80
     NumberOfBullets: 9
     BulletSpeed: 10

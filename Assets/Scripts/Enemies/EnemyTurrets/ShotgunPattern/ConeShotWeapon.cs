@@ -17,13 +17,13 @@ public class ConeShotWeapon : AbstractTurret
         factory = GetComponentInParent<BulletFactory>();
     }
 
-    private void Update()
-    {
-        if (!isShoting)
-        {
-            StartCoroutine(ExecuteConeShotPattern(shotPattern));
-        }
-    }
+    //private void Update()
+    //{
+    //    if (!isShoting)
+    //    {
+    //        StartCoroutine(ExecuteConeShotPattern(shotPattern));
+    //    }
+    //}
 
     public override void Shoot()
     {
@@ -67,11 +67,12 @@ public class ConeShotWeapon : AbstractTurret
         isShoting = false;
     }
 
-    public void SimpleShot(string name, Vector2 origin, Vector2 velocity)
+    public void SimpleShot(string name, Vector2 origin, Vector2 direction, float velocity)
     {
         Bullet_Controller bullet = factory.CreateBullet(name);
         bullet.transform.position = origin;
-        bullet.Bullet_Movement.AssignMovement(velocity);
+        bullet.transform.up = direction;
+        bullet.Bullet_Movement.AssignMovement(direction * velocity);
     }
 
     public void ConeShot(float coneArc, Vector2 origin, Vector2 aimDirection, ConeShotSettings settings)
@@ -88,7 +89,7 @@ public class ConeShotWeapon : AbstractTurret
             float bulletDirectionAngle = angleBetweenBullets * i;
 
             Vector2 bulletDirection = aimDirection.Rotate(bulletDirectionAngle);
-            SimpleShot(settings.BulletName, origin, bulletDirection * settings.BulletSpeed);
+            SimpleShot(settings.BulletName, origin, bulletDirection, settings.BulletSpeed);
         }
     }
 }
