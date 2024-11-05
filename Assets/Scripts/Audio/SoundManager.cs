@@ -44,11 +44,11 @@ public class SoundManager : MonoBehaviour
     {
         if (!data.IsFrequent) return true;
 
-        if (FrequentSoundEmitters.Count >= maxSoundInstances && FrequentSoundEmitters.TryDequeue(out var soundEmitter))
+        if (FrequentSoundEmitters.Count >= maxSoundInstances)
         {
             try
             {
-                soundEmitter.Stop();
+                FrequentSoundEmitters.Dequeue().Stop();
                 return true;
             }
             catch

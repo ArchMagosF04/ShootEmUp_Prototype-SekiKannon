@@ -32,7 +32,7 @@ public class SoundEmitter : MonoBehaviour
     private IEnumerator WaitForSoundToEnd() //When the sound stops playing the emitter is returned to the pool.
     {
         yield return new WaitWhile(() => audioSource.isPlaying);
-        SoundManager.Instance.ReturnToPool(this);
+        Stop();
     }
 
     public void Stop() //Stops the sound from playing and returns it to the pool.
@@ -56,7 +56,7 @@ public class SoundEmitter : MonoBehaviour
         audioSource.playOnAwake = data.PlayOnAwake;
     }
 
-    public void WithRandomPitch(float min = -0.05f, float max = 0.05f)
+    public void WithRandomPitch(float min = -0.03f, float max = 0.03f)
     {
         audioSource.pitch += Random.Range(min, max);
     }

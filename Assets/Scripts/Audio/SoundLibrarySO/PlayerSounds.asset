@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundData:
   - Id: PlayerAttack
-    Clip: {fileID: 8300000, guid: 3b27b17458df6ed4cb94baa77b676e0d, type: 3}
+    Clip: {fileID: 8300000, guid: 3b21792580514fe45b81812d76aa61e0, type: 3}
     MixerGroup: {fileID: -3047294326803304059, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
     Loop: 0
     PlayOnAwake: 0

@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    [Header ("Components")]
+    //Components
 
     private PlayerInput playerInput;
     public PlayerInput PlayerInput => playerInput;
@@ -54,8 +54,9 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("Sound")]
-    [SerializeField] private SoundData attackSoundData;
-    public SoundData AttackSoundData => attackSoundData;
+    [SerializeField] private SoundLibraryObject soundLibrary;
+    public SoundLibraryObject SoundLibrary => soundLibrary;
+
 
     private void Awake()
     {
@@ -66,6 +67,8 @@ public class PlayerController : MonoBehaviour
 
         bulletPool = GetComponent<BulletPool>();
         bulletPool.SetBulletPrefab(bulletPrefab);
+
+        soundLibrary.Initialize();
 
         PlayerStateMachine = new StateMachine();
         IdleState = new Player_IdleState(PlayerStateMachine, this);

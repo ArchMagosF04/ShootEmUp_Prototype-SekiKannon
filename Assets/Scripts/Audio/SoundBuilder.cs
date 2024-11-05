@@ -42,7 +42,7 @@ public class SoundBuilder
         SoundEmitter soundEmitter = soundManager.GetSoundEmitter();
         soundEmitter.Initialize(soundData);
         soundEmitter.transform.position = position;
-        soundEmitter.transform.parent = SoundManager.Instance.transform;
+        soundEmitter.transform.parent = soundManager.transform;
 
         if (randomPitch)
         {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using static UnityEngine.UI.Image;
 
@@ -56,10 +57,11 @@ public class Player_AttackState : IState
                 bullet.transform.localRotation = barrel.rotation;
                 bullet.Bullet_Movement.Movement(barrel.up);
 
-                SoundManager.Instance.CreateSound().WithSoundData(playerController.AttackSoundData).WithRandomPitch().WithPosition(barrel.position).Play();
+                SoundManager.Instance.CreateSound().WithSoundData(playerController.SoundLibrary.soundDataDictionary["PlayerAttack"]).WithRandomPitch().WithPosition(barrel.position).Play();
             }
 
             
+
 
             shootCooldown = shootingInterval; //Activate the cooldown.
         }

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5987e737f31de7545acbc3542ceb5ae4, type: 3}
+  m_Name: MusicLibrary
+  m_EditorClassIdentifier: 
+  soundData:
+  - Id: MainMenu
+    Clip: {fileID: 8300000, guid: fbd4aea1e937952439a739348a078f54, type: 3}
+    MixerGroup: {fileID: 3548856431389802538, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
+    Loop: 1
+    PlayOnAwake: 0
+    IsFrequent: 0
+  - Id: Level1
+    Clip: {fileID: 8300000, guid: 68809b37c0e0f18479536ed495c8e703, type: 3}
+    MixerGroup: {fileID: 3548856431389802538, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
+    Loop: 1
+    PlayOnAwake: 0
+    IsFrequent: 0

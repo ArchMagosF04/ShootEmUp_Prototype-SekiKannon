@@ -1718,7 +1718,7 @@ MonoBehaviour:
   collectionCheck: 1
   defaultCapacity: 10
   maxPoolSize: 100
-  maxSoundInstances: 10
+  maxSoundInstances: 15
 --- !u!4 &489332202
 Transform:
   m_ObjectHideFlags: 0
@@ -8855,7 +8855,19 @@ PrefabInstance:
       value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 4960030221458186856, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
+      propertyPath: soundLibrary
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b75e6b44346b0b4ca30a53bb2add10f, type: 2}
+    - target: {fileID: 4960030221458186856, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
+      propertyPath: AttackSound.Id
+      value: AttackSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960030221458186856, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
       propertyPath: soundData.Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3b21792580514fe45b81812d76aa61e0, type: 3}
+    - target: {fileID: 4960030221458186856, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
+      propertyPath: AttackSound.Clip
       value: 
       objectReference: {fileID: 8300000, guid: 3b21792580514fe45b81812d76aa61e0, type: 3}
     - target: {fileID: 4960030221458186856, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
@@ -8864,6 +8876,14 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 3b27b17458df6ed4cb94baa77b676e0d, type: 3}
     - target: {fileID: 4960030221458186856, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
       propertyPath: soundData.MixerGroup
+      value: 
+      objectReference: {fileID: -3047294326803304059, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
+    - target: {fileID: 4960030221458186856, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
+      propertyPath: AttackSound.IsFrequent
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960030221458186856, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
+      propertyPath: AttackSound.MixerGroup
       value: 
       objectReference: {fileID: -3047294326803304059, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
     - target: {fileID: 4960030221458186856, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
