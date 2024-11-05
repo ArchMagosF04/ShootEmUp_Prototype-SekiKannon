@@ -51,6 +51,12 @@ public class PlayerController : MonoBehaviour
 
     private Player_Shield player_Shield;
 
+
+
+    [Header("Sound")]
+    [SerializeField] private SoundData attackSoundData;
+    public SoundData AttackSoundData => attackSoundData;
+
     private void Awake()
     {
         GameManager.Instance.SetPlayerReference(this.gameObject);

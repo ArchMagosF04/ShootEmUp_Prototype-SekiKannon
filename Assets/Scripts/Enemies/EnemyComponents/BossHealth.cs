@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour, IDamageable
+public class BossHealth : MonoBehaviour, IDamageable
 {
     [SerializeField] private int maxHealth = 500; //Sets the maximum value of health points.
     public int CurrentHealth {  get; private set; }

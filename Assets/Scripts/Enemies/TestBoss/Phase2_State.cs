@@ -23,7 +23,7 @@ public class Phase2_State : IState
     {
         timer = 1.5f;
         controller.WeaponsQueue.Clear();
-        EnemyHealth.OnDamageReceived += SwitchToNextPhase;
+        BossHealth.OnDamageReceived += SwitchToNextPhase;
         controller.ShuffleList(controller.Phase2Weapons);
         SwitchCurrentWeapon();
     }
@@ -68,12 +68,12 @@ public class Phase2_State : IState
         }
     }
 
-    private void SwitchToNextPhase(float maxHealth, float currentHealth)
+    public void SwitchToNextPhase(float maxHealth, float currentHealth)
     {
         if (currentHealth <= (maxHealth * 0.33f))
         {
+            BossHealth.OnDamageReceived -= SwitchToNextPhase;
             stateMachine.ChangeState(controller.Phase3State);
-            EnemyHealth.OnDamageReceived -= SwitchToNextPhase;
         }
     }
 

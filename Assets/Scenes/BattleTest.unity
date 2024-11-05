@@ -244,10 +244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f5c84eb2dbec045bca1c0044a3a839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 0.4
-  numberOfShoots: 3
-  ammoName: 
-  aimsAtPlayer: 0
   turrets: []
 --- !u!1 &22231198
 GameObject:
@@ -1689,6 +1685,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 378870552}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &489332200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 489332202}
+  - component: {fileID: 489332201}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &489332201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489332200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd3bf85441e49c34691a490808876c36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEmitterPrefab: {fileID: 3637668385936331700, guid: 418e968cba676e2459322fba2412c2f9, type: 3}
+  collectionCheck: 1
+  defaultCapacity: 10
+  maxPoolSize: 100
+  maxSoundInstances: 10
+--- !u!4 &489332202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489332200}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.156798, y: 0.51753294, z: 5.4216905}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &514918410
 GameObject:
   m_ObjectHideFlags: 0
@@ -2157,10 +2202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f5c84eb2dbec045bca1c0044a3a839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 0.4
-  numberOfShoots: 3
-  ammoName: 
-  aimsAtPlayer: 0
   turrets: []
 --- !u!1 &553988370
 GameObject:
@@ -2208,10 +2249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f5c84eb2dbec045bca1c0044a3a839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 0.4
-  numberOfShoots: 3
-  ammoName: 
-  aimsAtPlayer: 0
   turrets: []
 --- !u!1 &555962274
 GameObject:
@@ -7402,10 +7439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f5c84eb2dbec045bca1c0044a3a839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 0.4
-  numberOfShoots: 3
-  ammoName: 
-  aimsAtPlayer: 0
   turrets: []
 --- !u!1 &1774933407
 GameObject:
@@ -8821,6 +8854,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 4960030221458186856, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
+      propertyPath: soundData.Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3b21792580514fe45b81812d76aa61e0, type: 3}
+    - target: {fileID: 4960030221458186856, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
+      propertyPath: attackSoundData.Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3b27b17458df6ed4cb94baa77b676e0d, type: 3}
+    - target: {fileID: 4960030221458186856, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
+      propertyPath: soundData.MixerGroup
+      value: 
+      objectReference: {fileID: -3047294326803304059, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
+    - target: {fileID: 4960030221458186856, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
+      propertyPath: attackSoundData.IsFrequent
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960030221458186856, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
+      propertyPath: attackSoundData.MixerGroup
+      value: 
+      objectReference: {fileID: -3047294326803304059, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
     - target: {fileID: 9168802309673012899, guid: f1044a785e5af014b80130138f12d3ff, type: 3}
       propertyPath: m_Name
       value: Player
@@ -8836,6 +8889,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 921649986}
   - {fileID: 240534137}
+  - {fileID: 489332202}
   - {fileID: 386924589}
   - {fileID: 1977962390}
   - {fileID: 519420032}

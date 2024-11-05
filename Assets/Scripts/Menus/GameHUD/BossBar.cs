@@ -19,7 +19,7 @@ public class BossBar : MonoBehaviour
 
     private void OnEnable()
     {
-        EnemyHealth.OnDamageReceived += DecreaseBar;
+        BossHealth.OnDamageReceived += DecreaseBar;
     }
 
     public void DecreaseBar(float maxValue, float currentValue)
@@ -80,6 +80,6 @@ public class BossBar : MonoBehaviour
 
     private void OnDisable() //Unsubscribes from the event.
     {
-        EnemyHealth.OnDamageReceived -= DecreaseBar;
+        BossHealth.OnDamageReceived -= DecreaseBar;
     }
 }

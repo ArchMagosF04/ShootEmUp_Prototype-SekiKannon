@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossController : MonoBehaviour
 {
     public EnemyMovement Movement { get; private set; }
-    public EnemyHealth Health { get; private set; }
+    public BossHealth Health { get; private set; }
     [field: SerializeField] public Animator ShipAnimator { get; private set; }
     [field: SerializeField] public GameObject EngineSprite { get; private set; }
 
@@ -32,10 +32,12 @@ public class BossController : MonoBehaviour
     {
         GameManager.Instance.SetBossReference(gameObject);
         Movement = GetComponent<EnemyMovement>();
-        Health = GetComponent<EnemyHealth>();
+        Health = GetComponent<BossHealth>();
         EngineSprite.SetActive(true);
+    }
 
-
+    private void OnEnable()
+    {
         BossStateMachine = new StateMachine();
         Phase1State = new Phase1_State(BossStateMachine, this);
         Phase2State = new Phase2_State(BossStateMachine, this);
@@ -67,6 +69,14 @@ public class BossController : MonoBehaviour
         {
             Destroy(t.gameObject);
         }
+    }
+
+    private void OnDisable()
+    {
+        //Debug.Log("DisableBoss");
+        BossHealth.OnDamageReceived -= Phase1State.SwitchToNextPhase;
+        BossHealth.OnDamageReceived -= Phase2State.SwitchToNextPhase;
+        BossHealth.OnEnemyDeath -= Phase3State.SwitchToNextPhase;
     }
 
     public void ShuffleList(List<AbstractTurret> list)

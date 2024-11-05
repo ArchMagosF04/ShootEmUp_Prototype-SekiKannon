@@ -47,13 +47,13 @@ public class HUDManager : MonoBehaviour
     private void OnDisable()
     {
         Player_Health.OnPlayerDeath -= LoseGame;
-        EnemyHealth.OnEnemyDeath -= WinGame;
+        BossHealth.OnEnemyDeath -= WinGame;
     }
 
     private void SubscribeToEvents()
     {
         Player_Health.OnPlayerDeath += LoseGame;
-        EnemyHealth.OnEnemyDeath += WinGame;
+        BossHealth.OnEnemyDeath += WinGame;
     }
 
     public void PauseGame()

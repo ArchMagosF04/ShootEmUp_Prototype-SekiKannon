@@ -23,9 +23,10 @@ public class Phase3_State : IState
     {
         timer = 1.5f;
         controller.WeaponsQueue.Clear();
-        EnemyHealth.OnEnemyDeath += SwitchToNextPhase;
+        BossHealth.OnEnemyDeath += SwitchToNextPhase;
         controller.ShuffleList(controller.Phase3Weapons);
         SwitchCurrentWeapon();
+        Debug.Log(controller);
     }
 
     public void StateUpdate()
@@ -68,14 +69,14 @@ public class Phase3_State : IState
         }
     }
 
-    private void SwitchToNextPhase()
+    public void SwitchToNextPhase()
     {
+        //controller = GameManager.Instance.BossCharacter.GetComponent<BossController>();
         stateMachine.ChangeState(controller.BossDeathState);
-        EnemyHealth.OnEnemyDeath -= SwitchToNextPhase;
     }
 
     public void OnExit()
     {
-
+        BossHealth.OnEnemyDeath -= SwitchToNextPhase;
     }
 }

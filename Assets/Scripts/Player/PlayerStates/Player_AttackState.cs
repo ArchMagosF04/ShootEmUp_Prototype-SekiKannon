@@ -55,7 +55,11 @@ public class Player_AttackState : IState
                 bullet.transform.position = barrel.position;
                 bullet.transform.localRotation = barrel.rotation;
                 bullet.Bullet_Movement.Movement(barrel.up);
+
+                SoundManager.Instance.CreateSound().WithSoundData(playerController.AttackSoundData).WithRandomPitch().WithPosition(barrel.position).Play();
             }
+
+            
 
             shootCooldown = shootingInterval; //Activate the cooldown.
         }
