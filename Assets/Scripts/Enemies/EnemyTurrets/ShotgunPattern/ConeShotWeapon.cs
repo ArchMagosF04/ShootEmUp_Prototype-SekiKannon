@@ -55,7 +55,7 @@ public class ConeShotWeapon : AbstractTurret
                 aimDirection = startingOffset;
                 aimDirection = aimDirection.Rotate(-pattern.PatternSettings[i].ConeArcAngle/2);
 
-                ConeShot(pattern.PatternSettings[i].ConeArcAngle, new Vector2(transform.position.x, transform.position.y), aimDirection, pattern.PatternSettings[i]);
+                ConeShot(pattern.PatternSettings[i].ConeArcAngle, transform.position, aimDirection, pattern.PatternSettings[i]);
                 yield return new WaitForSeconds(pattern.PatternSettings[i].CooldownAfterShot);
             }
 

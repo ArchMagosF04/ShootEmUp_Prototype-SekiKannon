@@ -255,7 +255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 22231199}
   m_Layer: 0
-  m_Name: Phase3Weapons
+  m_Name: Phase2Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1281,6 +1281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 337969396}
+  - component: {fileID: 337969398}
   - component: {fileID: 337969397}
   m_Layer: 6
   m_Name: MainGun
@@ -1313,15 +1314,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 337969395}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ffa23755916bd646b2438bde564f77f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7442e6afd5317dd4982d011e2134660a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 0.5
-  numberOfShoots: 2
-  ammoName: BigRed
-  aimsAtPlayer: 0
-  numberOfBulletsInArc: 8
-  arcAngle: 45
+  pattern: {fileID: 11400000, guid: 9386016f98d6d3e46b6fe297ed942715, type: 2}
+  radius: 0.1
+  iconColor: {r: 1, g: 0.88149357, b: 0, a: 1}
+  testTime: 1.24
+--- !u!114 &337969398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337969395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bbc0a9e8531b64a996b5a083446b9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotPattern: {fileID: 11400000, guid: 9386016f98d6d3e46b6fe297ed942715, type: 2}
 --- !u!1 &378870551
 GameObject:
   m_ObjectHideFlags: 0
@@ -3045,8 +3057,8 @@ Transform:
   m_Children:
   - {fileID: 42501892}
   - {fileID: 435843492}
-  - {fileID: 1165759814}
   - {fileID: 22231199}
+  - {fileID: 1165759814}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!50 &734859306
@@ -3196,13 +3208,13 @@ MonoBehaviour:
   - {fileID: 2034082469}
   - {fileID: 13952944}
   phase2Weapons:
-  - {fileID: 337969397}
-  - {fileID: 553988372}
-  - {fileID: 1133411720}
-  phase3Weapons:
-  - {fileID: 555962276}
   - {fileID: 1735675788}
   - {fileID: 538160027}
+  - {fileID: 555962276}
+  phase3Weapons:
+  - {fileID: 337969398}
+  - {fileID: 553988372}
+  - {fileID: 1133411720}
 --- !u!1 &737552709
 GameObject:
   m_ObjectHideFlags: 0
@@ -5478,7 +5490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1165759814}
   m_Layer: 0
-  m_Name: Phase2Weapons
+  m_Name: Phase3Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

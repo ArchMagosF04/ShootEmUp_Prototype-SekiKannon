@@ -54,6 +54,7 @@ public class SoundEmitter : MonoBehaviour
         audioSource.outputAudioMixerGroup = data.MixerGroup;
         audioSource.loop = data.Loop;
         audioSource.playOnAwake = data.PlayOnAwake;
+        audioSource.pitch = 1;
     }
 
     public void WithRandomPitch(float min = -0.03f, float max = 0.03f)
