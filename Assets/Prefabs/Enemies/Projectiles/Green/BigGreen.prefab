@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2322307349871382984}
   - component: {fileID: 6721884735632947018}
   m_Layer: 0
-  m_Name: RoundGreen
+  m_Name: BigGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.085
+  m_Radius: 0.15
 --- !u!114 &4780150115294145809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381c7bacc05de4441bc5ef1969f92486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletData: {fileID: 11400000, guid: a0eeef75c4168d04482ee7b460dbdc5a, type: 2}
+  bulletData: {fileID: 11400000, guid: 23e31d743982dbb4ca406ddc3a702e45, type: 2}
   impactEffect: {fileID: 0}
 --- !u!114 &6721884735632947018
 MonoBehaviour:
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5538627b3022060459a5f517d06a5190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletData: {fileID: 11400000, guid: a2c1ec1b239e4c940831b0ac4f43c776, type: 2}
+  bulletData: {fileID: 11400000, guid: 29401b99cfb5fb54f8a80489174bdcc8, type: 2}
 --- !u!1 &7197241588793411828
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5169544667589005335}
   - component: {fileID: 3769327345698409877}
-  - component: {fileID: 8913306559376800787}
+  - component: {fileID: 2844634503509360632}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -225,7 +225,7 @@ SpriteRenderer:
   m_SortingLayerID: -684295541
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1290445176, guid: b069290337985fc4096a7e0538030908, type: 3}
+  m_Sprite: {fileID: 976904114, guid: b069290337985fc4096a7e0538030908, type: 3}
   m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -236,7 +236,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8913306559376800787
+--- !u!95 &2844634503509360632
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -246,7 +246,7 @@ Animator:
   m_GameObject: {fileID: 7197241588793411828}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f837f77fd49a055499bd5426be26456f, type: 2}
+  m_Controller: {fileID: 9100000, guid: a9b66aede4842644b924d5330b72b7a9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

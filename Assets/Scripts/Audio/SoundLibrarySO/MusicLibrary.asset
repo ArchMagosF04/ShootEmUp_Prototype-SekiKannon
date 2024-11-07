@@ -16,12 +16,28 @@ MonoBehaviour:
   - Id: MainMenu
     Clip: {fileID: 8300000, guid: fbd4aea1e937952439a739348a078f54, type: 3}
     MixerGroup: {fileID: 3548856431389802538, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
+    Volume: 1
     Loop: 1
     PlayOnAwake: 0
     IsFrequent: 0
   - Id: Level1
     Clip: {fileID: 8300000, guid: 68809b37c0e0f18479536ed495c8e703, type: 3}
     MixerGroup: {fileID: 3548856431389802538, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
+    Volume: 1
+    Loop: 1
+    PlayOnAwake: 0
+    IsFrequent: 0
+  - Id: Level2
+    Clip: {fileID: 8300000, guid: ab998354f59218547a0d7ae9b6f1314e, type: 3}
+    MixerGroup: {fileID: 3548856431389802538, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
+    Volume: 1
+    Loop: 1
+    PlayOnAwake: 0
+    IsFrequent: 0
+  - Id: Level3
+    Clip: {fileID: 8300000, guid: 487465a2d2d7f6e468dcfffb166e97c0, type: 3}
+    MixerGroup: {fileID: 3548856431389802538, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
+    Volume: 1
     Loop: 1
     PlayOnAwake: 0
     IsFrequent: 0

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3313dd7e8ee43494db0fc613330db9a2, type: 3}
   m_Name: HeavyGreen
   m_EditorClassIdentifier: 
-  <ShieldDamage>k__BackingField: 12
-  <BlockHeal>k__BackingField: 1
-  <ParryHeal>k__BackingField: 3
+  <ShieldDamage>k__BackingField: 15
+  <BlockHeal>k__BackingField: 2
+  <ParryHeal>k__BackingField: 5

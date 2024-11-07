@@ -16,12 +16,14 @@ MonoBehaviour:
   - Id: PlayerAttack
     Clip: {fileID: 8300000, guid: 3b21792580514fe45b81812d76aa61e0, type: 3}
     MixerGroup: {fileID: -3047294326803304059, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
+    Volume: 0.5
     Loop: 0
     PlayOnAwake: 0
     IsFrequent: 1
   - Id: PlayerHurt
     Clip: {fileID: 8300000, guid: 54810b5d625fa894b88413795fbd3360, type: 3}
     MixerGroup: {fileID: -3047294326803304059, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
+    Volume: 1
     Loop: 0
     PlayOnAwake: 0
     IsFrequent: 1

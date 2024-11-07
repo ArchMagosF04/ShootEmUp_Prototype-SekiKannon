@@ -11,6 +11,8 @@ public class BossBar : MonoBehaviour
     [SerializeField] private float timeToDrain = 1f;
     private float target;
 
+    private Coroutine damageRoutine;
+
     private void Start()
     {
         frontBar.fillAmount = 1;
@@ -28,7 +30,12 @@ public class BossBar : MonoBehaviour
 
         target = currentValue / maxValue;
 
-        StartCoroutine(GradualDamage());
+        if (damageRoutine != null)
+        {
+            StopCoroutine(damageRoutine);
+        }
+
+        damageRoutine = StartCoroutine(GradualDamage());
     }
 
     private void IncreaseBar(float maxValue, float currentValue)

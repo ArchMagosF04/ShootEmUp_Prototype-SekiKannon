@@ -1,11 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class MusicManager : MonoBehaviour
 {
     public static MusicManager Instance;
+
+    [SerializeField] private SoundLibraryObject musicLibrary;
+
+    [SerializeField] private AudioSource sourceA;
+    [SerializeField] private AudioSource sourceB;
+    private bool IsPlayingA;
+
+    private int currentTrackIndex = -1;
+
+    [SerializeField] private float timeToFade = 1f;
 
     private void Awake()
     {
@@ -22,97 +32,83 @@ public class MusicManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    const float crossFadeTime = 1.0f;
-    private float fading;
-    private AudioSource current;
-    private AudioSource previous;
-    readonly Queue<AudioClip> playlist = new();
-
-    [SerializeField] List<AudioClip> initialPlaylist;
-    [SerializeField] AudioMixerGroup musicMixerGroup;
-
-    void Start()
+    public void SwitchTrack(int trackIndex)
     {
-        foreach (var clip in initialPlaylist)
+        if (currentTrackIndex != trackIndex)
         {
-            AddToPlaylist(clip);
+            //StopAllCoroutines();
+
+            ////StartCoroutine(FadeTrack(musicLibrary.soundData[trackIndex].Clip));
+            //if (IsPlayingA)
+            //{
+            //    StartCoroutine(FadeTrack(musicLibrary.soundData[trackIndex].Clip, sourceA, sourceB));
+            //    IsPlayingA = false;
+            //}
+            //else
+            //{
+            //    StartCoroutine(FadeTrack(musicLibrary.soundData[trackIndex].Clip, sourceB, sourceA));
+            //    IsPlayingA = true;
+            //}
+
+            sourceA.Stop();
+            sourceA.clip = musicLibrary.soundData[trackIndex].Clip;
+            sourceA.Play();
+
+
+            currentTrackIndex = trackIndex;
         }
     }
 
-    public void AddToPlaylist(AudioClip clip)
+    private IEnumerator FadeTrack(AudioClip clip, AudioSource currentSource, AudioSource nextSource)
     {
-        playlist.Enqueue(clip);
-        if (current == null && previous == null)
+        float timeElapsed = 0;
+
+        nextSource.clip = clip;
+
+        nextSource.Play();
+
+        while (timeElapsed < timeToFade)
         {
-            PlayNextTrack();
-        }
-    }
-
-    public void Clear() => playlist.Clear();
-
-    public void PlayNextTrack()
-    {
-        if (playlist.TryDequeue(out AudioClip nextTrack))
-        {
-            Play(nextTrack);
-        }
-    }
-
-    public void Play(AudioClip clip)
-    {
-        if (current && current.clip == clip) return;
-
-        if (previous)
-        {
-            Destroy(previous);
-            previous = null;
+            nextSource.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
+            currentSource.volume = Mathf.Lerp(1, 0, timeElapsed / timeToFade);
+            timeElapsed += Time.deltaTime;
+            yield return null;
         }
 
-        previous = current;
+        nextSource.volume = 1f;
+        currentSource.volume = 0f;
 
-        current = gameObject.GetOrAdd<AudioSource>();
-        current.clip = clip;
-        current.outputAudioMixerGroup = musicMixerGroup; // Set mixer group
-        current.loop = false; // For playlist functionality, we want tracks to play once
-        current.volume = 0;
-        current.bypassListenerEffects = true;
-        current.Play();
+        currentSource.Stop();
 
-        fading = 0.001f;
-    }
+        //if (IsPlayingA)
+        //{
+        //    sourceB.clip = clip;
+        //    sourceB.Play();
 
-    void Update()
-    {
-        HandleCrossFade();
+        //    while (timeElapsed < timeToFade)
+        //    {
+        //        sourceB.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
+        //        sourceA.volume = Mathf.Lerp(1, 0, timeElapsed / timeToFade);
+        //        timeElapsed += Time.deltaTime;
+        //        yield return null;
+        //    }
 
-        if (current && !current.isPlaying && playlist.Count > 0)
-        {
-            PlayNextTrack();
-        }
-    }
+        //    sourceA.Stop();
+        //}
+        //else
+        //{
+        //    sourceA.clip = clip;
+        //    sourceA.Play();
 
-    void HandleCrossFade()
-    {
-        if (fading <= 0f) return;
+        //    while (timeElapsed < timeToFade)
+        //    {
+        //        sourceA.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
+        //        sourceB.volume = Mathf.Lerp(1, 0, timeElapsed / timeToFade);
+        //        timeElapsed += Time.deltaTime;
+        //        yield return null;
+        //    }
 
-        fading += Time.deltaTime;
-
-        float fraction = Mathf.Clamp01(fading / crossFadeTime);
-
-        // Logarithmic fade
-        float logFraction = fraction.ToLogarithmicFraction();
-
-        if (previous) previous.volume = 1.0f - logFraction;
-        if (current) current.volume = logFraction;
-
-        if (fraction >= 1)
-        {
-            fading = 0.0f;
-            if (previous)
-            {
-                Destroy(previous);
-                previous = null;
-            }
-        }
+        //    sourceB.Stop();
+        //}
     }
 }

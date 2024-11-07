@@ -35,6 +35,11 @@ public class ShieldBar : MonoBehaviour
     {
         target = currentValue/maxValue;
 
+        if (lerpBar != null)
+        {
+            StopCoroutine(lerpBar);
+        }
+
         lerpBar = StartCoroutine(GradualChange());
 
         CheckBarGradiantAmount();

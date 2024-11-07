@@ -11,6 +11,9 @@ public class HPBar : MonoBehaviour
     [SerializeField] private float timeToDrain = 1f;
     private float target;
 
+    private Coroutine damageRoutine;
+    private Coroutine healRoutine;
+
     private void Start()
     {
         frontBar.fillAmount = 1;
@@ -29,7 +32,12 @@ public class HPBar : MonoBehaviour
 
         target = currentValue / maxValue;
 
-        StartCoroutine(GradualDamage());
+        if (damageRoutine != null)
+        {
+            StopCoroutine(damageRoutine);
+        }
+        
+        damageRoutine = StartCoroutine(GradualDamage());
     }
 
     private void IncreaseBar(float maxValue, float currentValue)
@@ -38,7 +46,12 @@ public class HPBar : MonoBehaviour
 
         target = currentValue / maxValue;
 
-        StartCoroutine(GradualHeal());
+        if (healRoutine != null)
+        {
+            StopCoroutine(healRoutine);
+        }
+
+        healRoutine = StartCoroutine(GradualHeal());
     }
 
     private IEnumerator GradualDamage() //The main bar instantly goes to its new value, and the bar on the back lingers for a bit to show the amount of damage done.

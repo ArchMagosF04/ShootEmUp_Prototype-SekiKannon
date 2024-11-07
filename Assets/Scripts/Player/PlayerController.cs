@@ -68,8 +68,6 @@ public class PlayerController : MonoBehaviour
         bulletPool = GetComponent<BulletPool>();
         bulletPool.SetBulletPrefab(bulletPrefab);
 
-        soundLibrary.Initialize();
-
         PlayerStateMachine = new StateMachine();
         IdleState = new Player_IdleState(PlayerStateMachine, this);
         AttackState = new Player_AttackState(PlayerStateMachine, this);

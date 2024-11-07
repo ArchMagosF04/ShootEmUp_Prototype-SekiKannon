@@ -52,6 +52,7 @@ public class SoundEmitter : MonoBehaviour
         Data = data;
         audioSource.clip = data.Clip;
         audioSource.outputAudioMixerGroup = data.MixerGroup;
+        audioSource.volume = data.Volume;
         audioSource.loop = data.Loop;
         audioSource.playOnAwake = data.PlayOnAwake;
         audioSource.pitch = 1;

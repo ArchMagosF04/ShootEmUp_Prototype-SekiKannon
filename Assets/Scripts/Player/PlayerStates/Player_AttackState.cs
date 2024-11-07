@@ -57,7 +57,7 @@ public class Player_AttackState : IState
                 bullet.transform.localRotation = barrel.rotation;
                 bullet.Bullet_Movement.Movement(barrel.up);
 
-                SoundManager.Instance.CreateSound().WithSoundData(playerController.SoundLibrary.soundDataDictionary["PlayerAttack"]).WithRandomPitch().WithPosition(barrel.position).Play();
+                SoundManager.Instance.CreateSound().WithSoundData(playerController.SoundLibrary.soundData[0]).WithRandomPitch().WithPosition(barrel.position).Play();
             }
 
             

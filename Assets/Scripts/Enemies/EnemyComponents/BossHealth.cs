@@ -11,8 +11,11 @@ public class BossHealth : MonoBehaviour, IDamageable
     public static event Action<float, float> OnDamageReceived;
     public static event Action OnEnemyDeath;
 
+    private DamageFlash damageFlash;
+
     private void Start()
     {
+        damageFlash = GetComponent<DamageFlash>();
         CurrentHealth = maxHealth; //Fills all health points.
         OnDamageReceived?.Invoke(maxHealth, CurrentHealth);
     }
@@ -20,13 +23,18 @@ public class BossHealth : MonoBehaviour, IDamageable
     public void TakeDamage(int damageReceived)
     {
         CurrentHealth -= damageReceived;
-        OnDamageReceived?.Invoke(maxHealth, CurrentHealth);
 
         if (CurrentHealth <= 0) //If the healthbar reaches 0 then die.
         {
             CurrentHealth = 0; //Avoids health from going into negative values.
+            OnDamageReceived?.Invoke(maxHealth, CurrentHealth);
 
             OnEnemyDeath?.Invoke();
+
+            return;
         }
+
+        damageFlash.CallDamageFlash();
+        OnDamageReceived?.Invoke(maxHealth, CurrentHealth);
     }
 }
