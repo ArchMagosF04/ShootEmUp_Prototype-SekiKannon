@@ -90,13 +90,13 @@ public class HUDManager : MonoBehaviour
 
     public void RestartScene()
     {
-        int index = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(index);
+        string sceneName = SceneManager.GetActiveScene().name;
+        LoadingManager.Instance.LoadScene(sceneName);
     }
 
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene(0);
+        LoadingManager.Instance.LoadScene("MenuTest");
     }
 
     public void QuitGame()

@@ -1099,7 +1099,7 @@ GameObject:
   m_Component:
   - component: {fileID: 316011140}
   - component: {fileID: 316011141}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2604,7 +2604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 591360145}
   - component: {fileID: 591360146}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2892,7 +2892,7 @@ GameObject:
   m_Component:
   - component: {fileID: 713886383}
   - component: {fileID: 713886384}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3115,7 +3115,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734859303}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -5314,7 +5314,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1126751680}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: ScreenBoundaries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
