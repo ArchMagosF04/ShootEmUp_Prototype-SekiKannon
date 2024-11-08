@@ -25,14 +25,14 @@ MonoBehaviour:
     PhaseOffset: 0
     AngleOffset: 0
   - BulletName: BigBlue
-    ConeArcAngle: 65
+    ConeArcAngle: 60
     NumberOfBullets: 5
     BulletSpeed: 11
     CooldownAfterShot: 0.75
     PhaseOffset: 0
     AngleOffset: 0
   - BulletName: BigRed
-    ConeArcAngle: 65
+    ConeArcAngle: 60
     NumberOfBullets: 5
     BulletSpeed: 9
     CooldownAfterShot: 0.1

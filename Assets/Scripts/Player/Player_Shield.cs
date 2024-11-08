@@ -34,6 +34,8 @@ public class Player_Shield : MonoBehaviour
     private Color parryColor;
     private Color blockColor;
 
+    private Coroutine colorChange;
+
     private void Awake()
     {
         circleCollider = GetComponent<Collider2D>();
@@ -156,7 +158,13 @@ public class Player_Shield : MonoBehaviour
 
         int temp = Mathf.FloorToInt(maxOverloadLevel / 2);
         currentOverloadLevel -= temp;
-        StartCoroutine(GradualChange());
+
+        if (colorChange != null)
+        {
+            StopCoroutine(colorChange);
+        }
+
+        colorChange = StartCoroutine(GradualChange());
         OnDamageReceived?.Invoke(maxOverloadLevel, currentOverloadLevel);
     }
 
@@ -199,7 +207,7 @@ public class Player_Shield : MonoBehaviour
         Color newColor = shieldGradient.Evaluate(target);
 
         float elapsedTime = 0f;
-        float timeToChange = 1f;
+        float timeToChange = 0.25f;
 
         while (elapsedTime < timeToChange)
         {

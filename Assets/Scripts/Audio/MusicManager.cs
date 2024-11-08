@@ -36,23 +36,22 @@ public class MusicManager : MonoBehaviour
     {
         if (currentTrackIndex != trackIndex)
         {
-            //StopAllCoroutines();
+            StopAllCoroutines();
 
-            ////StartCoroutine(FadeTrack(musicLibrary.soundData[trackIndex].Clip));
-            //if (IsPlayingA)
-            //{
-            //    StartCoroutine(FadeTrack(musicLibrary.soundData[trackIndex].Clip, sourceA, sourceB));
-            //    IsPlayingA = false;
-            //}
-            //else
-            //{
-            //    StartCoroutine(FadeTrack(musicLibrary.soundData[trackIndex].Clip, sourceB, sourceA));
-            //    IsPlayingA = true;
-            //}
+            if (IsPlayingA)
+            {
+                StartCoroutine(FadeTrack(musicLibrary.soundData[trackIndex].Clip, sourceA, sourceB));
+                IsPlayingA = false;
+            }
+            else
+            {
+                StartCoroutine(FadeTrack(musicLibrary.soundData[trackIndex].Clip, sourceB, sourceA));
+                IsPlayingA = true;
+            }
 
-            sourceA.Stop();
-            sourceA.clip = musicLibrary.soundData[trackIndex].Clip;
-            sourceA.Play();
+            //sourceA.Stop();
+            //sourceA.clip = musicLibrary.soundData[trackIndex].Clip;
+            //sourceA.Play();
 
 
             currentTrackIndex = trackIndex;
@@ -71,7 +70,7 @@ public class MusicManager : MonoBehaviour
         {
             nextSource.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
             currentSource.volume = Mathf.Lerp(1, 0, timeElapsed / timeToFade);
-            timeElapsed += Time.deltaTime;
+            timeElapsed += Time.unscaledDeltaTime;
             yield return null;
         }
 

@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletData: {fileID: 11400000, guid: 5f58f4ce301057a4ba061d6d05acfe70, type: 2}
-  impactEffect: {fileID: 0}
+  impactEffect: {fileID: 5361044443241892153, guid: a944532aaebdb39429efc7912e3fb5fc, type: 3}
 --- !u!61 &1404010751667246601
 BoxCollider2D:
   m_ObjectHideFlags: 0

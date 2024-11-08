@@ -17,7 +17,8 @@ public class Bullet_Controller : MonoBehaviour
     private Bullet_Movement bullet_Movement;
     public Bullet_Movement Bullet_Movement => bullet_Movement;
 
-    [SerializeField] private GameObject impactEffect;
+    [SerializeField] private ParticleSystem impactEffect;
+    private ParticleSystem effectInstance;
 
     private void Awake()
     {
@@ -53,9 +54,7 @@ public class Bullet_Controller : MonoBehaviour
     {
         if(impactEffect != null)
         {
-            GameObject effect = Instantiate(impactEffect);
-            effect.transform.position = transform.position;
-            effect.transform.rotation = transform.rotation;
+            effectInstance = Instantiate(impactEffect, transform.position, Quaternion.identity);
         }
 
         if (pool != null)
