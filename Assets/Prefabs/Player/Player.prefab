@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 5791967074043147688}
   - component: {fileID: 1927722114771813260}
   - component: {fileID: 2126186786629089651}
+  - component: {fileID: 5777023195708551526}
   - component: {fileID: 1211702902833777451}
   m_Layer: 8
   m_Name: Shield
@@ -174,9 +175,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.01}
   serializedVersion: 2
-  m_Radius: 0.26
+  m_Radius: 0.3
 --- !u!212 &1927722114771813260
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -197,7 +198,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2c010103f5a6afc4fb221fb21353de45, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -245,6 +246,7 @@ MonoBehaviour:
   rechargeRate: 0.3
   startRegenDelay: 5
   parryDamageReduction: 1
+  freezeFrameDuration: 0.1
   isParryActive: 0
   staticSprite: {fileID: 971537013499718465}
   shieldGradient:
@@ -277,6 +279,57 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
+  soundLibrary: {fileID: 11400000, guid: 3b75e6b44346b0b4ca30a53bb2add10f, type: 2}
+--- !u!114 &5777023195708551526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6103726670826404626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81915eb6b0c89ca469e2d68263e9f234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor:
+  - {r: 0, g: 0.5727744, b: 2, a: 0}
+  flashTime: 0.25
+  flashSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.25
+      value: 1
+      inSlope: -0
+      outSlope: -0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.044534367
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.3333334
+      outSlope: -1.3333334
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spriteRenderers:
+  - {fileID: 1927722114771813260}
 --- !u!95 &1211702902833777451
 Animator:
   serializedVersion: 5
@@ -408,6 +461,7 @@ GameObject:
   - component: {fileID: 6832596720149637420}
   - component: {fileID: 5057764349652240300}
   - component: {fileID: 3900887071763738174}
+  - component: {fileID: 6379867808051236687}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -465,9 +519,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0994066}
+  m_Offset: {x: 0, y: -0.15}
   serializedVersion: 2
-  m_Radius: 0.25354874
+  m_Radius: 0.25
 --- !u!50 &1002712893681301156
 Rigidbody2D:
   serializedVersion: 4
@@ -493,7 +547,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &4960030221458186856
 MonoBehaviour:
@@ -513,6 +567,7 @@ MonoBehaviour:
   cannons:
   - {fileID: 8512062097297603187}
   - {fileID: 5240402956197815103}
+  soundLibrary: {fileID: 11400000, guid: 3b75e6b44346b0b4ca30a53bb2add10f, type: 2}
 --- !u!114 &6832596720149637420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,6 +595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
+  playerLibrary: {fileID: 11400000, guid: 3b75e6b44346b0b4ca30a53bb2add10f, type: 2}
 --- !u!114 &3900887071763738174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,6 +612,59 @@ MonoBehaviour:
   defaultCapacity: 30
   maxSize: 40
   chainBulletsToCreator: 0
+--- !u!114 &6379867808051236687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9168802309673012899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81915eb6b0c89ca469e2d68263e9f234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor:
+  - {r: 1.4980392, g: 0, b: 0.015686484, a: 0.00000020990855}
+  - {r: 0, g: 1.4980391, b: 0, a: 0.00000016689009}
+  flashTime: 0.15
+  flashSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -2.2637591
+      outSlope: -2.2637591
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.32743767
+      value: 0.25875995
+      inSlope: -0.8848891
+      outSlope: -0.8848891
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.09489256
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.3847375
+      outSlope: -0.3847375
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spriteRenderers:
+  - {fileID: 5707570426271603770}
+  - {fileID: 5013982150040561181}
+  - {fileID: 1126741364160048021}
 --- !u!1001 &6612879445785815450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -576,6 +685,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1156702103
       objectReference: {fileID: 0}
+    - target: {fileID: 1508978286841705888, guid: 370bf60bbf5027e49bbbd02dcdcad52f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2c010103f5a6afc4fb221fb21353de45, type: 2}
     - target: {fileID: 2184409519937458055, guid: 370bf60bbf5027e49bbbd02dcdcad52f, type: 3}
       propertyPath: m_SortingLayer
       value: 3
@@ -588,6 +701,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1156702103
       objectReference: {fileID: 0}
+    - target: {fileID: 2184409519937458055, guid: 370bf60bbf5027e49bbbd02dcdcad52f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2c010103f5a6afc4fb221fb21353de45, type: 2}
     - target: {fileID: 3038911826595500284, guid: 370bf60bbf5027e49bbbd02dcdcad52f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -640,6 +757,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1156702103
       objectReference: {fileID: 0}
+    - target: {fileID: 6081926152685093391, guid: 370bf60bbf5027e49bbbd02dcdcad52f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2c010103f5a6afc4fb221fb21353de45, type: 2}
     - target: {fileID: 6166626668101300596, guid: 370bf60bbf5027e49bbbd02dcdcad52f, type: 3}
       propertyPath: m_SortingLayer
       value: 3
@@ -657,6 +778,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 370bf60bbf5027e49bbbd02dcdcad52f, type: 3}
+--- !u!212 &1126741364160048021 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6081926152685093391, guid: 370bf60bbf5027e49bbbd02dcdcad52f, type: 3}
+  m_PrefabInstance: {fileID: 6612879445785815450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &5013982150040561181 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2184409519937458055, guid: 370bf60bbf5027e49bbbd02dcdcad52f, type: 3}
+  m_PrefabInstance: {fileID: 6612879445785815450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &5707570426271603770 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1508978286841705888, guid: 370bf60bbf5027e49bbbd02dcdcad52f, type: 3}
+  m_PrefabInstance: {fileID: 6612879445785815450}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &6780117305943204988 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 419531948607835622, guid: 370bf60bbf5027e49bbbd02dcdcad52f, type: 3}

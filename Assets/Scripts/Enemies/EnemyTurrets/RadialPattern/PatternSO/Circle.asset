@@ -17,7 +17,7 @@ MonoBehaviour:
   StartWait: 0
   EndWait: 0
   PatternSettings:
-  - BulletName: RoundBlue
+  - BulletName: Blue_Normal
     NumberOfBullets: 12
     BulletSpeed: 14
     CooldownAfterShot: 0.1
@@ -25,7 +25,7 @@ MonoBehaviour:
     AngleOffset: 0
     RadialMask: 0
     MaskAngle: 0
-  - BulletName: RoundBlue
+  - BulletName: Blue_Normal
     NumberOfBullets: 12
     BulletSpeed: 14
     CooldownAfterShot: 0.1
@@ -33,7 +33,7 @@ MonoBehaviour:
     AngleOffset: 0
     RadialMask: 0
     MaskAngle: 0
-  - BulletName: RoundBlue
+  - BulletName: Blue_Normal
     NumberOfBullets: 12
     BulletSpeed: 14
     CooldownAfterShot: 0.1
@@ -41,7 +41,7 @@ MonoBehaviour:
     AngleOffset: 0
     RadialMask: 0
     MaskAngle: 0
-  - BulletName: RoundBlue
+  - BulletName: Blue_Normal
     NumberOfBullets: 12
     BulletSpeed: 14
     CooldownAfterShot: 0.4

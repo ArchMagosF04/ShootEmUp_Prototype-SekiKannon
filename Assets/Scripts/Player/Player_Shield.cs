@@ -36,6 +36,8 @@ public class Player_Shield : MonoBehaviour
     private Color parryColor;
     private Color blockColor;
 
+    private DamageFlash damageFlash;
+
     private Coroutine colorChange;
 
     [SerializeField] private SoundLibraryObject soundLibrary;
@@ -44,6 +46,7 @@ public class Player_Shield : MonoBehaviour
     {
         circleCollider = GetComponent<Collider2D>();
         shieldSprite = GetComponent<SpriteRenderer>();
+        damageFlash = GetComponent<DamageFlash>();
     }
 
     private void Start()

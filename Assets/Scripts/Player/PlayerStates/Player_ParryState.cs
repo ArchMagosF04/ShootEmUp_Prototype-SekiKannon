@@ -10,7 +10,7 @@ public class Player_ParryState : IState
     private PlayerController playerController;
     private Player_Shield player_Shield;
 
-    private float initialTimer = 0.2f; //Time in seconds in which the player will remain in the parry state before being taken to the shield state.
+    private float initialTimer = 0.25f; //Time in seconds in which the player will remain in the parry state before being taken to the shield state.
     private float speedMultiplier = 0.9f; //The speed is reduce to this % where 1.0f == 100%.
     private float timer;
 
@@ -31,21 +31,25 @@ public class Player_ParryState : IState
 
     public void StateUpdate()
     {
-        if (!playerController.PlayerInput.IsShieldActive) //If the player releases the shield button, the shield will be deactivated and they will return to the idle state.
+        if (player_Shield.ShieldBroken) //If the shield runs out of durability it will break and send the player to the stunned state.
         {
-            player_Shield.ToggleShield(false); //The shield is only turn off here, instead of onExit, since the other state transition requires for the shield to still be active.
-            stateMachine.ChangeState(playerController.IdleState);
+            stateMachine.ChangeState(playerController.StunedState);
         }
-        if(playerController.PlayerInput.IsShieldActive && timer < 0) //When the time runs out the player will be immediately sent to the shield state.
+        if (playerController.PlayerInput.IsShieldActive && timer < 0) //When the time runs out the player will be immediately sent to the shield state.
         {
             stateMachine.ChangeState(playerController.ShieldState);
         }
-
+        if (!playerController.PlayerInput.IsShieldActive) //If the player releases the shield button, the shield will be deactivated and they will return to the idle state.
+        {
+            stateMachine.ChangeState(playerController.IdleState);
+        }
+        
         timer -=Time.deltaTime; //Timer tick.
     }
 
     public void OnExit() //When exiting, it tells the shield that it is no longer in parry mode.
     {
+        player_Shield.ToggleShield(false);
         player_Shield.ToggleParry(false);
     }
 }

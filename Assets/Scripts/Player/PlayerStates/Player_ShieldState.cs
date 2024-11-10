@@ -19,18 +19,19 @@ public class Player_ShieldState : IState
 
     public void OnEnter()
     {
+        player_Shield.ToggleShield(true);
         playerController.currentMoveSpeed = playerController.NormalMoveSpeed * speedMultiplier; //Reduce the player's speed.
     }
 
     public void StateUpdate()
     {
+        if (player_Shield.ShieldBroken) //If the shield runs out of durability it will break and send the player to the stunned state.
+        {
+            stateMachine.ChangeState(playerController.StunedState);
+        }
         if (!playerController.PlayerInput.IsShieldActive) //If the player releases the shield button they will return to the idle state.
         {
             stateMachine.ChangeState(playerController.IdleState);
-        }
-        if(player_Shield.ShieldBroken) //If the shield runs out of durability it will break and send the player to the stunned state.
-        {
-            stateMachine.ChangeState(playerController.StunedState);
         }
     }
 

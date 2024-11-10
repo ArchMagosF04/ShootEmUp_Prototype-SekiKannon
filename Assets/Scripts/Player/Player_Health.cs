@@ -15,6 +15,13 @@ public class Player_Health : MonoBehaviour, IDamageable
 
     [SerializeField] private SoundLibraryObject playerLibrary;
 
+    private DamageFlash damageFlash;
+
+    private void Awake()
+    {
+        damageFlash = GetComponent<DamageFlash>();
+    }
+
     private void Start()
     {
         currentHealth = maxHealth; //Fills all health points.
@@ -25,6 +32,7 @@ public class Player_Health : MonoBehaviour, IDamageable
     {
         currentHealth -= damageReceived;
 
+        damageFlash.CallDamageFlash(0);
         SoundManager.Instance.CreateSound().WithSoundData(playerLibrary.soundData[1]).WithRandomPitch().WithPosition(transform.position).Play();
 
         OnDamageReceived?.Invoke(maxHealth, currentHealth);
@@ -41,6 +49,7 @@ public class Player_Health : MonoBehaviour, IDamageable
     {
         currentHealth += healAmount;
 
+        damageFlash.CallDamageFlash(1);
         SoundManager.Instance.CreateSound().WithSoundData(playerLibrary.soundData[6]).WithRandomPitch().WithPosition(transform.position).Play();
 
         if (currentHealth >= maxHealth) //Prevents health from going above its maximum value.

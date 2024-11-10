@@ -17,28 +17,28 @@ MonoBehaviour:
   StartWait: 0
   EndWait: 0
   PatternSettings:
-  - BulletName: BigRed
+  - BulletName: Red_Big
     ConeArcAngle: 75
     NumberOfBullets: 6
     BulletSpeed: 9
     CooldownAfterShot: 0.1
     PhaseOffset: 0
     AngleOffset: 0
-  - BulletName: BigBlue
+  - BulletName: Blue_Big
     ConeArcAngle: 60
     NumberOfBullets: 5
     BulletSpeed: 11
     CooldownAfterShot: 0.75
     PhaseOffset: 0
     AngleOffset: 0
-  - BulletName: BigRed
+  - BulletName: Red_Big
     ConeArcAngle: 60
     NumberOfBullets: 5
     BulletSpeed: 9
     CooldownAfterShot: 0.1
     PhaseOffset: 0
     AngleOffset: 0
-  - BulletName: BigBlue
+  - BulletName: Blue_Big
     ConeArcAngle: 75
     NumberOfBullets: 6
     BulletSpeed: 11

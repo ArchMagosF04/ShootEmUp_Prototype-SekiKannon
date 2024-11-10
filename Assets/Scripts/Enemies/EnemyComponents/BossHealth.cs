@@ -34,7 +34,7 @@ public class BossHealth : MonoBehaviour, IDamageable
             return;
         }
 
-        damageFlash.CallDamageFlash();
+        damageFlash.CallDamageFlash(0);
         OnDamageReceived?.Invoke(maxHealth, CurrentHealth);
     }
 }

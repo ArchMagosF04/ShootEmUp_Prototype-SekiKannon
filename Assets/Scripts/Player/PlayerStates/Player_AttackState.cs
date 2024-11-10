@@ -1,17 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
-using static UnityEngine.UI.Image;
 
 public class Player_AttackState : IState
 {
     private StateMachine stateMachine;
     private PlayerController playerController; 
 
-    [SerializeField] private float shootingInterval = 0.07f; //Time in seconds between each shot.
+    private float shootingInterval = 0.07f; //Time in seconds between each shot.
     private float shootCooldown;
     private float speedMultiplier = 0.9f; //The speed is reduce to this % where 1.0f == 100%.
+    private float parryCooldown = 0.15f;
+    private float canParryTimer;
 
     public Player_AttackState(StateMachine machine, PlayerController playerController)
     {
@@ -21,6 +23,7 @@ public class Player_AttackState : IState
 
     public void OnEnter()
     {
+        canParryTimer = parryCooldown;
         playerController.WeaponAnimator.SetBool("IsAttacking", true);
         shootCooldown = 0f;
         playerController.currentMoveSpeed = playerController.NormalMoveSpeed * speedMultiplier; //Reduce the player's speed.%
@@ -30,13 +33,15 @@ public class Player_AttackState : IState
     {
         ShootBullet(); //While in this state, the player will continuously shoot bullets; 
 
+        ParryCountdown();
+
+        if (playerController.PlayerInput.IsShieldActive && canParryTimer <= 0f) //if the player presses the shield button, then they will transition to the parry state.
+        {
+            stateMachine.ChangeState(playerController.ParryState);
+        }
         if (!playerController.PlayerInput.IsShooting) //if the player stops pressing the shot button, then they will return to the idle state.
         {
             stateMachine.ChangeState(playerController.IdleState);
-        }
-        if (playerController.PlayerInput.IsShieldActive) //if the player presses the shield button, then they will transition to the parry state.
-        {
-            stateMachine.ChangeState(playerController.ParryState);
         }
     }
 
@@ -68,6 +73,14 @@ public class Player_AttackState : IState
         else
         {
             shootCooldown -= Time.deltaTime; //Cooldown tick.
+        }
+    }
+
+    private void ParryCountdown()
+    {
+        if (canParryTimer > 0f)
+        {
+            canParryTimer -= Time.deltaTime;
         }
     }
 }

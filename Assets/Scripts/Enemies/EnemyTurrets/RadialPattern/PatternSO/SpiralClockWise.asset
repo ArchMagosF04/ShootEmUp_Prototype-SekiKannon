@@ -17,7 +17,7 @@ MonoBehaviour:
   StartWait: 0
   EndWait: 0
   PatternSettings:
-  - BulletName: RoundBlue
+  - BulletName: Blue_Normal
     NumberOfBullets: 6
     BulletSpeed: 15
     CooldownAfterShot: 0.07

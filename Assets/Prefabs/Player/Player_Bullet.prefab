@@ -134,7 +134,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.005563926, y: 0.038553126}
+  m_Offset: {x: 0.00052143633, y: 0.0254515}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -145,7 +145,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0770582, y: 0.10071771}
+  m_Size: {x: 0.090416595, y: 0.11194833}
   m_EdgeRadius: 0
 --- !u!1 &6038395415378128007
 GameObject:
@@ -157,7 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7470022214937953940}
   - component: {fileID: 6906457683257517059}
-  - component: {fileID: 5548778542522526628}
+  - component: {fileID: 4386272167474200703}
   m_Layer: 0
   m_Name: All_Fire_Bullet_Pixel_16x16_02_368
   m_TagString: Untagged
@@ -221,8 +221,8 @@ SpriteRenderer:
   m_SortingLayerID: -684295541
   m_SortingLayer: 4
   m_SortingOrder: 5
-  m_Sprite: {fileID: 306543276, guid: e4f4fe86e995cc544b0885af22eedb16, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 1915833605, guid: 646cacbf9b474004099fe119eddd6a26, type: 3}
+  m_Color: {r: 0, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -232,7 +232,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5548778542522526628
+--- !u!95 &4386272167474200703
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

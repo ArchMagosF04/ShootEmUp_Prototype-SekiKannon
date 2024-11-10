@@ -26,7 +26,11 @@ public class GreenBullet : MonoBehaviour, IParryEffect
     public void OnBlockEffect(Player_Shield player_Shield)
     {
         player_Shield.TakeDamage(bulletData.ShieldDamage);
-        HealPlayer(bulletData.BlockHeal);
+        if (bulletData.BlockHeal > 0)
+        {
+            HealPlayer(bulletData.BlockHeal);
+        }
+        
         controller.DestroySelf();
     }
 
