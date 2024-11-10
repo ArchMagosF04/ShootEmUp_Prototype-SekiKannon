@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Player_Health : MonoBehaviour, IDamageable
@@ -12,6 +13,8 @@ public class Player_Health : MonoBehaviour, IDamageable
     public static event Action<float, float> OnHealthHealed; //Event that will be called every time the player heals.
     public static event Action OnPlayerDeath;
 
+    [SerializeField] private SoundLibraryObject playerLibrary;
+
     private void Start()
     {
         currentHealth = maxHealth; //Fills all health points.
@@ -21,6 +24,8 @@ public class Player_Health : MonoBehaviour, IDamageable
     public void TakeDamage(int damageReceived) //Interface function. Receives the damage value to be subtracted from the health.
     {
         currentHealth -= damageReceived;
+
+        SoundManager.Instance.CreateSound().WithSoundData(playerLibrary.soundData[1]).WithRandomPitch().WithPosition(transform.position).Play();
 
         OnDamageReceived?.Invoke(maxHealth, currentHealth);
 
@@ -36,6 +41,8 @@ public class Player_Health : MonoBehaviour, IDamageable
     {
         currentHealth += healAmount;
 
+        SoundManager.Instance.CreateSound().WithSoundData(playerLibrary.soundData[6]).WithRandomPitch().WithPosition(transform.position).Play();
+
         if (currentHealth >= maxHealth) //Prevents health from going above its maximum value.
         {
             currentHealth = maxHealth;
@@ -47,6 +54,5 @@ public class Player_Health : MonoBehaviour, IDamageable
     public void PlayerDeath() 
     {
         OnPlayerDeath?.Invoke();
-        Destroy(this.gameObject);
     }
 }

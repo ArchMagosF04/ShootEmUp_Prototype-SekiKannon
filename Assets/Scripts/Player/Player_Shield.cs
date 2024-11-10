@@ -17,6 +17,8 @@ public class Player_Shield : MonoBehaviour
 
     [SerializeField, Range(0.25f, 1f)] private float parryDamageReduction = 0.75f; //Porcentage of damage that will be taken when parrying where 1f == 100%.
 
+    [SerializeField, Range(0f, 1f)] private float freezeFrameDuration; 
+
     public bool isParryActive = false; 
     private bool hasBeenResentlyDamaged = false;
     private bool shieldBroken = false;
@@ -35,6 +37,8 @@ public class Player_Shield : MonoBehaviour
     private Color blockColor;
 
     private Coroutine colorChange;
+
+    [SerializeField] private SoundLibraryObject soundLibrary;
 
     private void Awake()
     {
@@ -155,6 +159,7 @@ public class Player_Shield : MonoBehaviour
     {
         regenDelay = startRegenDelay;
         hasBeenResentlyDamaged = true;
+        SoundManager.Instance.CreateSound().WithSoundData(soundLibrary.soundData[5]).WithPosition(transform.position).Play();
 
         int temp = Mathf.FloorToInt(maxOverloadLevel / 2);
         currentOverloadLevel -= temp;
@@ -176,9 +181,12 @@ public class Player_Shield : MonoBehaviour
         {
             if(isParryActive) //If in parry mode, it will use the bullets effects from onParry, if on normal mode, it will ise the bullets effects from onBlock.
             {
+                SoundManager.Instance.CreateSound().WithSoundData(soundLibrary.soundData[2]).WithPosition(transform.position).Play();
+                HitStopManager.Instance.FreezeFrame(freezeFrameDuration);
                 interceptedBullet.OnParryEffect(this);
             }else
             {
+                SoundManager.Instance.CreateSound().WithSoundData(soundLibrary.soundData[3]).WithPosition(transform.position).Play();
                 interceptedBullet.OnBlockEffect(this);
             }
         }
@@ -194,6 +202,10 @@ public class Player_Shield : MonoBehaviour
     {
         shieldBroken = shouldActivate;
         staticSprite.enabled = shouldActivate;
+        if (shouldActivate)
+        {
+            SoundManager.Instance.CreateSound().WithSoundData(soundLibrary.soundData[4]).WithPosition(transform.position).Play();
+        }
     }
 
     private IEnumerator GradualChange() //Makes the change smooth and creates the effect to fill from the center by using two mirrored bars. Also changes the color the more its filled.

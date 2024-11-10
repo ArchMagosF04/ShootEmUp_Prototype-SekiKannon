@@ -16,14 +16,49 @@ MonoBehaviour:
   - Id: PlayerAttack
     Clip: {fileID: 8300000, guid: 3b21792580514fe45b81812d76aa61e0, type: 3}
     MixerGroup: {fileID: -3047294326803304059, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
-    Volume: 0.5
+    Volume: 0.4
     Loop: 0
     PlayOnAwake: 0
     IsFrequent: 1
-  - Id: PlayerHurt
-    Clip: {fileID: 8300000, guid: 54810b5d625fa894b88413795fbd3360, type: 3}
+  - Id: Hurt
+    Clip: {fileID: 8300000, guid: cabe3374e72569143a128d5714309d06, type: 3}
     MixerGroup: {fileID: -3047294326803304059, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
     Volume: 1
     Loop: 0
     PlayOnAwake: 0
-    IsFrequent: 1
+    IsFrequent: 0
+  - Id: Parry
+    Clip: {fileID: 8300000, guid: 0c319c7900b387f4299916a326555c53, type: 3}
+    MixerGroup: {fileID: -3047294326803304059, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
+    Volume: 0.7
+    Loop: 0
+    PlayOnAwake: 0
+    IsFrequent: 0
+  - Id: Block
+    Clip: {fileID: 8300000, guid: 2c6c4e1a13863e14ea0977f03b9a2850, type: 3}
+    MixerGroup: {fileID: -3047294326803304059, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
+    Volume: 1
+    Loop: 0
+    PlayOnAwake: 0
+    IsFrequent: 0
+  - Id: Stunned
+    Clip: {fileID: 8300000, guid: c2c473ee89279874db38c4771bfffec0, type: 3}
+    MixerGroup: {fileID: -3047294326803304059, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
+    Volume: 0.8
+    Loop: 0
+    PlayOnAwake: 0
+    IsFrequent: 0
+  - Id: StunRecover
+    Clip: {fileID: 8300000, guid: 56c727e669e6d5d4ba3434824818cd51, type: 3}
+    MixerGroup: {fileID: -3047294326803304059, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
+    Volume: 1
+    Loop: 0
+    PlayOnAwake: 0
+    IsFrequent: 0
+  - Id: Heal
+    Clip: {fileID: 8300000, guid: effcd193b6970b040b2eccd80a1d17ff, type: 3}
+    MixerGroup: {fileID: -3047294326803304059, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
+    Volume: 1
+    Loop: 0
+    PlayOnAwake: 0
+    IsFrequent: 0
