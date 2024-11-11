@@ -57,7 +57,7 @@ MonoBehaviour:
     AngleOffset: 0
     RadialMask: 0
     MaskAngle: 0
-  - BulletName: Blue_Normal
+  - BulletName: Red_Normal
     NumberOfBullets: 6
     BulletSpeed: 8.5
     CooldownAfterShot: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
     AngleOffset: 0
     RadialMask: 0
     MaskAngle: 0
-  - BulletName: Blue_Normal
+  - BulletName: Red_Normal
     NumberOfBullets: 6
     BulletSpeed: 8.5
     CooldownAfterShot: 0

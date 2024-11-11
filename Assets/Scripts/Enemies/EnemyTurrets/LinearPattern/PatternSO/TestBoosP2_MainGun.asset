@@ -22,6 +22,6 @@ MonoBehaviour:
     CooldownAfterShot: 0.3
     AimAtPlayer: 1
   - BulletName: Red_Big
-    BulletSpeed: 11
-    CooldownAfterShot: 0.2
+    BulletSpeed: 10
+    CooldownAfterShot: 0.1
     AimAtPlayer: 1
