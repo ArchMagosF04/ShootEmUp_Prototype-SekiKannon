@@ -47,7 +47,7 @@ public class LoadingManager : MonoBehaviour
         } while (scene.progress < 0.9f);
 
         scene.allowSceneActivation = true;
-        await Task.Delay(100);
+        await Task.Delay(1000);
 
         loadingCanvas.SetActive(false);
     }
