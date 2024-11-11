@@ -26,7 +26,6 @@ public class Phase3_State : IState
         BossHealth.OnEnemyDeath += SwitchToNextPhase;
         controller.ShuffleList(controller.Phase3Weapons);
         SwitchCurrentWeapon();
-        Debug.Log(controller);
     }
 
     public void StateUpdate()

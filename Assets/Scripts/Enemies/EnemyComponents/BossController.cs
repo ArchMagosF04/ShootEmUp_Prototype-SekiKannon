@@ -57,6 +57,7 @@ public class BossController : MonoBehaviour
 
     public void DestroyTurrets()
     {
+        EngineSprite.SetActive(false);
         foreach (var t in Phase1Weapons)
         {
             Destroy(t.gameObject);
@@ -89,6 +90,16 @@ public class BossController : MonoBehaviour
             int index = Random.Range(0, temp.Count);
             WeaponsQueue.Enqueue(temp[index]);
             temp.RemoveAt(index);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+
+            damageable.TakeDamage(5);
         }
     }
 }

@@ -15,8 +15,8 @@ public class BossDeath_State : IState
 
     public void OnEnter()
     {
-        Debug.Log(controller);
         controller.ShipAnimator.SetBool("IsDead", true);
+        controller.DestroyTurrets();
     }
 
     public void StateUpdate()
