@@ -15,6 +15,8 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject winMenu;
     [SerializeField] private GameObject gameOverMenu;
 
+    [SerializeField] private SoundLibraryObject soundLibrary;
+
 
     private void Awake()
     {
@@ -31,6 +33,11 @@ public class HUDManager : MonoBehaviour
         InitializeHUD();
     }
 
+    public void PlaySound(int soundIndex)
+    {
+        SoundManager.Instance.CreateSound().WithSoundData(soundLibrary.soundData[soundIndex]).Play();
+    }
+
     public void InitializeHUD()
     {
         ResumeGame();
@@ -41,7 +48,7 @@ public class HUDManager : MonoBehaviour
 
     private void OnEnable()
     {
-        Invoke("SubscribeToEvents", 5f);
+        Invoke("SubscribeToEvents", 2f);
     }
 
     private void OnDisable()
@@ -96,7 +103,7 @@ public class HUDManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        LoadingManager.Instance.LoadScene("MenuTest");
+        LoadingManager.Instance.LoadScene("MainMenu");
     }
 
     public void QuitGame()

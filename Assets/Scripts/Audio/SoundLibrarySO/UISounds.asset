@@ -14,20 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundData:
   - Id: Select
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: 9b92e52d7d6fd1f47a598efa3bf2016a, type: 3}
     MixerGroup: {fileID: 4691550388674657678, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
+    Volume: 1
     Loop: 0
     PlayOnAwake: 0
-    IsFrequent: 1
+    IsFrequent: 0
   - Id: Accept
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: c59c9bb3a8b55dd45861a53a0b90cabb, type: 3}
     MixerGroup: {fileID: 4691550388674657678, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
+    Volume: 1
     Loop: 0
     PlayOnAwake: 0
     IsFrequent: 0
   - Id: Cancel
-    Clip: {fileID: 0}
+    Clip: {fileID: 8300000, guid: fe6a9888e5c14ff4eb259f0b06d0a1f2, type: 3}
     MixerGroup: {fileID: 4691550388674657678, guid: 59985df3e3fcf12458ab2f91962f70bf, type: 2}
+    Volume: 1
     Loop: 0
     PlayOnAwake: 0
     IsFrequent: 0

@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    [SerializeField] public string newGameLevel;
+    [SerializeField] private string newGameLevel;
+    [SerializeField] private SoundLibraryObject soundLibrary;
 
     public void StartGame()
     {
@@ -15,5 +16,10 @@ public class MainMenuController : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void PlaySound(int soundIndex)
+    {
+        SoundManager.Instance.CreateSound().WithSoundData(soundLibrary.soundData[soundIndex]).Play();
     }
 }
