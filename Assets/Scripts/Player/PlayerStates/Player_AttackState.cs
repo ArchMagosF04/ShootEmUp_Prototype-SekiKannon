@@ -31,7 +31,8 @@ public class Player_AttackState : IState
 
     public void StateUpdate()
     {
-        ShootBullet(); //While in this state, the player will continuously shoot bullets; 
+        BulletSound();
+        playerController.CurrentWeapon.Shoot();
 
         ParryCountdown();
 
@@ -50,24 +51,11 @@ public class Player_AttackState : IState
         playerController.WeaponAnimator.SetBool("IsAttacking", false);
     }
 
-    private void ShootBullet()
+    private void BulletSound()
     {
-        if (shootCooldown <= 0) //When the cooldown is done, the player will spawn a pair of bullets.
+        if (shootCooldown <= 0)
         {
-            foreach (Transform barrel in playerController.Cannons)
-            {
-                playerController.BulletPool.ChangeSpawnpoint(barrel);
-                Bullet_Controller bullet = playerController.BulletPool.pool.Get();
-                bullet.transform.position = barrel.position;
-                bullet.transform.localRotation = barrel.rotation;
-                bullet.Bullet_Movement.Movement(barrel.up);
-
-                SoundManager.Instance.CreateSound().WithSoundData(playerController.SoundLibrary.soundData[0]).WithRandomPitch().WithPosition(barrel.position).Play();
-            }
-
-            
-
-
+            SoundManager.Instance.CreateSound().WithSoundData(playerController.SoundLibrary.soundData[0]).WithRandomPitch().Play();
             shootCooldown = shootingInterval; //Activate the cooldown.
         }
         else

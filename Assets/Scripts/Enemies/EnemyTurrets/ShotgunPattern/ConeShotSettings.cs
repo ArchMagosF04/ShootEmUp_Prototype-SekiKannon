@@ -6,11 +6,11 @@ using UnityEngine;
 public class ConeShotSettings
 {
     [Header("Bullet Type")]
-    public string BulletName = "BasicBullet";
+    public string BulletName = "Blue_Bullet";
 
     [Header("Base Settings")]
-    [Range(5f, 180f)] public float ConeArcAngle = 45f;
-    [Range(2f, 100f)] public int NumberOfBullets = 5;
+    [Range(0f, 180f)] public float ConeArcAngle = 45f;
+    [Range(1f, 100f)] public int NumberOfBullets = 5;
     public float BulletSpeed = 10f;
     public float CooldownAfterShot;
 

@@ -50,7 +50,9 @@ public class ConeShotPatternVisualizer : MonoBehaviour
 
     private void DrawConeShot(ConeShotSettings settings, float lifeTime, Vector2 aimDirection, float coneArc)
     {
-        float angleBetweenBullets = coneArc / (settings.NumberOfBullets - 1);
+        float angleBetweenBullets = 0f;
+
+        if (settings.NumberOfBullets > 1) angleBetweenBullets = coneArc / (settings.NumberOfBullets - 1);
 
         if (settings.AngleOffset != 0f || settings.PhaseOffset != 0f)
         {

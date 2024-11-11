@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletData: {fileID: 11400000, guid: 8faed77af051ed046b1ea440c1778c6d, type: 2}
-  impactEffect: {fileID: 5361044443241892153, guid: a944532aaebdb39429efc7912e3fb5fc, type: 3}
+  impactEffect: {fileID: 5361044443241892153, guid: 27b2618b48dda2d46ade54c7b2e96cae, type: 3}
 --- !u!114 &-3909685208214588727
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,14 +16,6 @@ public class ConeShotWeapon : AbstractTurret
         factory = GetComponentInParent<BulletFactory>();
     }
 
-    //private void Update()
-    //{
-    //    if (!isShoting)
-    //    {
-    //        StartCoroutine(ExecuteConeShotPattern(shotPattern));
-    //    }
-    //}
-
     public override void Shoot()
     {
         if (!isShoting)
@@ -76,7 +68,9 @@ public class ConeShotWeapon : AbstractTurret
 
     public void ConeShot(float coneArc, Vector2 origin, Vector2 aimDirection, ConeShotSettings settings)
     {
-        float angleBetweenBullets = coneArc / (settings.NumberOfBullets-1);
+        float angleBetweenBullets = 0f;
+
+        if (settings.NumberOfBullets > 1) angleBetweenBullets = coneArc / (settings.NumberOfBullets - 1);
 
         if (settings.AngleOffset != 0f || settings.PhaseOffset != 0f)
         {

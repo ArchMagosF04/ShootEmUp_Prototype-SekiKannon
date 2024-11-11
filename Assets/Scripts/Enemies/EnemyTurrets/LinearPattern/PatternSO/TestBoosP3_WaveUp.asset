@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ef3e262169a2d44a8f05dd4ac26581, type: 3}
+  m_Name: TestBoosP3_WaveUp
+  m_EditorClassIdentifier: 
+  Repetitions: 9
+  AngleOffsetBetweenReps: -9
+  StartWait: 0
+  EndWait: 2
+  PatternSettings:
+  - BulletName: Blue_Normal
+    BulletSpeed: 12
+    CooldownAfterShot: 0.1
+    AimAtPlayer: 0
+  - BulletName: Blue_Normal
+    BulletSpeed: 12
+    CooldownAfterShot: 0.15
+    AimAtPlayer: 0
+  - BulletName: Blue_Normal
+    BulletSpeed: 10
+    CooldownAfterShot: 0.05
+    AimAtPlayer: 1

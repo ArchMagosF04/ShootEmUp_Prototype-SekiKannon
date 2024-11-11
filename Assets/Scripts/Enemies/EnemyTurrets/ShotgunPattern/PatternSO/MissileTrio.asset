@@ -10,31 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: faf9fd706d659234999371786a3ab641, type: 3}
-  m_Name: TestBossP1-Shotguns
+  m_Name: MissileTrio
   m_EditorClassIdentifier: 
-  Repetitions: 2
+  Repetitions: 1
   AngleOffsetBetweenReps: 0
   StartWait: 0
   EndWait: 0
   PatternSettings:
-  - BulletName: Orange_Normal
+  - BulletName: Green_Missile
     ConeArcAngle: 0
     NumberOfBullets: 1
     BulletSpeed: 12
     CooldownAfterShot: 0.05
     PhaseOffset: 0
     AngleOffset: 0
-  - BulletName: Blue_Normal
-    ConeArcAngle: 20
+  - BulletName: Blue_Missile
+    ConeArcAngle: 51
     NumberOfBullets: 2
-    BulletSpeed: 11
-    CooldownAfterShot: 0.05
-    PhaseOffset: 0
-    AngleOffset: 0
-  - BulletName: Blue_Normal
-    ConeArcAngle: 45
-    NumberOfBullets: 2
-    BulletSpeed: 11
-    CooldownAfterShot: 0.15
+    BulletSpeed: 10
+    CooldownAfterShot: 0
     PhaseOffset: 0
     AngleOffset: 0

@@ -34,16 +34,13 @@ public class PlayerController : MonoBehaviour
 
     [Header("Attack State")]
 
-    [SerializeField] private Bullet_Controller bulletPrefab;
-
     [SerializeField] private Animator weaponAnimator;
     public Animator WeaponAnimator => weaponAnimator;
 
-    [SerializeField] private Transform[] cannons;
-    public Transform[] Cannons => cannons;
+    [SerializeField] private AbstractTurret[] weapons;
 
-    private BulletPool bulletPool;
-    public BulletPool BulletPool => bulletPool;
+    private AbstractTurret currentWeapon;
+    public AbstractTurret CurrentWeapon => currentWeapon;
 
    
 
@@ -65,8 +62,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player_Shield = GetComponentInChildren<Player_Shield>();
 
-        bulletPool = GetComponent<BulletPool>();
-        bulletPool.SetBulletPrefab(bulletPrefab);
+        currentWeapon = weapons[0];
 
         PlayerStateMachine = new StateMachine();
         IdleState = new Player_IdleState(PlayerStateMachine, this);
@@ -86,6 +82,22 @@ public class PlayerController : MonoBehaviour
     {
         PlayerStateMachine.Update(); //Updates the current state in the state machine.
         Movement();
+        SwitchWeapons();
+    }
+
+    private void SwitchWeapons()
+    {
+        if (playerInput.ToggleWeapons)
+        {
+            if (currentWeapon == weapons[0])
+            {
+                currentWeapon = weapons[1];
+            }
+            else
+            {
+                currentWeapon = weapons[0];
+            }
+        }
     }
 
     private void Movement() //Handles the movement of the player.

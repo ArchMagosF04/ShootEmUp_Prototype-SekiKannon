@@ -7,6 +7,7 @@ public class PlayerInput : MonoBehaviour
     [Header("Key Inputs")]
     [SerializeField] private KeyCode shoot = KeyCode.X;  //Input use to shoot projectiles.
     [SerializeField] private KeyCode shield = KeyCode.Z; //Input use to activate the shield.
+    [SerializeField] private KeyCode switchWeapon = KeyCode.C; //Input ues to toggle between weapons.
 
     private Vector2 inputVector;
     public Vector2 InputVector => inputVector;
@@ -16,6 +17,9 @@ public class PlayerInput : MonoBehaviour
 
     private bool isShieldActive;
     public bool IsShieldActive => isShieldActive;
+
+    private bool toggleWeapons;
+    public bool ToggleWeapons => toggleWeapons;
 
     private void Update()
     {
@@ -46,6 +50,7 @@ public class PlayerInput : MonoBehaviour
 
             isShotting = Input.GetKey(shoot);
             isShieldActive = Input.GetKey(shield);
+            toggleWeapons = Input.GetKeyDown(switchWeapon);
         } 
     }
 }

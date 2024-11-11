@@ -12,6 +12,8 @@ public class HomingBullet : MonoBehaviour
 
     [SerializeField] private float rotationSpeed = 1000f;
 
+    [SerializeField] private bool isPlayerAlly = false;
+
     private void Awake()
     {
         bullet_Movement = GetComponent<Bullet_Movement>();
@@ -20,7 +22,14 @@ public class HomingBullet : MonoBehaviour
 
     private void OnEnable()
     {
-        target = GameManager.Instance.PlayerCharacter.transform;
+        if (isPlayerAlly)
+        {
+            ChangeTarget(GameManager.Instance.BossCharacter.transform);
+        }
+        else
+        {
+            ChangeTarget(GameManager.Instance.PlayerCharacter.transform);
+        }
     }
 
     private void FixedUpdate()

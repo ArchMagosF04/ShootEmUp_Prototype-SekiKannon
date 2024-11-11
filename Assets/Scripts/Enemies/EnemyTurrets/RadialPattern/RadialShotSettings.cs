@@ -6,7 +6,7 @@ using UnityEngine;
 public class RadialShotSettings
 {
     [Header("Bullet Type")]
-    public string BulletName = "BasicBullet";
+    public string BulletName = "Blue_Normal";
 
     [Header("Base Settings")]
     [Range(1f, 50f)] public int NumberOfBullets = 5;
