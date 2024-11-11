@@ -12,6 +12,9 @@ public class RadialShotWeapon : AbstractTurret
 
     private BulletFactory factory;
 
+    [SerializeField] private SoundLibraryObject soundLibrary;
+    [SerializeField] private int libraryClipIndex = 0;
+
     private void Awake()
     {
         factory = GetComponentInParent<BulletFactory>();
@@ -47,6 +50,11 @@ public class RadialShotWeapon : AbstractTurret
                 yield return new WaitForSeconds(pattern.PatternSettings[i].CooldownAfterShot);
             }
 
+            if (soundLibrary != null)
+            {
+                SoundManager.Instance.CreateSound().WithSoundData(soundLibrary.soundData[libraryClipIndex]).WithRandomPitch().Play();
+            }
+
             lap++;
         }
 
@@ -57,6 +65,11 @@ public class RadialShotWeapon : AbstractTurret
 
     public void SimpleShot(string name, Vector2 origin, Vector2 direction, float velocity)
     {
+        if (soundLibrary != null)
+        {
+            SoundManager.Instance.CreateSound().WithSoundData(soundLibrary.soundData[libraryClipIndex]).WithRandomPitch().Play();
+        }
+
         Bullet_Controller bullet = factory.CreateBullet(name);
         bullet.transform.position = origin;
         bullet.transform.up = direction;

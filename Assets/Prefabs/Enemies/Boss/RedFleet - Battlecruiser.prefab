@@ -208,6 +208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: ef3bc4a75d8ff7042b0cd1af27ec2638, type: 2}
+  soundLibrary: {fileID: 0}
+  libraryClipIndex: 0
 --- !u!114 &4475859877122123525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +327,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: 13e347a6425aa0f439a215536b99b1b3, type: 2}
+  soundLibrary: {fileID: 0}
+  libraryClipIndex: 0
 --- !u!114 &8469949647256683403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,6 +444,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: d76552da146941e488f3de044e511841, type: 2}
+  soundLibrary: {fileID: 0}
+  libraryClipIndex: 0
 --- !u!114 &6379923563688529028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,6 +561,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: 66aec62c39a656f48998ffbf72b6369a, type: 2}
+  soundLibrary: {fileID: 0}
+  libraryClipIndex: 0
 --- !u!114 &2475092998139936577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -782,7 +790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b880ac9946a1eb14abc09f9d36740cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1200
+  maxHealth: 1300
 --- !u!114 &4982270545559263517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1064,6 +1072,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: 9386016f98d6d3e46b6fe297ed942715, type: 2}
+  soundLibrary: {fileID: 0}
+  libraryClipIndex: 0
 --- !u!114 &3109179634925364378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1126,6 +1136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: db518de5c714a9d4ca30fae1b94321f7, type: 2}
+  soundLibrary: {fileID: 0}
+  libraryClipIndex: 0
 --- !u!114 &1389543391459974289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1257,6 +1269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: 82ddcb44e5739124fb4f5ce017a14649, type: 2}
+  soundLibrary: {fileID: 0}
+  libraryClipIndex: 0
 --- !u!1 &6848882090021167195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,6 +1370,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: 17823ed338bfb0f4894a2f0014336ab5, type: 2}
+  soundLibrary: {fileID: 0}
+  libraryClipIndex: 0
 --- !u!114 &878069400732227165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1471,6 +1487,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: 2fcffec68e6a8bd4c8b115031b4722b4, type: 2}
+  soundLibrary: {fileID: 0}
+  libraryClipIndex: 0
 --- !u!114 &6787352395322916838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1533,6 +1551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: 4a6a5e75318946a46a901b3d3d156233, type: 2}
+  soundLibrary: {fileID: 0}
+  libraryClipIndex: 0
 --- !u!114 &907384409658866739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1825,6 +1845,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: c9566cb346ae21145ad6182f4afd5afa, type: 2}
+  soundLibrary: {fileID: 0}
+  libraryClipIndex: 0
 --- !u!114 &7208889561273395604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2046,6 +2068,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: c9566cb346ae21145ad6182f4afd5afa, type: 2}
+  soundLibrary: {fileID: 0}
+  libraryClipIndex: 0
 --- !u!114 &3660589646636600935
 MonoBehaviour:
   m_ObjectHideFlags: 0

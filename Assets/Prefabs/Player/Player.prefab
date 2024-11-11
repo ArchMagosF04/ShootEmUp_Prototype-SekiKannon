@@ -48,7 +48,7 @@ MonoBehaviour:
   pattern: {fileID: 11400000, guid: 07d071225ac28f24cb1e9e7798643099, type: 2}
   radius: 0.1
   iconColor: {r: 1, g: 0, b: 0, a: 1}
-  testTime: 0
+  testTime: 0.18
 --- !u!114 &5354816500401734953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +62,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: 07d071225ac28f24cb1e9e7798643099, type: 2}
+  soundLibrary: {fileID: 11400000, guid: 3b75e6b44346b0b4ca30a53bb2add10f, type: 2}
+  libraryClipIndex: 0
 --- !u!1 &4626063798345422805
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,6 +460,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: 8435f7cd1a4fd614fb533a8abbf04849, type: 2}
+  soundLibrary: {fileID: 11400000, guid: 3b75e6b44346b0b4ca30a53bb2add10f, type: 2}
+  libraryClipIndex: 0
 --- !u!1 &7551989236165189908
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +507,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: 8435f7cd1a4fd614fb533a8abbf04849, type: 2}
+  soundLibrary: {fileID: 11400000, guid: 3b75e6b44346b0b4ca30a53bb2add10f, type: 2}
+  libraryClipIndex: 0
 --- !u!1 &9069000311316968139
 GameObject:
   m_ObjectHideFlags: 0

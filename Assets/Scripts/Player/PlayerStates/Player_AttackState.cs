@@ -9,8 +9,6 @@ public class Player_AttackState : IState
     private StateMachine stateMachine;
     private PlayerController playerController; 
 
-    private float shootingInterval = 0.07f; //Time in seconds between each shot.
-    private float shootCooldown;
     private float speedMultiplier = 0.9f; //The speed is reduce to this % where 1.0f == 100%.
     private float parryCooldown = 0.15f;
     private float canParryTimer;
@@ -25,13 +23,11 @@ public class Player_AttackState : IState
     {
         canParryTimer = parryCooldown;
         playerController.WeaponAnimator.SetBool("IsAttacking", true);
-        shootCooldown = 0f;
         playerController.currentMoveSpeed = playerController.NormalMoveSpeed * speedMultiplier; //Reduce the player's speed.%
     }
 
     public void StateUpdate()
     {
-        BulletSound();
         playerController.CurrentWeapon.Shoot();
 
         ParryCountdown();
@@ -49,19 +45,6 @@ public class Player_AttackState : IState
     public void OnExit()
     {
         playerController.WeaponAnimator.SetBool("IsAttacking", false);
-    }
-
-    private void BulletSound()
-    {
-        if (shootCooldown <= 0)
-        {
-            SoundManager.Instance.CreateSound().WithSoundData(playerController.SoundLibrary.soundData[0]).WithRandomPitch().Play();
-            shootCooldown = shootingInterval; //Activate the cooldown.
-        }
-        else
-        {
-            shootCooldown -= Time.deltaTime; //Cooldown tick.
-        }
     }
 
     private void ParryCountdown()

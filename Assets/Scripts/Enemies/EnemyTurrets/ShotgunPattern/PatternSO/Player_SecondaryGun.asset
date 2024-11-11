@@ -18,9 +18,9 @@ MonoBehaviour:
   EndWait: 0
   PatternSettings:
   - BulletName: Player_SecondaryBullet
-    ConeArcAngle: 65
+    ConeArcAngle: 50
     NumberOfBullets: 5
     BulletSpeed: 20
-    CooldownAfterShot: 0.1
+    CooldownAfterShot: 0.08
     PhaseOffset: 0
     AngleOffset: 0
