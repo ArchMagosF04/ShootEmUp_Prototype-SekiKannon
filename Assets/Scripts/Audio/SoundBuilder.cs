@@ -34,10 +34,10 @@ public class SoundBuilder
 
     public void Play()
     {
-        if (!soundManager.CanPlaySound(soundData)) 
-        {
-            return;
-        }
+        //if (!soundManager.CanPlaySound(soundData)) 
+        //{
+        //    return;
+        //}
 
         SoundEmitter soundEmitter = soundManager.GetSoundEmitter();
         soundEmitter.Initialize(soundData);
