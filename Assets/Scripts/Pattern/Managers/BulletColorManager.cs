@@ -11,6 +11,11 @@ public class BulletColorManager : MonoBehaviour
     public Color RonboidColor { get; private set; }
     public Color TriangleColor {  get; private set; }
 
+    public string DefaultSquare { get; private set; } = "0050FF";
+    public string DefaultCircle { get; private set; } = "00FF00";
+    public string DefaultRonboid { get; private set; } = "FF7800";
+    public string DefaultTriangle { get; private set; } = "FF0000";
+
     private void Awake()
     {
         if (Instance == null)
@@ -26,38 +31,57 @@ public class BulletColorManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void SetSquareColor(Color squareColor)
+    public void GetSquareColor()
     {
-        PlayerPrefs.GetString("SquareColor", ColorToHex(squareColor));
+        SquareColor = HexToColor(PlayerPrefs.GetString("SquareColor", "0050FF"));
     }
 
-    public void SetCircleColor(Color circleColor)
+    public void GetCircleColor()
     {
-        PlayerPrefs.GetString("CircleColor", ColorToHex(circleColor));
+        CircleColor = HexToColor(PlayerPrefs.GetString("CircleColor", "00FF00"));
     }
 
-    public void SetRonboidColor(Color ronboidColor)
+    public void GetRonboidColor()
     {
-        PlayerPrefs.GetString("RonboidColor", ColorToHex(ronboidColor));
+        RonboidColor = HexToColor(PlayerPrefs.GetString("RonboidColor", "FF7800"));
     }
 
-    public void SetTriangleColor(Color triangleColor)
+    public void GetTriangleColor()
     {
-        PlayerPrefs.GetString("TriangleColor", ColorToHex(triangleColor));
+        TriangleColor = HexToColor(PlayerPrefs.GetString("TriangleColor", "FF0000"));
     }
 
-    void GetSavedColor()
+    public void SetSquareColor(Color color)
     {
-        Color GetedColor = HexToColor(PlayerPrefs.GetString("SavedColor"));
+        PlayerPrefs.SetString("SquareColor", ColorToHex(color));
+        GetSquareColor();
     }
-    // Note that Color32 and Color implictly convert to each other. You may pass a Color object to this method without first casting it.
-    string ColorToHex(Color32 color)
+
+    public void SetCircleColor(Color color)
+    {
+        PlayerPrefs.SetString("CircleColor", ColorToHex(color));
+        GetCircleColor();
+    }
+
+    public void SetRonboidColor(Color color)
+    {
+        PlayerPrefs.SetString("RonboidColor", ColorToHex(color));
+        GetRonboidColor();
+    }
+
+    public void SetTriangleColor(Color color)
+    {
+        PlayerPrefs.SetString("TriangleColor", ColorToHex(color));
+        GetTriangleColor();
+    }
+
+    public string ColorToHex(Color32 color)
     {
         string hex = color.r.ToString("X2") + color.g.ToString("X2") + color.b.ToString("X2");
         return hex;
     }
 
-    Color HexToColor(string hex)
+    public Color HexToColor(string hex)
     {
         byte r = byte.Parse(hex.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
         byte g = byte.Parse(hex.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
