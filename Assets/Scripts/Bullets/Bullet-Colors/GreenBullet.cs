@@ -13,6 +13,12 @@ public class GreenBullet : MonoBehaviour, IParryEffect
         controller = GetComponent<Bullet_Controller>();
     }
 
+    private void OnEnable()
+    {
+        SpriteRenderer sprite = GetComponentInChildren<SpriteRenderer>();
+        sprite.color = BulletColorManager.Instance.CircleColor;
+    }
+
     private void HealPlayer(int healing)
     {
         Player_Health player_Health = GameObject.FindGameObjectWithTag("Player").GetComponentInParent<Player_Health>();

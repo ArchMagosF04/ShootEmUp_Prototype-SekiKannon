@@ -21,6 +21,12 @@ public class OrangeBullet : MonoBehaviour, IParryEffect
         creator = GameManager.Instance.BossCharacter.transform;
     }
 
+    private void OnEnable()
+    {
+        SpriteRenderer sprite = GetComponentInChildren<SpriteRenderer>();
+        sprite.color = BulletColorManager.Instance.RonboidColor;
+    }
+
     public void OnBlockEffect(Player_Shield player_Shield)
     {
         player_Shield.TakeDamage(bulletData.ShieldDamage);

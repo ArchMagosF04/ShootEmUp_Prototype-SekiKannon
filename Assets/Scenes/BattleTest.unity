@@ -481,6 +481,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93131624}
   m_CullTransparentMesh: 1
+--- !u!1 &121049124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 121049126}
+  - component: {fileID: 121049125}
+  m_Layer: 0
+  m_Name: DataPersistanceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &121049125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121049124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32e0308b276ded4595a623ad7fb7f14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: GameDataSave.json
+--- !u!4 &121049126
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121049124}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 575.4287, y: 275.60355, z: -3.9738214}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &142796083
 GameObject:
   m_ObjectHideFlags: 0
@@ -3307,6 +3352,58 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 469.27676, y: 542.2363, z: -8.205268}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &841206633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 841206635}
+  - component: {fileID: 841206634}
+  m_Layer: 0
+  m_Name: BulletColorManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &841206634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841206633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f84243465a73847909d32d6fe43303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <SquareColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+  <CircleColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+  <RonboidColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+  <TriangleColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+  <SquareColorDefault>k__BackingField: {r: 0, g: 0.3137255, b: 1, a: 1}
+  <CircleColorDefault>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
+  <RonboidColorDefault>k__BackingField: {r: 1, g: 0.47058824, b: 0, a: 1}
+  <TriangleColorDefault>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+--- !u!4 &841206635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841206633}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8173,6 +8270,8 @@ SceneRoots:
   - {fileID: 386924589}
   - {fileID: 949544018}
   - {fileID: 1407695667}
+  - {fileID: 841206635}
+  - {fileID: 121049126}
   - {fileID: 1977962390}
   - {fileID: 519420032}
   - {fileID: 1199901315}

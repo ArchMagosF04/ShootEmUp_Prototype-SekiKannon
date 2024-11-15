@@ -13,6 +13,12 @@ public class BlueBullet : MonoBehaviour, IParryEffect
         controller = GetComponent<Bullet_Controller>();
     }
 
+    private void OnEnable()
+    {
+        SpriteRenderer sprite = GetComponentInChildren<SpriteRenderer>();
+        sprite.color = BulletColorManager.Instance.SquareColor;
+    }
+
     public void OnBlockEffect(Player_Shield player_Shield) //When blocked, the bullet is destroyed and damages the shield.
     {
         player_Shield.TakeDamage(bulletData.ShieldDamage);

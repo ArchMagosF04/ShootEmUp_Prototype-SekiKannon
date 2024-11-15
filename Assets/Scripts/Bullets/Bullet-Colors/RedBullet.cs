@@ -15,6 +15,12 @@ public class RedBullet : MonoBehaviour, IParryEffect
         bullet_Impact = GetComponent<Bullet_Impact>();
     }
 
+    private void OnEnable()
+    {
+        SpriteRenderer sprite = GetComponentInChildren<SpriteRenderer>();
+        sprite.color = BulletColorManager.Instance.TriangleColor;
+    }
+
     public void OnBlockEffect(Player_Shield player_Shield)
     {
         player_Shield.BreakShield(true);
