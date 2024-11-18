@@ -14,12 +14,15 @@ public class LinearShotWeapon : AbstractTurret
 
     private Transform target;
 
+    private IPreFireEffect preFireEffect;
+
     [SerializeField] private SoundLibraryObject soundLibrary;
     [SerializeField] private int libraryClipIndex = 0;
 
     private void Awake()
     {
         factory = GetComponentInParent<BulletFactory>();
+        preFireEffect = GetComponent<IPreFireEffect>();
     }
 
     private void Start()
@@ -31,6 +34,11 @@ public class LinearShotWeapon : AbstractTurret
     {
         if (!isShoting)
         {
+            if (preFireEffect != null)
+            {
+                preFireEffect.ExecuteEffect();
+            }
+
             StartCoroutine(ExecuteLinearShotPattern(shotPattern));
         }
     }

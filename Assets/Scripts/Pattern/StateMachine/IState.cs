@@ -4,9 +4,9 @@ using UnityEngine;
 
 public interface IState
 {
-    public void OnEnter() { }
+    public void OnEnter();
 
-    public void StateUpdate() { }
+    public void StateUpdate();
 
-    public void OnExit() { }
+    public void OnExit();
 }

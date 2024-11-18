@@ -20,9 +20,12 @@ public class Bullet_Controller : MonoBehaviour
     [SerializeField] private ParticleSystem impactEffect;
     private ParticleSystem effectInstance;
 
+    private IBulletDeathEffect bulletDeathEffect;
+
     private void Awake()
     {
         bullet_Movement = GetComponent<Bullet_Movement>();
+        bulletDeathEffect = GetComponent<IBulletDeathEffect>();
     }
 
     private void OnEnable()
@@ -55,6 +58,11 @@ public class Bullet_Controller : MonoBehaviour
         if(impactEffect != null)
         {
             effectInstance = Instantiate(impactEffect, transform.position, Quaternion.identity);
+        }
+
+        if (bulletDeathEffect != null)
+        {
+            bulletDeathEffect.OnDeathEffect();
         }
 
         if (pool != null)

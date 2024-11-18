@@ -10,12 +10,18 @@ public class HUDManager : MonoBehaviour
     public bool IsPaused {  get; private set; }
     public bool IsGameOver { get; private set;}
 
+    [Header ("Panel References")]
+
     [SerializeField] private GameObject gameHUD;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject winMenu;
     [SerializeField] private GameObject gameOverMenu;
 
+    [Header("Saved Presets References")]
+
     [SerializeField] private SoundLibraryObject soundLibrary;
+
+    [SerializeField] private EnemyHPBar enemyHPBarPrefab;
 
 
     private void Awake()
@@ -38,6 +44,12 @@ public class HUDManager : MonoBehaviour
         SoundManager.Instance.CreateSound().WithSoundData(soundLibrary.soundData[soundIndex]).Play();
     }
 
+    public void CreateBossHealthBar(EnemyHealth enemyHealth)
+    {
+        EnemyHPBar bar = Instantiate(enemyHPBarPrefab, gameHUD.transform);
+        bar.InitializeHealthBar(enemyHealth);
+    }
+
     public void InitializeHUD()
     {
         ResumeGame();
@@ -48,19 +60,17 @@ public class HUDManager : MonoBehaviour
 
     private void OnEnable()
     {
-        Invoke("SubscribeToEvents", 2f);
+        Invoke("SubscribeToEvents", 1f);
     }
 
     private void OnDisable()
     {
         Player_Health.OnPlayerDeath -= LoseGame;
-        BossHealth.OnEnemyDeath -= WinGame;
     }
 
     private void SubscribeToEvents()
     {
         Player_Health.OnPlayerDeath += LoseGame;
-        BossHealth.OnEnemyDeath += WinGame;
     }
 
     public void PauseGame()

@@ -8,7 +8,6 @@ public class FacadeManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Facade");
         MusicManager.Instance.SwitchTrack(sceneMusic);
     }
 }

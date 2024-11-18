@@ -722,6 +722,7 @@ MonoBehaviour:
   bullets:
   - {fileID: -3275779243624831899, guid: 77e97a625f46e79478a7243f1de6e8b0, type: 3}
   - {fileID: -3275779243624831899, guid: dccef70ef241ceb4a8afb4ea1e96ff42, type: 3}
+  usePool: 1
 --- !u!114 &6379867808051236687
 MonoBehaviour:
   m_ObjectHideFlags: 0

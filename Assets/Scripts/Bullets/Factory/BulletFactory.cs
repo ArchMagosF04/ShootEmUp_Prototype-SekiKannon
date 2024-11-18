@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class BulletFactory : MonoBehaviour
 {
+    [SerializeField] private bool usePool = false;
+
     [SerializeField] private Bullet_Controller[] bullets;
     private Dictionary<string, Bullet_Controller> bulletDictionary;
 
     private Dictionary<string, BulletPool> poolDictionary;
-
+    
     private void Start()
     {
         bulletDictionary = new Dictionary<string, Bullet_Controller>();
@@ -25,18 +27,28 @@ public class BulletFactory : MonoBehaviour
     {
         if (bulletDictionary.ContainsKey(id))
         {
-            if(!poolDictionary.ContainsKey(id))
+            if (usePool)
             {
-                BulletPool newBulletPool = gameObject.AddComponent<BulletPool>();
+                if (!poolDictionary.ContainsKey(id))
+                {
+                    BulletPool newBulletPool = gameObject.AddComponent<BulletPool>();
 
-                newBulletPool.SetBulletPrefab(bulletDictionary[id]);
+                    newBulletPool.SetBulletPrefab(bulletDictionary[id]);
 
-                poolDictionary.Add(id, newBulletPool);
+                    poolDictionary.Add(id, newBulletPool);
+                }
+
+                Bullet_Controller newBullet = poolDictionary[id].pool.Get();
+
+                return newBullet;
             }
+            else
+            {
+                Bullet_Controller newBullet = Instantiate(bulletDictionary[id]);
 
-            Bullet_Controller newBullet = poolDictionary[id].pool.Get();
-
-            return newBullet;
+                return newBullet;
+            }
+            
         }
 
         return null;

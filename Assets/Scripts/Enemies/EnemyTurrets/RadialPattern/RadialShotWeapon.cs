@@ -12,18 +12,26 @@ public class RadialShotWeapon : AbstractTurret
 
     private BulletFactory factory;
 
+    private IPreFireEffect preFireEffect;
+
     [SerializeField] private SoundLibraryObject soundLibrary;
     [SerializeField] private int libraryClipIndex = 0;
 
     private void Awake()
     {
         factory = GetComponentInParent<BulletFactory>();
+        preFireEffect = GetComponent<IPreFireEffect>();
     }
 
     public override void Shoot()
     {
         if (!isShoting)
         {
+            if (preFireEffect != null)
+            {
+                preFireEffect.ExecuteEffect();
+            }
+
             StartCoroutine(ExecuteRadialShotPattern(shotPattern));
         }
     }
