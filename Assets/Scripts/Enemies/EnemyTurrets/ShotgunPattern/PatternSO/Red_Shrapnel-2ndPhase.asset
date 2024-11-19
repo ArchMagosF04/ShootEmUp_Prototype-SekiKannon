@@ -20,21 +20,21 @@ MonoBehaviour:
   - BulletName: Blue_Normal
     ConeArcAngle: 0
     NumberOfBullets: 1
-    BulletSpeed: 10
+    BulletSpeed: 12
     CooldownAfterShot: 0
     PhaseOffset: 0
     AngleOffset: 180
   - BulletName: Green_Normal
     ConeArcAngle: 90
     NumberOfBullets: 2
-    BulletSpeed: 10
+    BulletSpeed: 12
     CooldownAfterShot: 0
     PhaseOffset: 0
     AngleOffset: 180
   - BulletName: Blue_Normal
     ConeArcAngle: 180
     NumberOfBullets: 2
-    BulletSpeed: 10
+    BulletSpeed: 12
     CooldownAfterShot: 0
     PhaseOffset: 0
     AngleOffset: 180

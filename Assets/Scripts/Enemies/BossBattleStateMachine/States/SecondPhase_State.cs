@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossStartUp_State : IState
+public class SecondPhase_State : IState
 {
     private StateMachine stateMachine;
+    private BossBattleController controller;
 
-    public BossStartUp_State(StateMachine stateMachine)
+    public SecondPhase_State(StateMachine stateMachine, BossBattleController controller)
     {
         this.stateMachine = stateMachine;
+        this.controller = controller;
     }
 
     public void OnEnter()
     {
-
+        controller.CreateBattlecruiser();
+        controller.P2Meteors.isActive = true;
     }
 
     public void StateUpdate()

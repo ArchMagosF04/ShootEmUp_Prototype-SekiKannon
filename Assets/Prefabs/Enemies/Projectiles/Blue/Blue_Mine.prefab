@@ -176,7 +176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationDistance: 2.7
   rotationSpeed: 1000
-  isPlayerAlly: 0
+  activationDelay: 0.35
+  soundLibrary: {fileID: 11400000, guid: cd738330b1abc0a48a2c07624b68f7db, type: 2}
 --- !u!1 &7197241588793411828
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +250,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -684295541
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -558907461, guid: 7bf21145dda853f47b5bea3cc7f15cf6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

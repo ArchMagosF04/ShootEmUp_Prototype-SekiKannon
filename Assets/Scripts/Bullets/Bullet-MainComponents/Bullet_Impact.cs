@@ -45,6 +45,7 @@ public class Bullet_Impact : MonoBehaviour
         if (iDamageable != null)
         {
             iDamageable.TakeDamage(Mathf.RoundToInt(controller.BulletData.Damage*damageMultiplier));
+            controller.ExecuteDeathEffect = false;
         }
     }
 

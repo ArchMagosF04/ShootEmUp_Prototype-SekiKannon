@@ -15,7 +15,7 @@ MonoBehaviour:
   Repetitions: 1
   AngleOffsetBetweenReps: 0
   StartWait: 1
-  EndWait: 8
+  EndWait: 5
   PatternSettings:
   - BulletName: Blue_Normal
     ConeArcAngle: 90

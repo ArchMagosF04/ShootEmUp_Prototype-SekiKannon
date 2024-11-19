@@ -18,6 +18,6 @@ MonoBehaviour:
   EndWait: 0
   PatternSettings:
   - BulletName: Asteroid_Bullet
-    BulletSpeed: 8
-    CooldownAfterShot: 0.2
+    BulletSpeed: 7
+    CooldownAfterShot: 0.5
     AimAtPlayer: 0

@@ -26,6 +26,6 @@ public class FirstPhase_State : IState
 
     public void OnExit()
     {
-        controller.EndPhase1();
+
     }
 }

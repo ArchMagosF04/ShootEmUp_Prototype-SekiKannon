@@ -31,6 +31,7 @@ public class ConeShotWeapon : AbstractTurret
                 preFireEffect.ExecuteEffect();
             }
 
+            
             StartCoroutine(ExecuteConeShotPattern(shotPattern));
         }
     }
@@ -77,7 +78,7 @@ public class ConeShotWeapon : AbstractTurret
         {
             SoundManager.Instance.CreateSound().WithSoundData(soundLibrary.soundData[libraryClipIndex]).WithRandomPitch().Play();
         }
-
+        
         Bullet_Controller bullet = factory.CreateBullet(name);
         bullet.transform.position = origin;
         bullet.transform.up = direction;

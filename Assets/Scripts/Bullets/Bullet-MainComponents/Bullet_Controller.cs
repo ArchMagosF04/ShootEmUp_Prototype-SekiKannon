@@ -21,6 +21,7 @@ public class Bullet_Controller : MonoBehaviour
     private ParticleSystem effectInstance;
 
     private IBulletDeathEffect bulletDeathEffect;
+    public bool ExecuteDeathEffect;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class Bullet_Controller : MonoBehaviour
     private void OnEnable()
     {
         lifeTime = 0f;
+        ExecuteDeathEffect = true;
     }
 
     private void Update()
@@ -55,14 +57,14 @@ public class Bullet_Controller : MonoBehaviour
 
     public void DestroySelf()
     {
-        if(impactEffect != null)
-        {
-            effectInstance = Instantiate(impactEffect, transform.position, Quaternion.identity);
-        }
-
-        if (bulletDeathEffect != null)
+        if (bulletDeathEffect != null && ExecuteDeathEffect)
         {
             bulletDeathEffect.OnDeathEffect();
+        }
+
+        if (impactEffect != null)
+        {
+            effectInstance = Instantiate(impactEffect, transform.position, Quaternion.identity);
         }
 
         if (pool != null)

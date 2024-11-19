@@ -36,15 +36,25 @@ public class OrangeBullet : MonoBehaviour, IParryEffect
     public void OnParryEffect(Player_Shield player_Shield)
     {
         player_Shield.TakeSafeDamage(bulletData.ShieldDamage);
-        DeflectStats();
-        ChangeTarget();
+        
+        if (creator != null)
+        {
+            DeflectStats();
+            ChangeTarget();
+        }
+        else
+        {
+            controller.DestroySelf();
+            return;
+        }        
     }
 
     private void ChangeTarget()
     {
         bullet_Impact.SwapCollisionLayer(bulletData.whatDestroysBulletWhenDeflected);
-        transform.up = (creator.position - transform.position).normalized;
 
+        transform.up = (creator.position - transform.position).normalized;
+        
         if (TryGetComponent<HomingBullet>(out HomingBullet homingBullet))
         {
             homingBullet.ChangeTarget(creator);

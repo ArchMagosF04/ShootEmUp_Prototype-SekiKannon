@@ -16,7 +16,10 @@ public class LinearShotWeapon : AbstractTurret
 
     private IPreFireEffect preFireEffect;
 
+    [Header ("Sound Settings")]
+
     [SerializeField] private SoundLibraryObject soundLibrary;
+
     [SerializeField] private int libraryClipIndex = 0;
 
     private void Awake()

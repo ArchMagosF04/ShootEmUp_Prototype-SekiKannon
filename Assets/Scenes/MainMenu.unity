@@ -8568,7 +8568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dffc4c3f01069ca488eee40e85a7492d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newGameLevel: BattleTest
+  newGameLevel: 1stBoss
   soundLibrary: {fileID: 11400000, guid: fa8844c5413df684e94c194dbb4760df, type: 2}
 --- !u!4 &1421240660
 Transform:

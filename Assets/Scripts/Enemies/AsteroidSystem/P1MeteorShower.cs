@@ -19,9 +19,11 @@ public class P1MeteorShower : MonoBehaviour
 
     private List<int> temp = new List<int>();
 
+    [SerializeField] private SoundLibraryObject soundLibrary;
+
     private void OnEnable()
     {
-        wavesTimer = -2f;
+        wavesTimer = 1f;
     }
 
     private void Update()
@@ -100,6 +102,7 @@ public class P1MeteorShower : MonoBehaviour
     {
         ShuffleAsteroids();
 
+        SoundManager.Instance.CreateSound().WithSoundData(soundLibrary.soundData[0]).Play();
         for (int i = 0; i < firstBarrage.Count; i++)
         {
             firstBarrage[i].Shoot();
@@ -107,6 +110,7 @@ public class P1MeteorShower : MonoBehaviour
 
         yield return new WaitForSeconds(cooldownBetweenBarrages);
 
+        SoundManager.Instance.CreateSound().WithSoundData(soundLibrary.soundData[0]).Play();
         for (int i = 0; i < secondBarrage.Count; i++)
         {
             secondBarrage[i].Shoot();

@@ -22,7 +22,7 @@ public class MinionController : MonoBehaviour
 
     private Animator anim;
 
-    [SerializeField] private SpriteRenderer engineSprite;
+    [SerializeField] private GameObject engineSprite;
 
     private void Awake()
     {

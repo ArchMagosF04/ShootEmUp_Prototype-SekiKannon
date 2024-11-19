@@ -16,9 +16,6 @@ GameObject:
   - component: {fileID: 4102917848369668268}
   - component: {fileID: -7658059910366183346}
   - component: {fileID: 1273038933234525993}
-  - component: {fileID: 6168431815807716936}
-  - component: {fileID: 5075692848966470345}
-  - component: {fileID: 277301711603281874}
   m_Layer: 0
   m_Name: Red_Shrapnel
   m_TagString: Untagged
@@ -105,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381c7bacc05de4441bc5ef1969f92486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletData: {fileID: 11400000, guid: b2055ecde8391cd42a45400fc1347962, type: 2}
+  bulletData: {fileID: 11400000, guid: 73ef0468e3ad6f143af2e571dcb6dd0e, type: 2}
   impactEffect: {fileID: 5361044443241892153, guid: 27b2618b48dda2d46ade54c7b2e96cae, type: 3}
 --- !u!60 &4102917848369668268
 PolygonCollider2D:
@@ -180,51 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 512de55345bb4ce4682256537eec3200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6168431815807716936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2860751695221993363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0bbc0a9e8531b64a996b5a083446b9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shotPattern: {fileID: 11400000, guid: ef5baa058f9f6ab44a9e0500924549bc, type: 2}
-  soundLibrary: {fileID: 0}
-  libraryClipIndex: 0
---- !u!114 &5075692848966470345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2860751695221993363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7442e6afd5317dd4982d011e2134660a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pattern: {fileID: 11400000, guid: ef5baa058f9f6ab44a9e0500924549bc, type: 2}
-  radius: 0.1
-  iconColor: {r: 1, g: 0, b: 0, a: 1}
-  testTime: 0.11
---- !u!114 &277301711603281874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2860751695221993363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bcc84caa41700d429adb5c5741ebae2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullets: []
-  usePool: 0
+  shrapnelPattern: {fileID: 5116557265205371232, guid: efb3a96f13448bd499e895007be453f1, type: 3}
+  shrapnelDuration: 1
 --- !u!1 &7197241588793411828
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +251,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -684295541
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -958656241, guid: c42438fd6070d1d4f99a1171896f8e0e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

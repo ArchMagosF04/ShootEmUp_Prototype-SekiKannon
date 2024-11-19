@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] private float speed = 3f;
     private float currentSpeed;
-    private float speedMultiplier = 1f;
+    private float speedMultiplier;
 
     private void Awake()
     {
@@ -24,6 +24,11 @@ public class EnemyMovement : MonoBehaviour
         waypoints.AddRange(waypointHolder.GetComponentsInChildren<Transform>());
 
         currentSpeed = speed;
+    }
+
+    private void OnEnable()
+    {
+        speedMultiplier = 0f;
     }
 
     private void FixedUpdate()

@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class ShrapnelBullet : MonoBehaviour, IBulletDeathEffect
 {
-    private AbstractTurret shrapnelPattern;
-
-    private void Awake()
-    {
-        shrapnelPattern = GetComponent<AbstractTurret>();
-    }
+    [SerializeField] private AbstractTurret shrapnelPattern;
+    [SerializeField] private float shrapnelDuration = 1f;
 
     public void OnDeathEffect()
     {
-        shrapnelPattern.Shoot();
+        AbstractTurret turret = Instantiate(shrapnelPattern, transform.position, transform.rotation);
+        turret.Shoot();
+        Destroy(turret, shrapnelDuration);
     }
 }

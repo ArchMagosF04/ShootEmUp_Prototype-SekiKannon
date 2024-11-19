@@ -14,6 +14,7 @@ public class MineBullet : MonoBehaviour
     private Animator anim;
 
     private bool isMineActive;
+    private bool playerDetected;
 
     [SerializeField] private float activationDistance = 2.3f;
 
@@ -21,7 +22,7 @@ public class MineBullet : MonoBehaviour
 
     [SerializeField] private float activationDelay = 0.35f;
 
-    [SerializeField] private bool isPlayerAlly = false;
+    [SerializeField] private SoundLibraryObject soundLibrary;
 
     private void Awake()
     {
@@ -33,15 +34,9 @@ public class MineBullet : MonoBehaviour
     private void OnEnable()
     {
         isMineActive = false;
+        playerDetected = false;
 
-        if (isPlayerAlly)
-        {
-            ChangeTarget(GameManager.Instance.BossCharacter.transform);
-        }
-        else
-        {
-            ChangeTarget(GameManager.Instance.PlayerCharacter.transform);
-        }
+        ChangeTarget(GameManager.Instance.PlayerCharacter.transform);
     }
 
     private void Update()
@@ -50,11 +45,13 @@ public class MineBullet : MonoBehaviour
         {
             float distance = Vector3.Distance(transform.position, target.position);
 
-            if (distance <= activationDistance)
+            if (distance <= activationDistance && !playerDetected)
             {
                 anim.SetBool("IsActive", true);
+                playerDetected = true;
 
                 bullet_Movement.AssignMovement(new Vector2(0f, 0f));
+                SoundManager.Instance.CreateSound().WithSoundData(soundLibrary.soundData[0]).Play();
 
                 Invoke("ActivateMine", activationDelay);
             }
