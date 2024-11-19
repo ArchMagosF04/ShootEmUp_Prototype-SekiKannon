@@ -9,8 +9,6 @@ public class BossBattleController : MonoBehaviour
     [SerializeField] private FrigateController FrigatePrefab;
     public FrigateController Frigate {  get; private set; }
 
-    private EnemyHealth frigateHealth;
-
     [SerializeField] private Transform FrigateLocation;
 
     [field: SerializeField] public P1MeteorShower P1Meteors { get; private set; }
@@ -42,27 +40,27 @@ public class BossBattleController : MonoBehaviour
     public void CreateFrigate()
     {
         Frigate = Instantiate(FrigatePrefab, FrigateLocation.position, FrigateLocation.rotation);
-        frigateHealth = Frigate.GetComponent<EnemyHealth>();
-        frigateHealth.OnEnemyDeath += BossEnd;
+        Frigate.OnEnemyDeath += EndPhase1;
     }
 
     private void BossEnd()
     {
-        frigateHealth.OnEnemyDeath -= BossEnd;
+
         BattleStateMachine.ChangeState(BattleEnd);
     }
 
     public void EndPhase1()
     {
+        Frigate.OnEnemyDeath -= EndPhase1;
         Destroy(Frigate.gameObject);
         P1Meteors.isActive = false;
     }
 
     private void OnDisable()
     {
-        if(frigateHealth != null)
+        if (Frigate != null)
         {
-            frigateHealth.OnEnemyDeath -= BossEnd;
+            Frigate.OnEnemyDeath -= EndPhase1;
         }
     }
 }

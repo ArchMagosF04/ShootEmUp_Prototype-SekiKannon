@@ -20,9 +20,14 @@ public class MinionController : MonoBehaviour
 
     [SerializeField] private float speed = 1.5f;
 
+    private Animator anim;
+
+    [SerializeField] private SpriteRenderer engineSprite;
+
     private void Awake()
     {
         currentWeapon = weaponList[0];
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -32,6 +37,13 @@ public class MinionController : MonoBehaviour
             ShootRandomWeapon();
             Movement();
         }
+    }
+
+    public void DeathAnimation()
+    {
+        isActive = false;
+        Destroy(engineSprite);
+        anim.SetBool("IsDead", true);
     }
 
     private void ShootRandomWeapon()

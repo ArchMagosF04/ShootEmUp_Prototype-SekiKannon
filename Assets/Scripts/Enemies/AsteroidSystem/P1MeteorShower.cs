@@ -21,7 +21,7 @@ public class P1MeteorShower : MonoBehaviour
 
     private void OnEnable()
     {
-        wavesTimer = -5f;
+        wavesTimer = -2f;
     }
 
     private void Update()

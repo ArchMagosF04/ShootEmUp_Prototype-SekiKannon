@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class FrigateController : MonoBehaviour
 {
@@ -13,12 +14,23 @@ public class FrigateController : MonoBehaviour
 
     private Transform mainWaypoint;
 
+    private EnemyHealth health;
+
+    private Animator anim;
+    [SerializeField] private SpriteRenderer engineSprite;
+
+    public event Action OnEnemyDeath;
+
     private void Awake()
     {
         GameManager.Instance.SetBossReference(this.gameObject);
         mainWaypoint = GameObject.FindGameObjectWithTag("FrigatePosition").transform;
+        health = GetComponent<EnemyHealth>();
 
         minionControllers = GetComponentsInChildren<MinionController>();
+        anim = GetComponentInChildren<Animator>();
+
+        health.OnEnemyDeath += DeathAnimation;
     }
 
     private void Update()
@@ -55,6 +67,35 @@ public class FrigateController : MonoBehaviour
         foreach(MinionController bomber in minionControllers)
         {
             bomber.isActive = true;
+        }
+    }
+
+    private void DeathAnimation()
+    {
+        health.OnEnemyDeath -= DeathAnimation;
+
+        isDeafeted = true;
+        Destroy(engineSprite);
+        anim.SetBool("IsDead", true);
+        foreach (MinionController bomber in minionControllers)
+        {
+            bomber.DeathAnimation();
+        }
+
+        Invoke("DeathEvent", 0.55f);
+    }
+
+    private void DeathEvent()
+    {
+        OnEnemyDeath?.Invoke();
+    }
+
+
+    private void OnDisable()
+    {
+        if (health != null)
+        {
+            health.OnEnemyDeath -= DeathAnimation;
         }
     }
 

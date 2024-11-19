@@ -217,7 +217,7 @@ Transform:
   m_GameObject: {fileID: 1331711627503804275}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0, z: 0}
+  m_LocalPosition: {x: 1.7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -359,7 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1238c954c500349909446df962a4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 900
+  maxHealth: 600
 --- !u!114 &8993794389788422186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,6 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 6880737624606421642}
   minionControllers: []
+  engineSprite: {fileID: 0}
 --- !u!1 &1578165718520574996
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,7 +468,7 @@ Transform:
   m_GameObject: {fileID: 1578165718520574996}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -954,6 +955,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1051472376687947980}
   - component: {fileID: 3480849104365181342}
+  - component: {fileID: 1624226730956575090}
   m_Layer: 0
   m_Name: Kla'ed - Bomber - Base
   m_TagString: Untagged
@@ -1029,6 +1031,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1624226730956575090
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4428803371474404992}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 202ca7946be6e6c43abe34048202be7b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4601957540746186107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,7 +1081,7 @@ Transform:
   m_GameObject: {fileID: 4601957540746186107}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 0, z: 0}
+  m_LocalPosition: {x: -2.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1087,6 +1110,7 @@ MonoBehaviour:
   - {fileID: 8450052095785261125}
   - {fileID: 6370307408147946223}
   speed: 0.3
+  engineSprite: {fileID: 0}
 --- !u!50 &3054003664898570892
 Rigidbody2D:
   serializedVersion: 4
@@ -1185,6 +1209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8862202691698271834}
   - component: {fileID: 756124169850417926}
+  - component: {fileID: 6054762523739414348}
   m_Layer: 0
   m_Name: Kla'ed - Bomber - Base
   m_TagString: Untagged
@@ -1260,6 +1285,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6054762523739414348
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5266033148200302539}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 202ca7946be6e6c43abe34048202be7b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5540164102566705118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,7 +1331,7 @@ Transform:
   m_GameObject: {fileID: 5540164102566705118}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1523,7 +1569,7 @@ Transform:
   m_GameObject: {fileID: 7789878009274970896}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalPosition: {x: 2.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1552,6 +1598,7 @@ MonoBehaviour:
   - {fileID: 4670235593620386274}
   - {fileID: 6311850869693650035}
   speed: 0.3
+  engineSprite: {fileID: 0}
 --- !u!50 &2978732999726043010
 Rigidbody2D:
   serializedVersion: 4
@@ -1763,7 +1810,7 @@ Transform:
   m_GameObject: {fileID: 8899456226300614112}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 0, z: 0}
+  m_LocalPosition: {x: -1.7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1779,6 +1826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7516900941426223521}
   - component: {fileID: 5619165768902490579}
+  - component: {fileID: 7585029519079069270}
   m_Layer: 6
   m_Name: Kla'ed - Frigate - Base
   m_TagString: Untagged
@@ -1854,3 +1902,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7585029519079069270
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8942190139387119087}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7883c28f26d485047a81b63f6d1fcca8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
