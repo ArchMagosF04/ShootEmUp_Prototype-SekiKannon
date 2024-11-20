@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletData: {fileID: 11400000, guid: 7710d7f84faabb448b136019266e0366, type: 2}
   impactEffect: {fileID: 5361044443241892153, guid: a944532aaebdb39429efc7912e3fb5fc, type: 3}
+  ExecuteDeathEffect: 0
 --- !u!61 &1404010751667246601
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -219,10 +220,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -684295541
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 5
   m_Sprite: {fileID: 1915833605, guid: 646cacbf9b474004099fe119eddd6a26, type: 3}
-  m_Color: {r: 0.8114557, g: 0, b: 0.54509807, a: 1}
+  m_Color: {r: 0.8117647, g: 0.8036097, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

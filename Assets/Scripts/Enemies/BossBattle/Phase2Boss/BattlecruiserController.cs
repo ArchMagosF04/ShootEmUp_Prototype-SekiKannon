@@ -38,14 +38,18 @@ public class BattlecruiserController : MonoBehaviour
     {
         if (!isDeafeted)
         {
-            if (!inPosition)
-            {
-                MoveTowards();
-            }
-            else
+            if (inPosition)
             {
                 ShootingLogic();
             }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (!inPosition)
+        {
+            MoveTowards();
         }
     }
 
@@ -53,7 +57,7 @@ public class BattlecruiserController : MonoBehaviour
     {
         float distanceToTarget = (transform.position - mainWaypoint.position).magnitude;
 
-        transform.position = Vector3.MoveTowards(transform.position, mainWaypoint.position, 1f * Time.fixedDeltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, mainWaypoint.position, 3f * Time.fixedDeltaTime);
 
         if (distanceToTarget <= 0.1f)
         {
@@ -83,10 +87,6 @@ public class BattlecruiserController : MonoBehaviour
     {
         shrapnelWeapon.Shoot();
         sprayWeapon.Shoot();
-        if (!shrapnelWeapon.IsShoting)
-        {
-            
-        }
     }
 
 

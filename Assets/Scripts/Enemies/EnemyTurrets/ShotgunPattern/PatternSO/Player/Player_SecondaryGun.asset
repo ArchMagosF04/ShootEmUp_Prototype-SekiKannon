@@ -21,6 +21,6 @@ MonoBehaviour:
     ConeArcAngle: 50
     NumberOfBullets: 5
     BulletSpeed: 20
-    CooldownAfterShot: 0.08
+    CooldownAfterShot: 0.04
     PhaseOffset: 0
     AngleOffset: 0

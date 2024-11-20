@@ -35,6 +35,13 @@ public class MinionController : MonoBehaviour
         if (isActive)
         {
             ShootRandomWeapon();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (isActive)
+        {
             Movement();
         }
     }

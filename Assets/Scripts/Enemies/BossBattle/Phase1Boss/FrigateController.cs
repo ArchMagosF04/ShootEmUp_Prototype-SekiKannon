@@ -37,14 +37,18 @@ public class FrigateController : MonoBehaviour
     {
         if (!isDeafeted)
         {
-            if (!inPosition)
-            {
-                MoveTowards();
-            }
-            else
+            if (inPosition)
             {
                 weapon.Shoot();
             }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (!inPosition)
+        {
+            MoveTowards();
         }
     }
 
@@ -52,7 +56,7 @@ public class FrigateController : MonoBehaviour
     {
         float distanceToTarget = (transform.position - mainWaypoint.position).magnitude;
 
-        transform.position = Vector3.MoveTowards(transform.position, mainWaypoint.position, 1f * Time.fixedDeltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, mainWaypoint.position, 3f * Time.fixedDeltaTime);
 
         if (distanceToTarget <= 0.1f)
         {

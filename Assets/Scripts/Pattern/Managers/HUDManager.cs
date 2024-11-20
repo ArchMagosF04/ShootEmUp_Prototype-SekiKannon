@@ -14,6 +14,7 @@ public class HUDManager : MonoBehaviour
 
     [SerializeField] private GameObject gameHUD;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject winMenu;
     [SerializeField] private GameObject gameOverMenu;
 
@@ -56,6 +57,7 @@ public class HUDManager : MonoBehaviour
         winMenu.SetActive(false);
         gameOverMenu.SetActive(false);
         gameHUD.SetActive(true);
+        IsGameOver = false;
     }
 
     private void OnEnable()
@@ -86,11 +88,13 @@ public class HUDManager : MonoBehaviour
         Time.timeScale = 1f;
         IsPaused = false;
         pauseMenu?.SetActive(false);
+        optionsMenu.SetActive(false);
         gameHUD.SetActive(true);
     }
 
     public void WinGame()
     {
+        IsGameOver = true;
         Time.timeScale = 0f;
         IsPaused = true;
         winMenu?.SetActive(true);
@@ -99,6 +103,7 @@ public class HUDManager : MonoBehaviour
 
     public void LoseGame()
     {
+        IsGameOver = true;
         Time.timeScale = 0f;
         IsPaused = true;
         gameOverMenu?.SetActive(true);

@@ -1215,7 +1215,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 8450052095785261125}
   - {fileID: 6370307408147946223}
-  speed: 0.3
+  speed: 1.5
   engineSprite: {fileID: 4221709430956292642}
 --- !u!50 &3054003664898570892
 Rigidbody2D:
@@ -1793,7 +1793,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 4670235593620386274}
   - {fileID: 6311850869693650035}
-  speed: 0.27
+  speed: 1.5
   engineSprite: {fileID: 6660123707282620648}
 --- !u!50 &2978732999726043010
 Rigidbody2D:
