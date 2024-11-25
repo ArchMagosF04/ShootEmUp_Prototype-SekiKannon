@@ -276,7 +276,7 @@ MonoBehaviour:
   pattern: {fileID: 11400000, guid: a24b738f641ec7e45a69340b1d0c750b, type: 2}
   radius: 0.2
   iconColor: {r: 1, g: 0, b: 0, a: 1}
-  testTime: 0
+  testTime: 0.36
 --- !u!1 &7187050466200374466
 GameObject:
   m_ObjectHideFlags: 0
