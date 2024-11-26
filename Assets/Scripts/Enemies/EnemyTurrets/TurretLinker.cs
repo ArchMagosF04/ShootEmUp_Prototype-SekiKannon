@@ -18,23 +18,29 @@ public class TurretLinker : AbstractTurret
         }
     }
 
-    public void Update()
+    private void Update()
     {
         if (isShoting)
         {
+            foreach (var t in turrets)
+            {
+                if (t.IsShoting) return;
+            }
 
+            isShoting = false;
         }
     }
 
     public override void Shoot()
     {
-        isShoting = true;
-
-        foreach (var t in turrets)
+        if (!isShoting)
         {
-            t.Shoot();
-        }
+            isShoting = true;
 
-        isShoting = false;
+            foreach (var t in turrets)
+            {
+                t.Shoot();
+            }
+        }
     }
 }

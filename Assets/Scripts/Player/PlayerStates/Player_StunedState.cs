@@ -8,7 +8,7 @@ public class Player_StunedState : IState
     private PlayerController playerController;
     private Player_Shield player_Shield;
 
-    private float initialTimer = 1.8f; //Time in seconds which the player will spend in the stunned state.
+    private float initialTimer = 1.3f; //Time in seconds which the player will spend in the stunned state.
     private float timer;
 
     public Player_StunedState(StateMachine machine, PlayerController playerController, Player_Shield shieldState)

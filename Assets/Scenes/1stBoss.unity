@@ -10047,6 +10047,7 @@ MonoBehaviour:
   <P1Meteors>k__BackingField: {fileID: 392684979}
   BattlecruiserPrefab: {fileID: 5638061042136568711, guid: 48f9a134792b78b4ebe53cd26383e386, type: 3}
   <P2Meteors>k__BackingField: {fileID: 1045970688}
+  DreadnoughtPrefab: {fileID: 5576091079233326051, guid: 32badc70acb625948b90213dfdcd4ca6, type: 3}
 --- !u!4 &1053682440
 Transform:
   m_ObjectHideFlags: 0
@@ -16915,6 +16916,7 @@ GameObject:
   - component: {fileID: 1662670088}
   - component: {fileID: 1662670087}
   - component: {fileID: 1662670086}
+  - component: {fileID: 1662670090}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -17040,6 +17042,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1662670090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662670085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84cc3481613c9ad4881988f5e5721376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.664574
+      outSlope: 0.664574
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.15047233
+      value: 0.1
+      inSlope: -0.05533154
+      outSlope: -0.05533154
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.03812549
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.117712475
+      outSlope: -0.117712475
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  duration: 1
 --- !u!1 &1675462401
 GameObject:
   m_ObjectHideFlags: 0
@@ -19376,6 +19424,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923265418}
   m_CullTransparentMesh: 1
+--- !u!1 &1926355811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1926355812}
+  m_Layer: 0
+  m_Name: 3rdBossWaypoint
+  m_TagString: DreadnoughtPosition
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1926355812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926355811}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.26, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1927023202
 GameObject:
   m_ObjectHideFlags: 0
@@ -21645,6 +21724,7 @@ SceneRoots:
   - {fileID: 753882159}
   - {fileID: 1552655559}
   - {fileID: 234677880}
+  - {fileID: 1926355812}
   - {fileID: 1300890901}
   - {fileID: 1332907878}
   - {fileID: 1053682440}

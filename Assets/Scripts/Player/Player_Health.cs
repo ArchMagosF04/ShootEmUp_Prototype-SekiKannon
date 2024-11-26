@@ -32,6 +32,7 @@ public class Player_Health : MonoBehaviour, IDamageable
     {
         currentHealth -= damageReceived;
 
+        ScreenShakeManager.Instance.ActivateShake();
         damageFlash.CallDamageFlash(0);
         SoundManager.Instance.CreateSound().WithSoundData(playerLibrary.soundData[1]).WithRandomPitch().WithPosition(transform.position).Play();
 

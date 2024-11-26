@@ -80,6 +80,7 @@ public class FrigateController : MonoBehaviour
 
         isDeafeted = true;
         Destroy(engineSprite);
+        Destroy(weapon.gameObject);
         anim.SetBool("IsDead", true);
         foreach (MinionController bomber in minionControllers)
         {

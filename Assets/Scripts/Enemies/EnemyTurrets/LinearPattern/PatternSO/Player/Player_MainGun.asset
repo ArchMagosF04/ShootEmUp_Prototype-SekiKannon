@@ -19,5 +19,5 @@ MonoBehaviour:
   PatternSettings:
   - BulletName: Player_Bullet
     BulletSpeed: 20
-    CooldownAfterShot: 0.035
+    CooldownAfterShot: 0.07
     AimAtPlayer: 0

@@ -14,6 +14,10 @@ public class RadialShotWeapon : AbstractTurret
 
     private IPreFireEffect preFireEffect;
 
+    [SerializeField] private Animator anim;
+
+    [Header("Sound Settings")]
+
     [SerializeField] private SoundLibraryObject soundLibrary;
     [SerializeField] private int libraryClipIndex = 0;
 
@@ -21,6 +25,10 @@ public class RadialShotWeapon : AbstractTurret
     {
         factory = GetComponentInParent<BulletFactory>();
         preFireEffect = GetComponent<IPreFireEffect>();
+        if (TryGetComponent<Animator>(out Animator a))
+        {
+            anim = a;
+        }
     }
 
     public override void Shoot()
@@ -30,6 +38,11 @@ public class RadialShotWeapon : AbstractTurret
             if (preFireEffect != null)
             {
                 preFireEffect.ExecuteEffect();
+            }
+
+            if (anim != null)
+            {
+                anim.SetBool("IsShooting", true);
             }
 
             StartCoroutine(ExecuteRadialShotPattern(shotPattern));
@@ -58,12 +71,12 @@ public class RadialShotWeapon : AbstractTurret
                 yield return new WaitForSeconds(pattern.PatternSettings[i].CooldownAfterShot);
             }
 
-            if (soundLibrary != null)
-            {
-                SoundManager.Instance.CreateSound().WithSoundData(soundLibrary.soundData[libraryClipIndex]).WithRandomPitch().Play();
-            }
-
             lap++;
+        }
+
+        if (anim != null)
+        {
+            anim.SetBool("IsShooting", false);
         }
 
         yield return new WaitForSeconds(pattern.EndWait);

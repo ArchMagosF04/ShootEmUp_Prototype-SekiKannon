@@ -16,6 +16,8 @@ public class LinearShotWeapon : AbstractTurret
 
     private IPreFireEffect preFireEffect;
 
+    [SerializeField] private Animator anim;
+
     [Header ("Sound Settings")]
 
     [SerializeField] private SoundLibraryObject soundLibrary;
@@ -26,6 +28,10 @@ public class LinearShotWeapon : AbstractTurret
     {
         factory = GetComponentInParent<BulletFactory>();
         preFireEffect = GetComponent<IPreFireEffect>();
+        if (TryGetComponent<Animator>(out Animator a))
+        {
+            anim = a;
+        }
     }
 
     private void Start()
@@ -40,6 +46,11 @@ public class LinearShotWeapon : AbstractTurret
             if (preFireEffect != null)
             {
                 preFireEffect.ExecuteEffect();
+            }
+
+            if (anim != null)
+            {
+                anim.SetBool("IsShooting", true);
             }
 
             StartCoroutine(ExecuteLinearShotPattern(shotPattern));
@@ -77,6 +88,11 @@ public class LinearShotWeapon : AbstractTurret
             }
 
             lap++;
+        }
+
+        if (anim != null)
+        {
+            anim.SetBool("IsShooting", false);
         }
 
         yield return new WaitForSeconds(pattern.EndWait);

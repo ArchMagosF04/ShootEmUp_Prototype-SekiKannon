@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Repetitions: 1
   AngleOffsetBetweenReps: 0
-  StartWait: 1
+  StartWait: 1.1
   EndWait: 6
   PatternSettings:
   - BulletName: Red_Shrapnel

@@ -73,6 +73,8 @@ public class BattlecruiserController : MonoBehaviour
 
         isDeafeted = true;
         Destroy(engineSprite);
+        Destroy(shrapnelWeapon.gameObject);
+        Destroy(sprayWeapon.gameObject);
         anim.SetBool("IsDead", true);
 
         Invoke("DeathEvent", 1.4f);

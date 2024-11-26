@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Repetitions: 1
   AngleOffsetBetweenReps: 0
-  StartWait: 1
-  EndWait: 5
+  StartWait: 0.55
+  EndWait: 6
   PatternSettings:
   - BulletName: Blue_Mine
     BulletSpeed: 6
@@ -27,5 +27,5 @@ MonoBehaviour:
     AimAtPlayer: 0
   - BulletName: Blue_Mine
     BulletSpeed: 6
-    CooldownAfterShot: 0.7
+    CooldownAfterShot: 0
     AimAtPlayer: 0

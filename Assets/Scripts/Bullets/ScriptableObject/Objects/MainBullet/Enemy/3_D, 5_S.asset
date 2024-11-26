@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c863ee0b0974233409b913daa7bab6f4, type: 3}
   m_Name: 3_D, 5_S
   m_EditorClassIdentifier: 
-  <InitialLifeTime>k__BackingField: 5
-  <Speed>k__BackingField: 3
+  <InitialLifeTime>k__BackingField: 10
+  <Speed>k__BackingField: 5
   <Damage>k__BackingField: 3
   <WhatDestroysBullet>k__BackingField:
     serializedVersion: 2

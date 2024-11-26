@@ -15,7 +15,7 @@ MonoBehaviour:
   Repetitions: 1
   AngleOffsetBetweenReps: 0
   StartWait: 0.7
-  EndWait: 0
+  EndWait: 4
   PatternSettings:
   - BulletName: SwayAsteroid_Bullet
     BulletSpeed: 5

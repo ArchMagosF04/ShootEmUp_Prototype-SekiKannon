@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Repetitions: 1
   AngleOffsetBetweenReps: 0
-  StartWait: 1
+  StartWait: 0.45
   EndWait: 5
   PatternSettings:
   - BulletName: Blue_Normal

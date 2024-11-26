@@ -23,10 +23,19 @@ public class BossBattleController : MonoBehaviour
     [field: SerializeField] public P2MeteorShower P2Meteors { get; private set; }
 
 
+
+    [Header("3rd Phase Elements")]
+
+    [SerializeField] private DreadnoughtController DreadnoughtPrefab;
+    public DreadnoughtController Dreadnought { get; private set; }
+
+
+
     //State Machine Components
     public StateMachine BattleStateMachine { get; private set; }
     public FirstPhase_State FirstPhase { get; private set; }
     public SecondPhase_State SecondPhase { get; private set; }
+    public ThirdPhase_State ThirdPhase { get; private set; }
     public BattleEnd_State BattleEnd { get; private set; }
 
     public void Awake()
@@ -34,6 +43,7 @@ public class BossBattleController : MonoBehaviour
         BattleStateMachine = new StateMachine();
         FirstPhase = new FirstPhase_State(BattleStateMachine, this);
         SecondPhase = new SecondPhase_State(BattleStateMachine, this);
+        ThirdPhase = new ThirdPhase_State(BattleStateMachine, this);
         BattleEnd = new BattleEnd_State(BattleStateMachine, this);
     }
 
@@ -59,6 +69,12 @@ public class BossBattleController : MonoBehaviour
         Battlecruiser.OnEnemyDeath += EndPhase2;
     }
 
+    public void CreateDreadnought()
+    {
+        Dreadnought = Instantiate(DreadnoughtPrefab, Spawnlocation.position, Spawnlocation.rotation);
+        Dreadnought.OnEnemyDeath += EndPhase3;
+    }
+
     private void BossEnd()
     {
         BattleStateMachine.ChangeState(BattleEnd);
@@ -79,6 +95,16 @@ public class BossBattleController : MonoBehaviour
         Battlecruiser.OnEnemyDeath -= EndPhase2;
         Destroy(Battlecruiser.gameObject);
         P2Meteors.isActive = false;
+
+        BossEnd();
+        //BattleStateMachine.ChangeState(ThirdPhase);
+    }
+
+    public void EndPhase3()
+    {
+        Dreadnought.OnEnemyDeath -= EndPhase3;
+        Destroy(Dreadnought.gameObject);
+
         BossEnd();
     }
 
@@ -91,6 +117,10 @@ public class BossBattleController : MonoBehaviour
         if (Battlecruiser != null)
         {
             Battlecruiser.OnEnemyDeath -= EndPhase2;
+        }
+        if (Dreadnought != null)
+        {
+            Dreadnought.OnEnemyDeath -= EndPhase3;
         }
     }
 }

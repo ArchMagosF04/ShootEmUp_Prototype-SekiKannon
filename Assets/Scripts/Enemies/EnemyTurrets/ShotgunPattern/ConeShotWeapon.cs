@@ -13,6 +13,10 @@ public class ConeShotWeapon : AbstractTurret
 
     private IPreFireEffect preFireEffect;
 
+    [SerializeField] private Animator anim;
+
+    [Header("Sound Settings")]
+
     [SerializeField] private SoundLibraryObject soundLibrary;
     [SerializeField] private int libraryClipIndex = 0;
 
@@ -20,6 +24,10 @@ public class ConeShotWeapon : AbstractTurret
     {
         factory = GetComponentInParent<BulletFactory>();
         preFireEffect = GetComponent<IPreFireEffect>();
+        if (TryGetComponent<Animator>(out Animator a))
+        {
+            anim = a;
+        }
     }
 
     public override void Shoot()
@@ -31,6 +39,10 @@ public class ConeShotWeapon : AbstractTurret
                 preFireEffect.ExecuteEffect();
             }
 
+            if (anim != null)
+            {
+                anim.SetBool("IsShooting", true);
+            }
             
             StartCoroutine(ExecuteConeShotPattern(shotPattern));
         }
@@ -65,6 +77,11 @@ public class ConeShotWeapon : AbstractTurret
             
 
             lap++;
+        }
+
+        if (anim != null)
+        {
+            anim.SetBool("IsShooting", false);
         }
 
         yield return new WaitForSeconds(pattern.EndWait);
