@@ -9,19 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc5549382144da040a73da61888fa253, type: 3}
-  m_Name: Spray
+  m_Script: {fileID: 11500000, guid: 21ef3e262169a2d44a8f05dd4ac26581, type: 3}
+  m_Name: P2Missile
   m_EditorClassIdentifier: 
-  Repetitions: 15
-  AngleOffsetBetweenReps: 7
-  StartWait: 0.55
-  EndWait: 13
+  Repetitions: 1
+  AngleOffsetBetweenReps: 0
+  StartWait: 1
+  EndWait: 7
   PatternSettings:
-  - BulletName: Blue_Normal
-    NumberOfBullets: 4
+  - BulletName: Orange_Missile
     BulletSpeed: 10
-    CooldownAfterShot: 0.03
-    PhaseOffset: 0
-    AngleOffset: 0
-    RadialMask: 0
-    MaskAngle: 0
+    CooldownAfterShot: 0
+    AimAtPlayer: 0

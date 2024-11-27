@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21ef3e262169a2d44a8f05dd4ac26581, type: 3}
-  m_Name: ShrapnelWeapon
+  m_Name: P3Missiles
   m_EditorClassIdentifier: 
   Repetitions: 1
   AngleOffsetBetweenReps: 0
-  StartWait: 1.1
-  EndWait: 5
+  StartWait: 0.55
+  EndWait: 9
   PatternSettings:
-  - BulletName: Red_Shrapnel
-    BulletSpeed: 10
-    CooldownAfterShot: 0.8
+  - BulletName: Blue_Missile
+    BulletSpeed: 5
+    CooldownAfterShot: 1
     AimAtPlayer: 0
-  - BulletName: Red_Shrapnel
-    BulletSpeed: 10
-    CooldownAfterShot: 0.8
+  - BulletName: Green_Missile
+    BulletSpeed: 5
+    CooldownAfterShot: 1
     AimAtPlayer: 0
-  - BulletName: Red_Shrapnel
-    BulletSpeed: 10
-    CooldownAfterShot: 0
+  - BulletName: Orange_Missile
+    BulletSpeed: 5
+    CooldownAfterShot: 1
     AimAtPlayer: 0

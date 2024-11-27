@@ -172,7 +172,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -27568821
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2112440506, guid: 915dd6d9fd79eb44fb06dcf584c24448, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1292,6 +1292,7 @@ MonoBehaviour:
   - {fileID: 8119891204068456907}
   - {fileID: 2709370003012017842}
   isActive: 0
+  useWaypoints: 1
   waypoints:
   - {fileID: 8450052095785261125}
   - {fileID: 6370307408147946223}
@@ -1871,6 +1872,7 @@ MonoBehaviour:
   - {fileID: 2605481873520074381}
   - {fileID: 4759862263012206871}
   isActive: 0
+  useWaypoints: 1
   waypoints:
   - {fileID: 4670235593620386274}
   - {fileID: 6311850869693650035}

@@ -167,6 +167,8 @@ public class Player_Shield : MonoBehaviour
         int temp = Mathf.FloorToInt(maxOverloadLevel / 2);
         currentOverloadLevel -= temp;
 
+        if (currentOverloadLevel < 0) currentOverloadLevel = 0;
+
         if (colorChange != null)
         {
             StopCoroutine(colorChange);

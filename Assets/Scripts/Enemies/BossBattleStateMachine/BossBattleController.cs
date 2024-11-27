@@ -96,8 +96,7 @@ public class BossBattleController : MonoBehaviour
         Destroy(Battlecruiser.gameObject);
         P2Meteors.isActive = false;
 
-        BossEnd();
-        //BattleStateMachine.ChangeState(ThirdPhase);
+        BattleStateMachine.ChangeState(ThirdPhase);
     }
 
     public void EndPhase3()

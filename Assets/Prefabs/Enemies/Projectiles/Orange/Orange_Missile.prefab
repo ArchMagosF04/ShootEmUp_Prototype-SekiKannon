@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4780150115294145809}
   - component: {fileID: 5148049369816304364}
   - component: {fileID: 2322307349871382984}
-  - component: {fileID: 6721884735632947018}
   - component: {fileID: 6224724407229852824}
   - component: {fileID: 963028286277094377}
+  - component: {fileID: 9021042297661719593}
   m_Layer: 0
   m_Name: Orange_Missile
   m_TagString: Untagged
@@ -102,21 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381c7bacc05de4441bc5ef1969f92486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletData: {fileID: 11400000, guid: b2055ecde8391cd42a45400fc1347962, type: 2}
+  bulletData: {fileID: 11400000, guid: 9463f38c1c39f6c48a004dbe1f3b74d0, type: 2}
   impactEffect: {fileID: 5361044443241892153, guid: a944532aaebdb39429efc7912e3fb5fc, type: 3}
---- !u!114 &6721884735632947018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2860751695221993363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5538627b3022060459a5f517d06a5190, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletData: {fileID: 11400000, guid: a2c1ec1b239e4c940831b0ac4f43c776, type: 2}
+  ExecuteDeathEffect: 0
 --- !u!70 &6224724407229852824
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -165,6 +153,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletData: {fileID: 11400000, guid: 4da62c474dfc10a48942c9a6e35dcddc, type: 2}
+--- !u!114 &9021042297661719593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2860751695221993363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f01eba8163120941b3509e4689592ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 180
+  isPlayerAlly: 0
 --- !u!1 &7197241588793411828
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +239,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -684295541
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -109775741, guid: 7bf21145dda853f47b5bea3cc7f15cf6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

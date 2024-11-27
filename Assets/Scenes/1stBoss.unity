@@ -349,6 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: a5b117be285b79b44a293d142e0418c2, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!212 &49873534
@@ -1930,6 +1931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: 1fffa7062dc17a84bbfe9d79213435c8, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!1 &199955021
@@ -2761,6 +2763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: a5b117be285b79b44a293d142e0418c2, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!212 &232189059
@@ -4307,6 +4310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: a5b117be285b79b44a293d142e0418c2, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!1 &418428229
@@ -4746,6 +4750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: a5b117be285b79b44a293d142e0418c2, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!1 &514914637
@@ -5745,6 +5750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: a5b117be285b79b44a293d142e0418c2, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!212 &637593727
@@ -6239,6 +6245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: a5b117be285b79b44a293d142e0418c2, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!212 &710054066
@@ -7178,6 +7185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: a5b117be285b79b44a293d142e0418c2, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!1 &813292445
@@ -7295,6 +7303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: 1fffa7062dc17a84bbfe9d79213435c8, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!1 &836358740
@@ -7638,6 +7647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: a5b117be285b79b44a293d142e0418c2, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!1 &845733660
@@ -9584,6 +9594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: a5b117be285b79b44a293d142e0418c2, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!1 &1036707915
@@ -10011,6 +10022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: a5b117be285b79b44a293d142e0418c2, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!1 &1053682438
@@ -11545,6 +11557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: a5b117be285b79b44a293d142e0418c2, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!1 &1140755850
@@ -13710,6 +13723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: 1fffa7062dc17a84bbfe9d79213435c8, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!114 &1388038055
@@ -16478,6 +16492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: a5b117be285b79b44a293d142e0418c2, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!212 &1637107092
@@ -17120,6 +17135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: 1fffa7062dc17a84bbfe9d79213435c8, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!114 &1675462403
@@ -18203,6 +18219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: a5b117be285b79b44a293d142e0418c2, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!1 &1812698370
@@ -18402,6 +18419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: a5b117be285b79b44a293d142e0418c2, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!212 &1814430286
@@ -18519,6 +18537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: a5b117be285b79b44a293d142e0418c2, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!212 &1829262615
@@ -20714,6 +20733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: a5b117be285b79b44a293d142e0418c2, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!212 &2063237174
@@ -20883,6 +20903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: a5b117be285b79b44a293d142e0418c2, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!1 &2069857865
@@ -21406,6 +21427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPattern: {fileID: 11400000, guid: a5b117be285b79b44a293d142e0418c2, type: 2}
+  anim: {fileID: 0}
   soundLibrary: {fileID: 0}
   libraryClipIndex: 0
 --- !u!212 &2125046227

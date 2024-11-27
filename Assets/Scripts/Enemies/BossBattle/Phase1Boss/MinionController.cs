@@ -11,6 +11,7 @@ public class MinionController : MonoBehaviour
 
     private bool currentWeaponFired = true;
 
+    [SerializeField] private bool useWaypoints = true;
     [SerializeField] private List<Transform> waypoints = new List<Transform>();
 
     private bool hasReachedTarget = true;
@@ -40,7 +41,7 @@ public class MinionController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isActive)
+        if (isActive && useWaypoints)
         {
             Movement();
         }

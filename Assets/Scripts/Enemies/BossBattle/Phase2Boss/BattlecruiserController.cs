@@ -7,6 +7,7 @@ public class BattlecruiserController : MonoBehaviour
 {
     [SerializeField] private AbstractTurret shrapnelWeapon;
     [SerializeField] private AbstractTurret sprayWeapon;
+    [SerializeField] private AbstractTurret missileWeapon;
 
     private bool inPosition = false;
     private bool isDeafeted = false;
@@ -75,6 +76,7 @@ public class BattlecruiserController : MonoBehaviour
         Destroy(engineSprite);
         Destroy(shrapnelWeapon.gameObject);
         Destroy(sprayWeapon.gameObject);
+        Destroy(missileWeapon.gameObject);
         anim.SetBool("IsDead", true);
 
         Invoke("DeathEvent", 1.4f);
@@ -89,6 +91,7 @@ public class BattlecruiserController : MonoBehaviour
     {
         shrapnelWeapon.Shoot();
         sprayWeapon.Shoot();
+        missileWeapon.Shoot();
     }
 
 

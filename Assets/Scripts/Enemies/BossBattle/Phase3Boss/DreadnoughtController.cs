@@ -5,7 +5,9 @@ using System;
 
 public class DreadnoughtController : MonoBehaviour
 {
-    [SerializeField] private AbstractTurret weapon;
+    [SerializeField] private AbstractTurret shrapnelShotgun;
+    [SerializeField] private AbstractTurret mainShotgun;
+    [SerializeField] private AbstractTurret missileWeapons;
 
     [SerializeField] private MinionController[] minionControllers;
 
@@ -27,7 +29,7 @@ public class DreadnoughtController : MonoBehaviour
         mainWaypoint = GameObject.FindGameObjectWithTag("DreadnoughtPosition").transform;
         health = GetComponent<EnemyHealth>();
 
-        //minionControllers = GetComponentsInChildren<MinionController>();
+        minionControllers = GetComponentsInChildren<MinionController>();
         anim = GetComponentInChildren<Animator>();
 
         health.OnEnemyDeath += DeathAnimation;
@@ -39,7 +41,9 @@ public class DreadnoughtController : MonoBehaviour
         {
             if (inPosition)
             {
-                weapon.Shoot();
+                shrapnelShotgun.Shoot();
+                mainShotgun.Shoot();
+                missileWeapons.Shoot();
             }
         }
     }
@@ -62,17 +66,17 @@ public class DreadnoughtController : MonoBehaviour
         {
             inPosition = true;
 
-            //Invoke("ActivateMinions", 0.5f);
+            Invoke("ActivateMinions", 0.5f);
         }
     }
 
-    //private void ActivateMinions()
-    //{
-    //    foreach (MinionController bomber in minionControllers)
-    //    {
-    //        bomber.isActive = true;
-    //    }
-    //}
+    private void ActivateMinions()
+    {
+        foreach (MinionController bomber in minionControllers)
+        {
+            bomber.isActive = true;
+        }
+    }
 
     private void DeathAnimation()
     {
@@ -80,6 +84,9 @@ public class DreadnoughtController : MonoBehaviour
 
         isDeafeted = true;
         Destroy(engineSprite);
+        Destroy(shrapnelShotgun.gameObject);
+        Destroy(mainShotgun.gameObject);
+        Destroy(missileWeapons.gameObject);
         anim.SetBool("IsDead", true);
         foreach (MinionController bomber in minionControllers)
         {

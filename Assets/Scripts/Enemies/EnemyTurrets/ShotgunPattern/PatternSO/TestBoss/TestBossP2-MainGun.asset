@@ -14,34 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Repetitions: 1
   AngleOffsetBetweenReps: 0
-  StartWait: 0
-  EndWait: 0
+  StartWait: 0.45
+  EndWait: 5
   PatternSettings:
   - BulletName: Red_Big
-    ConeArcAngle: 75
-    NumberOfBullets: 6
-    BulletSpeed: 9
+    ConeArcAngle: 80
+    NumberOfBullets: 5
+    BulletSpeed: 6
     CooldownAfterShot: 0.1
     PhaseOffset: 0
     AngleOffset: 0
   - BulletName: Blue_Big
     ConeArcAngle: 60
-    NumberOfBullets: 5
-    BulletSpeed: 11
+    NumberOfBullets: 4
+    BulletSpeed: 6.5
     CooldownAfterShot: 0.75
-    PhaseOffset: 0
-    AngleOffset: 0
-  - BulletName: Red_Big
-    ConeArcAngle: 60
-    NumberOfBullets: 5
-    BulletSpeed: 9
-    CooldownAfterShot: 0.1
-    PhaseOffset: 0
-    AngleOffset: 0
-  - BulletName: Blue_Big
-    ConeArcAngle: 75
-    NumberOfBullets: 6
-    BulletSpeed: 11
-    CooldownAfterShot: 0
     PhaseOffset: 0
     AngleOffset: 0
